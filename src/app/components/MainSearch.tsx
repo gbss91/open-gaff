@@ -1,25 +1,14 @@
-"use client";
-
-import { useState } from "react";
 import Form from "next/form";
 
 const MainSearch = () => {
-  const [searchQuery, setSearchQuery] = useState("");
-
-  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchQuery(e.target.value);
-  };
-
   return (
     <div>
-      <Form action="/property?query=${searchQuery}`" className="w-full">
+      <Form action="/property" className="w-full">
         <div className="relative">
           <input
             type="search"
             id="main-search"
-            name="query"
-            value={searchQuery}
-            onChange={handleSearchChange}
+            name="search"
             className="block w-full p-4 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             placeholder="Search address or Eircode..."
           />
