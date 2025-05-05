@@ -9,7 +9,7 @@ const PropertyList = ({ properties }: PropertyProps) => {
     <div>
       {properties.map((property) => (
         <div key={property.id}>
-          <h3>{property.address_1}</h3>
+          <h3>{property.address1}</h3>
           <p>{property.eircode}</p>
         </div>
       ))}

@@ -1114,41 +1114,41 @@ export namespace Prisma {
 
   export type PropertyMinAggregateOutputType = {
     id: number | null
-    address_1: string | null
-    address_2: string | null
-    address_3: string | null
-    address_4: string | null
-    address_5: string | null
+    address1: string | null
+    address2: string | null
+    address3: string | null
+    address4: string | null
+    address5: string | null
     county: string | null
     eircode: string | null
     bedroom_no: number | null
-    is_registered: boolean | null
+    isRegistered: boolean | null
   }
 
   export type PropertyMaxAggregateOutputType = {
     id: number | null
-    address_1: string | null
-    address_2: string | null
-    address_3: string | null
-    address_4: string | null
-    address_5: string | null
+    address1: string | null
+    address2: string | null
+    address3: string | null
+    address4: string | null
+    address5: string | null
     county: string | null
     eircode: string | null
     bedroom_no: number | null
-    is_registered: boolean | null
+    isRegistered: boolean | null
   }
 
   export type PropertyCountAggregateOutputType = {
     id: number
-    address_1: number
-    address_2: number
-    address_3: number
-    address_4: number
-    address_5: number
+    address1: number
+    address2: number
+    address3: number
+    address4: number
+    address5: number
     county: number
     eircode: number
     bedroom_no: number
-    is_registered: number
+    isRegistered: number
     _all: number
   }
 
@@ -1165,41 +1165,41 @@ export namespace Prisma {
 
   export type PropertyMinAggregateInputType = {
     id?: true
-    address_1?: true
-    address_2?: true
-    address_3?: true
-    address_4?: true
-    address_5?: true
+    address1?: true
+    address2?: true
+    address3?: true
+    address4?: true
+    address5?: true
     county?: true
     eircode?: true
     bedroom_no?: true
-    is_registered?: true
+    isRegistered?: true
   }
 
   export type PropertyMaxAggregateInputType = {
     id?: true
-    address_1?: true
-    address_2?: true
-    address_3?: true
-    address_4?: true
-    address_5?: true
+    address1?: true
+    address2?: true
+    address3?: true
+    address4?: true
+    address5?: true
     county?: true
     eircode?: true
     bedroom_no?: true
-    is_registered?: true
+    isRegistered?: true
   }
 
   export type PropertyCountAggregateInputType = {
     id?: true
-    address_1?: true
-    address_2?: true
-    address_3?: true
-    address_4?: true
-    address_5?: true
+    address1?: true
+    address2?: true
+    address3?: true
+    address4?: true
+    address5?: true
     county?: true
     eircode?: true
     bedroom_no?: true
-    is_registered?: true
+    isRegistered?: true
     _all?: true
   }
 
@@ -1291,15 +1291,15 @@ export namespace Prisma {
 
   export type PropertyGroupByOutputType = {
     id: number
-    address_1: string
-    address_2: string | null
-    address_3: string | null
-    address_4: string | null
-    address_5: string | null
+    address1: string
+    address2: string | null
+    address3: string | null
+    address4: string | null
+    address5: string | null
     county: string
     eircode: string
     bedroom_no: number
-    is_registered: boolean
+    isRegistered: boolean
     _count: PropertyCountAggregateOutputType | null
     _avg: PropertyAvgAggregateOutputType | null
     _sum: PropertySumAggregateOutputType | null
@@ -1323,15 +1323,15 @@ export namespace Prisma {
 
   export type PropertySelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    address_1?: boolean
-    address_2?: boolean
-    address_3?: boolean
-    address_4?: boolean
-    address_5?: boolean
+    address1?: boolean
+    address2?: boolean
+    address3?: boolean
+    address4?: boolean
+    address5?: boolean
     county?: boolean
     eircode?: boolean
     bedroom_no?: boolean
-    is_registered?: boolean
+    isRegistered?: boolean
     rents?: boolean | Property$rentsArgs<ExtArgs>
     reviews?: boolean | Property$reviewsArgs<ExtArgs>
     _count?: boolean | PropertyCountOutputTypeDefaultArgs<ExtArgs>
@@ -1339,44 +1339,44 @@ export namespace Prisma {
 
   export type PropertySelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    address_1?: boolean
-    address_2?: boolean
-    address_3?: boolean
-    address_4?: boolean
-    address_5?: boolean
+    address1?: boolean
+    address2?: boolean
+    address3?: boolean
+    address4?: boolean
+    address5?: boolean
     county?: boolean
     eircode?: boolean
     bedroom_no?: boolean
-    is_registered?: boolean
+    isRegistered?: boolean
   }, ExtArgs["result"]["property"]>
 
   export type PropertySelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    address_1?: boolean
-    address_2?: boolean
-    address_3?: boolean
-    address_4?: boolean
-    address_5?: boolean
+    address1?: boolean
+    address2?: boolean
+    address3?: boolean
+    address4?: boolean
+    address5?: boolean
     county?: boolean
     eircode?: boolean
     bedroom_no?: boolean
-    is_registered?: boolean
+    isRegistered?: boolean
   }, ExtArgs["result"]["property"]>
 
   export type PropertySelectScalar = {
     id?: boolean
-    address_1?: boolean
-    address_2?: boolean
-    address_3?: boolean
-    address_4?: boolean
-    address_5?: boolean
+    address1?: boolean
+    address2?: boolean
+    address3?: boolean
+    address4?: boolean
+    address5?: boolean
     county?: boolean
     eircode?: boolean
     bedroom_no?: boolean
-    is_registered?: boolean
+    isRegistered?: boolean
   }
 
-  export type PropertyOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "address_1" | "address_2" | "address_3" | "address_4" | "address_5" | "county" | "eircode" | "bedroom_no" | "is_registered", ExtArgs["result"]["property"]>
+  export type PropertyOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "address1" | "address2" | "address3" | "address4" | "address5" | "county" | "eircode" | "bedroom_no" | "isRegistered", ExtArgs["result"]["property"]>
   export type PropertyInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     rents?: boolean | Property$rentsArgs<ExtArgs>
     reviews?: boolean | Property$reviewsArgs<ExtArgs>
@@ -1393,15 +1393,15 @@ export namespace Prisma {
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
-      address_1: string
-      address_2: string | null
-      address_3: string | null
-      address_4: string | null
-      address_5: string | null
+      address1: string
+      address2: string | null
+      address3: string | null
+      address4: string | null
+      address5: string | null
       county: string
       eircode: string
       bedroom_no: number
-      is_registered: boolean
+      isRegistered: boolean
     }, ExtArgs["result"]["property"]>
     composites: {}
   }
@@ -1828,15 +1828,15 @@ export namespace Prisma {
    */
   interface PropertyFieldRefs {
     readonly id: FieldRef<"Property", 'Int'>
-    readonly address_1: FieldRef<"Property", 'String'>
-    readonly address_2: FieldRef<"Property", 'String'>
-    readonly address_3: FieldRef<"Property", 'String'>
-    readonly address_4: FieldRef<"Property", 'String'>
-    readonly address_5: FieldRef<"Property", 'String'>
+    readonly address1: FieldRef<"Property", 'String'>
+    readonly address2: FieldRef<"Property", 'String'>
+    readonly address3: FieldRef<"Property", 'String'>
+    readonly address4: FieldRef<"Property", 'String'>
+    readonly address5: FieldRef<"Property", 'String'>
     readonly county: FieldRef<"Property", 'String'>
     readonly eircode: FieldRef<"Property", 'String'>
     readonly bedroom_no: FieldRef<"Property", 'Int'>
-    readonly is_registered: FieldRef<"Property", 'Boolean'>
+    readonly isRegistered: FieldRef<"Property", 'Boolean'>
   }
     
 
@@ -2305,70 +2305,70 @@ export namespace Prisma {
 
   export type RentAvgAggregateOutputType = {
     id: number | null
-    rent_value: number | null
-    property_Id: number | null
+    rentValue: number | null
+    propertyId: number | null
   }
 
   export type RentSumAggregateOutputType = {
     id: number | null
-    rent_value: number | null
-    property_Id: number | null
+    rentValue: number | null
+    propertyId: number | null
   }
 
   export type RentMinAggregateOutputType = {
     id: number | null
-    rent_value: number | null
-    rent_period: string | null
-    property_Id: number | null
+    rentValue: number | null
+    rentPeriod: string | null
+    propertyId: number | null
   }
 
   export type RentMaxAggregateOutputType = {
     id: number | null
-    rent_value: number | null
-    rent_period: string | null
-    property_Id: number | null
+    rentValue: number | null
+    rentPeriod: string | null
+    propertyId: number | null
   }
 
   export type RentCountAggregateOutputType = {
     id: number
-    rent_value: number
-    rent_period: number
-    property_Id: number
+    rentValue: number
+    rentPeriod: number
+    propertyId: number
     _all: number
   }
 
 
   export type RentAvgAggregateInputType = {
     id?: true
-    rent_value?: true
-    property_Id?: true
+    rentValue?: true
+    propertyId?: true
   }
 
   export type RentSumAggregateInputType = {
     id?: true
-    rent_value?: true
-    property_Id?: true
+    rentValue?: true
+    propertyId?: true
   }
 
   export type RentMinAggregateInputType = {
     id?: true
-    rent_value?: true
-    rent_period?: true
-    property_Id?: true
+    rentValue?: true
+    rentPeriod?: true
+    propertyId?: true
   }
 
   export type RentMaxAggregateInputType = {
     id?: true
-    rent_value?: true
-    rent_period?: true
-    property_Id?: true
+    rentValue?: true
+    rentPeriod?: true
+    propertyId?: true
   }
 
   export type RentCountAggregateInputType = {
     id?: true
-    rent_value?: true
-    rent_period?: true
-    property_Id?: true
+    rentValue?: true
+    rentPeriod?: true
+    propertyId?: true
     _all?: true
   }
 
@@ -2460,9 +2460,9 @@ export namespace Prisma {
 
   export type RentGroupByOutputType = {
     id: number
-    rent_value: number
-    rent_period: string
-    property_Id: number
+    rentValue: number
+    rentPeriod: string
+    propertyId: number
     _count: RentCountAggregateOutputType | null
     _avg: RentAvgAggregateOutputType | null
     _sum: RentSumAggregateOutputType | null
@@ -2486,36 +2486,36 @@ export namespace Prisma {
 
   export type RentSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    rent_value?: boolean
-    rent_period?: boolean
-    property_Id?: boolean
+    rentValue?: boolean
+    rentPeriod?: boolean
+    propertyId?: boolean
     property?: boolean | PropertyDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["rent"]>
 
   export type RentSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    rent_value?: boolean
-    rent_period?: boolean
-    property_Id?: boolean
+    rentValue?: boolean
+    rentPeriod?: boolean
+    propertyId?: boolean
     property?: boolean | PropertyDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["rent"]>
 
   export type RentSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    rent_value?: boolean
-    rent_period?: boolean
-    property_Id?: boolean
+    rentValue?: boolean
+    rentPeriod?: boolean
+    propertyId?: boolean
     property?: boolean | PropertyDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["rent"]>
 
   export type RentSelectScalar = {
     id?: boolean
-    rent_value?: boolean
-    rent_period?: boolean
-    property_Id?: boolean
+    rentValue?: boolean
+    rentPeriod?: boolean
+    propertyId?: boolean
   }
 
-  export type RentOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "rent_value" | "rent_period" | "property_Id", ExtArgs["result"]["rent"]>
+  export type RentOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "rentValue" | "rentPeriod" | "propertyId", ExtArgs["result"]["rent"]>
   export type RentInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     property?: boolean | PropertyDefaultArgs<ExtArgs>
   }
@@ -2533,9 +2533,9 @@ export namespace Prisma {
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
-      rent_value: number
-      rent_period: string
-      property_Id: number
+      rentValue: number
+      rentPeriod: string
+      propertyId: number
     }, ExtArgs["result"]["rent"]>
     composites: {}
   }
@@ -2961,9 +2961,9 @@ export namespace Prisma {
    */
   interface RentFieldRefs {
     readonly id: FieldRef<"Rent", 'Int'>
-    readonly rent_value: FieldRef<"Rent", 'Int'>
-    readonly rent_period: FieldRef<"Rent", 'String'>
-    readonly property_Id: FieldRef<"Rent", 'Int'>
+    readonly rentValue: FieldRef<"Rent", 'Int'>
+    readonly rentPeriod: FieldRef<"Rent", 'String'>
+    readonly propertyId: FieldRef<"Rent", 'Int'>
   }
     
 
@@ -3393,34 +3393,34 @@ export namespace Prisma {
   export type ReviewAvgAggregateOutputType = {
     id: number | null
     rating: number | null
-    property_Id: number | null
+    propertyId: number | null
   }
 
   export type ReviewSumAggregateOutputType = {
     id: number | null
     rating: number | null
-    property_Id: number | null
+    propertyId: number | null
   }
 
   export type ReviewMinAggregateOutputType = {
     id: number | null
     rating: number | null
     review: string | null
-    property_Id: number | null
+    propertyId: number | null
   }
 
   export type ReviewMaxAggregateOutputType = {
     id: number | null
     rating: number | null
     review: string | null
-    property_Id: number | null
+    propertyId: number | null
   }
 
   export type ReviewCountAggregateOutputType = {
     id: number
     rating: number
     review: number
-    property_Id: number
+    propertyId: number
     _all: number
   }
 
@@ -3428,34 +3428,34 @@ export namespace Prisma {
   export type ReviewAvgAggregateInputType = {
     id?: true
     rating?: true
-    property_Id?: true
+    propertyId?: true
   }
 
   export type ReviewSumAggregateInputType = {
     id?: true
     rating?: true
-    property_Id?: true
+    propertyId?: true
   }
 
   export type ReviewMinAggregateInputType = {
     id?: true
     rating?: true
     review?: true
-    property_Id?: true
+    propertyId?: true
   }
 
   export type ReviewMaxAggregateInputType = {
     id?: true
     rating?: true
     review?: true
-    property_Id?: true
+    propertyId?: true
   }
 
   export type ReviewCountAggregateInputType = {
     id?: true
     rating?: true
     review?: true
-    property_Id?: true
+    propertyId?: true
     _all?: true
   }
 
@@ -3549,7 +3549,7 @@ export namespace Prisma {
     id: number
     rating: number
     review: string | null
-    property_Id: number
+    propertyId: number
     _count: ReviewCountAggregateOutputType | null
     _avg: ReviewAvgAggregateOutputType | null
     _sum: ReviewSumAggregateOutputType | null
@@ -3575,7 +3575,7 @@ export namespace Prisma {
     id?: boolean
     rating?: boolean
     review?: boolean
-    property_Id?: boolean
+    propertyId?: boolean
     property?: boolean | PropertyDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["review"]>
 
@@ -3583,7 +3583,7 @@ export namespace Prisma {
     id?: boolean
     rating?: boolean
     review?: boolean
-    property_Id?: boolean
+    propertyId?: boolean
     property?: boolean | PropertyDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["review"]>
 
@@ -3591,7 +3591,7 @@ export namespace Prisma {
     id?: boolean
     rating?: boolean
     review?: boolean
-    property_Id?: boolean
+    propertyId?: boolean
     property?: boolean | PropertyDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["review"]>
 
@@ -3599,10 +3599,10 @@ export namespace Prisma {
     id?: boolean
     rating?: boolean
     review?: boolean
-    property_Id?: boolean
+    propertyId?: boolean
   }
 
-  export type ReviewOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "rating" | "review" | "property_Id", ExtArgs["result"]["review"]>
+  export type ReviewOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "rating" | "review" | "propertyId", ExtArgs["result"]["review"]>
   export type ReviewInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     property?: boolean | PropertyDefaultArgs<ExtArgs>
   }
@@ -3622,7 +3622,7 @@ export namespace Prisma {
       id: number
       rating: number
       review: string | null
-      property_Id: number
+      propertyId: number
     }, ExtArgs["result"]["review"]>
     composites: {}
   }
@@ -4050,7 +4050,7 @@ export namespace Prisma {
     readonly id: FieldRef<"Review", 'Int'>
     readonly rating: FieldRef<"Review", 'Int'>
     readonly review: FieldRef<"Review", 'String'>
-    readonly property_Id: FieldRef<"Review", 'Int'>
+    readonly propertyId: FieldRef<"Review", 'Int'>
   }
     
 
@@ -4481,15 +4481,15 @@ export namespace Prisma {
 
   export const PropertyScalarFieldEnum: {
     id: 'id',
-    address_1: 'address_1',
-    address_2: 'address_2',
-    address_3: 'address_3',
-    address_4: 'address_4',
-    address_5: 'address_5',
+    address1: 'address1',
+    address2: 'address2',
+    address3: 'address3',
+    address4: 'address4',
+    address5: 'address5',
     county: 'county',
     eircode: 'eircode',
     bedroom_no: 'bedroom_no',
-    is_registered: 'is_registered'
+    isRegistered: 'isRegistered'
   };
 
   export type PropertyScalarFieldEnum = (typeof PropertyScalarFieldEnum)[keyof typeof PropertyScalarFieldEnum]
@@ -4497,9 +4497,9 @@ export namespace Prisma {
 
   export const RentScalarFieldEnum: {
     id: 'id',
-    rent_value: 'rent_value',
-    rent_period: 'rent_period',
-    property_Id: 'property_Id'
+    rentValue: 'rentValue',
+    rentPeriod: 'rentPeriod',
+    propertyId: 'propertyId'
   };
 
   export type RentScalarFieldEnum = (typeof RentScalarFieldEnum)[keyof typeof RentScalarFieldEnum]
@@ -4509,7 +4509,7 @@ export namespace Prisma {
     id: 'id',
     rating: 'rating',
     review: 'review',
-    property_Id: 'property_Id'
+    propertyId: 'propertyId'
   };
 
   export type ReviewScalarFieldEnum = (typeof ReviewScalarFieldEnum)[keyof typeof ReviewScalarFieldEnum]
@@ -4601,30 +4601,30 @@ export namespace Prisma {
     OR?: PropertyWhereInput[]
     NOT?: PropertyWhereInput | PropertyWhereInput[]
     id?: IntFilter<"Property"> | number
-    address_1?: StringFilter<"Property"> | string
-    address_2?: StringNullableFilter<"Property"> | string | null
-    address_3?: StringNullableFilter<"Property"> | string | null
-    address_4?: StringNullableFilter<"Property"> | string | null
-    address_5?: StringNullableFilter<"Property"> | string | null
+    address1?: StringFilter<"Property"> | string
+    address2?: StringNullableFilter<"Property"> | string | null
+    address3?: StringNullableFilter<"Property"> | string | null
+    address4?: StringNullableFilter<"Property"> | string | null
+    address5?: StringNullableFilter<"Property"> | string | null
     county?: StringFilter<"Property"> | string
     eircode?: StringFilter<"Property"> | string
     bedroom_no?: IntFilter<"Property"> | number
-    is_registered?: BoolFilter<"Property"> | boolean
+    isRegistered?: BoolFilter<"Property"> | boolean
     rents?: RentListRelationFilter
     reviews?: ReviewListRelationFilter
   }
 
   export type PropertyOrderByWithRelationInput = {
     id?: SortOrder
-    address_1?: SortOrder
-    address_2?: SortOrderInput | SortOrder
-    address_3?: SortOrderInput | SortOrder
-    address_4?: SortOrderInput | SortOrder
-    address_5?: SortOrderInput | SortOrder
+    address1?: SortOrder
+    address2?: SortOrderInput | SortOrder
+    address3?: SortOrderInput | SortOrder
+    address4?: SortOrderInput | SortOrder
+    address5?: SortOrderInput | SortOrder
     county?: SortOrder
     eircode?: SortOrder
     bedroom_no?: SortOrder
-    is_registered?: SortOrder
+    isRegistered?: SortOrder
     rents?: RentOrderByRelationAggregateInput
     reviews?: ReviewOrderByRelationAggregateInput
   }
@@ -4635,29 +4635,29 @@ export namespace Prisma {
     AND?: PropertyWhereInput | PropertyWhereInput[]
     OR?: PropertyWhereInput[]
     NOT?: PropertyWhereInput | PropertyWhereInput[]
-    address_1?: StringFilter<"Property"> | string
-    address_2?: StringNullableFilter<"Property"> | string | null
-    address_3?: StringNullableFilter<"Property"> | string | null
-    address_4?: StringNullableFilter<"Property"> | string | null
-    address_5?: StringNullableFilter<"Property"> | string | null
+    address1?: StringFilter<"Property"> | string
+    address2?: StringNullableFilter<"Property"> | string | null
+    address3?: StringNullableFilter<"Property"> | string | null
+    address4?: StringNullableFilter<"Property"> | string | null
+    address5?: StringNullableFilter<"Property"> | string | null
     county?: StringFilter<"Property"> | string
     bedroom_no?: IntFilter<"Property"> | number
-    is_registered?: BoolFilter<"Property"> | boolean
+    isRegistered?: BoolFilter<"Property"> | boolean
     rents?: RentListRelationFilter
     reviews?: ReviewListRelationFilter
   }, "id" | "eircode">
 
   export type PropertyOrderByWithAggregationInput = {
     id?: SortOrder
-    address_1?: SortOrder
-    address_2?: SortOrderInput | SortOrder
-    address_3?: SortOrderInput | SortOrder
-    address_4?: SortOrderInput | SortOrder
-    address_5?: SortOrderInput | SortOrder
+    address1?: SortOrder
+    address2?: SortOrderInput | SortOrder
+    address3?: SortOrderInput | SortOrder
+    address4?: SortOrderInput | SortOrder
+    address5?: SortOrderInput | SortOrder
     county?: SortOrder
     eircode?: SortOrder
     bedroom_no?: SortOrder
-    is_registered?: SortOrder
+    isRegistered?: SortOrder
     _count?: PropertyCountOrderByAggregateInput
     _avg?: PropertyAvgOrderByAggregateInput
     _max?: PropertyMaxOrderByAggregateInput
@@ -4670,15 +4670,15 @@ export namespace Prisma {
     OR?: PropertyScalarWhereWithAggregatesInput[]
     NOT?: PropertyScalarWhereWithAggregatesInput | PropertyScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"Property"> | number
-    address_1?: StringWithAggregatesFilter<"Property"> | string
-    address_2?: StringNullableWithAggregatesFilter<"Property"> | string | null
-    address_3?: StringNullableWithAggregatesFilter<"Property"> | string | null
-    address_4?: StringNullableWithAggregatesFilter<"Property"> | string | null
-    address_5?: StringNullableWithAggregatesFilter<"Property"> | string | null
+    address1?: StringWithAggregatesFilter<"Property"> | string
+    address2?: StringNullableWithAggregatesFilter<"Property"> | string | null
+    address3?: StringNullableWithAggregatesFilter<"Property"> | string | null
+    address4?: StringNullableWithAggregatesFilter<"Property"> | string | null
+    address5?: StringNullableWithAggregatesFilter<"Property"> | string | null
     county?: StringWithAggregatesFilter<"Property"> | string
     eircode?: StringWithAggregatesFilter<"Property"> | string
     bedroom_no?: IntWithAggregatesFilter<"Property"> | number
-    is_registered?: BoolWithAggregatesFilter<"Property"> | boolean
+    isRegistered?: BoolWithAggregatesFilter<"Property"> | boolean
   }
 
   export type RentWhereInput = {
@@ -4686,17 +4686,17 @@ export namespace Prisma {
     OR?: RentWhereInput[]
     NOT?: RentWhereInput | RentWhereInput[]
     id?: IntFilter<"Rent"> | number
-    rent_value?: IntFilter<"Rent"> | number
-    rent_period?: StringFilter<"Rent"> | string
-    property_Id?: IntFilter<"Rent"> | number
+    rentValue?: IntFilter<"Rent"> | number
+    rentPeriod?: StringFilter<"Rent"> | string
+    propertyId?: IntFilter<"Rent"> | number
     property?: XOR<PropertyScalarRelationFilter, PropertyWhereInput>
   }
 
   export type RentOrderByWithRelationInput = {
     id?: SortOrder
-    rent_value?: SortOrder
-    rent_period?: SortOrder
-    property_Id?: SortOrder
+    rentValue?: SortOrder
+    rentPeriod?: SortOrder
+    propertyId?: SortOrder
     property?: PropertyOrderByWithRelationInput
   }
 
@@ -4705,17 +4705,17 @@ export namespace Prisma {
     AND?: RentWhereInput | RentWhereInput[]
     OR?: RentWhereInput[]
     NOT?: RentWhereInput | RentWhereInput[]
-    rent_value?: IntFilter<"Rent"> | number
-    rent_period?: StringFilter<"Rent"> | string
-    property_Id?: IntFilter<"Rent"> | number
+    rentValue?: IntFilter<"Rent"> | number
+    rentPeriod?: StringFilter<"Rent"> | string
+    propertyId?: IntFilter<"Rent"> | number
     property?: XOR<PropertyScalarRelationFilter, PropertyWhereInput>
   }, "id">
 
   export type RentOrderByWithAggregationInput = {
     id?: SortOrder
-    rent_value?: SortOrder
-    rent_period?: SortOrder
-    property_Id?: SortOrder
+    rentValue?: SortOrder
+    rentPeriod?: SortOrder
+    propertyId?: SortOrder
     _count?: RentCountOrderByAggregateInput
     _avg?: RentAvgOrderByAggregateInput
     _max?: RentMaxOrderByAggregateInput
@@ -4728,9 +4728,9 @@ export namespace Prisma {
     OR?: RentScalarWhereWithAggregatesInput[]
     NOT?: RentScalarWhereWithAggregatesInput | RentScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"Rent"> | number
-    rent_value?: IntWithAggregatesFilter<"Rent"> | number
-    rent_period?: StringWithAggregatesFilter<"Rent"> | string
-    property_Id?: IntWithAggregatesFilter<"Rent"> | number
+    rentValue?: IntWithAggregatesFilter<"Rent"> | number
+    rentPeriod?: StringWithAggregatesFilter<"Rent"> | string
+    propertyId?: IntWithAggregatesFilter<"Rent"> | number
   }
 
   export type ReviewWhereInput = {
@@ -4740,7 +4740,7 @@ export namespace Prisma {
     id?: IntFilter<"Review"> | number
     rating?: IntFilter<"Review"> | number
     review?: StringNullableFilter<"Review"> | string | null
-    property_Id?: IntFilter<"Review"> | number
+    propertyId?: IntFilter<"Review"> | number
     property?: XOR<PropertyScalarRelationFilter, PropertyWhereInput>
   }
 
@@ -4748,7 +4748,7 @@ export namespace Prisma {
     id?: SortOrder
     rating?: SortOrder
     review?: SortOrderInput | SortOrder
-    property_Id?: SortOrder
+    propertyId?: SortOrder
     property?: PropertyOrderByWithRelationInput
   }
 
@@ -4759,7 +4759,7 @@ export namespace Prisma {
     NOT?: ReviewWhereInput | ReviewWhereInput[]
     rating?: IntFilter<"Review"> | number
     review?: StringNullableFilter<"Review"> | string | null
-    property_Id?: IntFilter<"Review"> | number
+    propertyId?: IntFilter<"Review"> | number
     property?: XOR<PropertyScalarRelationFilter, PropertyWhereInput>
   }, "id">
 
@@ -4767,7 +4767,7 @@ export namespace Prisma {
     id?: SortOrder
     rating?: SortOrder
     review?: SortOrderInput | SortOrder
-    property_Id?: SortOrder
+    propertyId?: SortOrder
     _count?: ReviewCountOrderByAggregateInput
     _avg?: ReviewAvgOrderByAggregateInput
     _max?: ReviewMaxOrderByAggregateInput
@@ -4782,148 +4782,148 @@ export namespace Prisma {
     id?: IntWithAggregatesFilter<"Review"> | number
     rating?: IntWithAggregatesFilter<"Review"> | number
     review?: StringNullableWithAggregatesFilter<"Review"> | string | null
-    property_Id?: IntWithAggregatesFilter<"Review"> | number
+    propertyId?: IntWithAggregatesFilter<"Review"> | number
   }
 
   export type PropertyCreateInput = {
-    address_1: string
-    address_2?: string | null
-    address_3?: string | null
-    address_4?: string | null
-    address_5?: string | null
+    address1: string
+    address2?: string | null
+    address3?: string | null
+    address4?: string | null
+    address5?: string | null
     county: string
     eircode: string
     bedroom_no: number
-    is_registered?: boolean
+    isRegistered?: boolean
     rents?: RentCreateNestedManyWithoutPropertyInput
     reviews?: ReviewCreateNestedManyWithoutPropertyInput
   }
 
   export type PropertyUncheckedCreateInput = {
     id?: number
-    address_1: string
-    address_2?: string | null
-    address_3?: string | null
-    address_4?: string | null
-    address_5?: string | null
+    address1: string
+    address2?: string | null
+    address3?: string | null
+    address4?: string | null
+    address5?: string | null
     county: string
     eircode: string
     bedroom_no: number
-    is_registered?: boolean
+    isRegistered?: boolean
     rents?: RentUncheckedCreateNestedManyWithoutPropertyInput
     reviews?: ReviewUncheckedCreateNestedManyWithoutPropertyInput
   }
 
   export type PropertyUpdateInput = {
-    address_1?: StringFieldUpdateOperationsInput | string
-    address_2?: NullableStringFieldUpdateOperationsInput | string | null
-    address_3?: NullableStringFieldUpdateOperationsInput | string | null
-    address_4?: NullableStringFieldUpdateOperationsInput | string | null
-    address_5?: NullableStringFieldUpdateOperationsInput | string | null
+    address1?: StringFieldUpdateOperationsInput | string
+    address2?: NullableStringFieldUpdateOperationsInput | string | null
+    address3?: NullableStringFieldUpdateOperationsInput | string | null
+    address4?: NullableStringFieldUpdateOperationsInput | string | null
+    address5?: NullableStringFieldUpdateOperationsInput | string | null
     county?: StringFieldUpdateOperationsInput | string
     eircode?: StringFieldUpdateOperationsInput | string
     bedroom_no?: IntFieldUpdateOperationsInput | number
-    is_registered?: BoolFieldUpdateOperationsInput | boolean
+    isRegistered?: BoolFieldUpdateOperationsInput | boolean
     rents?: RentUpdateManyWithoutPropertyNestedInput
     reviews?: ReviewUpdateManyWithoutPropertyNestedInput
   }
 
   export type PropertyUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
-    address_1?: StringFieldUpdateOperationsInput | string
-    address_2?: NullableStringFieldUpdateOperationsInput | string | null
-    address_3?: NullableStringFieldUpdateOperationsInput | string | null
-    address_4?: NullableStringFieldUpdateOperationsInput | string | null
-    address_5?: NullableStringFieldUpdateOperationsInput | string | null
+    address1?: StringFieldUpdateOperationsInput | string
+    address2?: NullableStringFieldUpdateOperationsInput | string | null
+    address3?: NullableStringFieldUpdateOperationsInput | string | null
+    address4?: NullableStringFieldUpdateOperationsInput | string | null
+    address5?: NullableStringFieldUpdateOperationsInput | string | null
     county?: StringFieldUpdateOperationsInput | string
     eircode?: StringFieldUpdateOperationsInput | string
     bedroom_no?: IntFieldUpdateOperationsInput | number
-    is_registered?: BoolFieldUpdateOperationsInput | boolean
+    isRegistered?: BoolFieldUpdateOperationsInput | boolean
     rents?: RentUncheckedUpdateManyWithoutPropertyNestedInput
     reviews?: ReviewUncheckedUpdateManyWithoutPropertyNestedInput
   }
 
   export type PropertyCreateManyInput = {
     id?: number
-    address_1: string
-    address_2?: string | null
-    address_3?: string | null
-    address_4?: string | null
-    address_5?: string | null
+    address1: string
+    address2?: string | null
+    address3?: string | null
+    address4?: string | null
+    address5?: string | null
     county: string
     eircode: string
     bedroom_no: number
-    is_registered?: boolean
+    isRegistered?: boolean
   }
 
   export type PropertyUpdateManyMutationInput = {
-    address_1?: StringFieldUpdateOperationsInput | string
-    address_2?: NullableStringFieldUpdateOperationsInput | string | null
-    address_3?: NullableStringFieldUpdateOperationsInput | string | null
-    address_4?: NullableStringFieldUpdateOperationsInput | string | null
-    address_5?: NullableStringFieldUpdateOperationsInput | string | null
+    address1?: StringFieldUpdateOperationsInput | string
+    address2?: NullableStringFieldUpdateOperationsInput | string | null
+    address3?: NullableStringFieldUpdateOperationsInput | string | null
+    address4?: NullableStringFieldUpdateOperationsInput | string | null
+    address5?: NullableStringFieldUpdateOperationsInput | string | null
     county?: StringFieldUpdateOperationsInput | string
     eircode?: StringFieldUpdateOperationsInput | string
     bedroom_no?: IntFieldUpdateOperationsInput | number
-    is_registered?: BoolFieldUpdateOperationsInput | boolean
+    isRegistered?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type PropertyUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
-    address_1?: StringFieldUpdateOperationsInput | string
-    address_2?: NullableStringFieldUpdateOperationsInput | string | null
-    address_3?: NullableStringFieldUpdateOperationsInput | string | null
-    address_4?: NullableStringFieldUpdateOperationsInput | string | null
-    address_5?: NullableStringFieldUpdateOperationsInput | string | null
+    address1?: StringFieldUpdateOperationsInput | string
+    address2?: NullableStringFieldUpdateOperationsInput | string | null
+    address3?: NullableStringFieldUpdateOperationsInput | string | null
+    address4?: NullableStringFieldUpdateOperationsInput | string | null
+    address5?: NullableStringFieldUpdateOperationsInput | string | null
     county?: StringFieldUpdateOperationsInput | string
     eircode?: StringFieldUpdateOperationsInput | string
     bedroom_no?: IntFieldUpdateOperationsInput | number
-    is_registered?: BoolFieldUpdateOperationsInput | boolean
+    isRegistered?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type RentCreateInput = {
-    rent_value: number
-    rent_period: string
+    rentValue: number
+    rentPeriod: string
     property: PropertyCreateNestedOneWithoutRentsInput
   }
 
   export type RentUncheckedCreateInput = {
     id?: number
-    rent_value: number
-    rent_period: string
-    property_Id: number
+    rentValue: number
+    rentPeriod: string
+    propertyId: number
   }
 
   export type RentUpdateInput = {
-    rent_value?: IntFieldUpdateOperationsInput | number
-    rent_period?: StringFieldUpdateOperationsInput | string
+    rentValue?: IntFieldUpdateOperationsInput | number
+    rentPeriod?: StringFieldUpdateOperationsInput | string
     property?: PropertyUpdateOneRequiredWithoutRentsNestedInput
   }
 
   export type RentUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
-    rent_value?: IntFieldUpdateOperationsInput | number
-    rent_period?: StringFieldUpdateOperationsInput | string
-    property_Id?: IntFieldUpdateOperationsInput | number
+    rentValue?: IntFieldUpdateOperationsInput | number
+    rentPeriod?: StringFieldUpdateOperationsInput | string
+    propertyId?: IntFieldUpdateOperationsInput | number
   }
 
   export type RentCreateManyInput = {
     id?: number
-    rent_value: number
-    rent_period: string
-    property_Id: number
+    rentValue: number
+    rentPeriod: string
+    propertyId: number
   }
 
   export type RentUpdateManyMutationInput = {
-    rent_value?: IntFieldUpdateOperationsInput | number
-    rent_period?: StringFieldUpdateOperationsInput | string
+    rentValue?: IntFieldUpdateOperationsInput | number
+    rentPeriod?: StringFieldUpdateOperationsInput | string
   }
 
   export type RentUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
-    rent_value?: IntFieldUpdateOperationsInput | number
-    rent_period?: StringFieldUpdateOperationsInput | string
-    property_Id?: IntFieldUpdateOperationsInput | number
+    rentValue?: IntFieldUpdateOperationsInput | number
+    rentPeriod?: StringFieldUpdateOperationsInput | string
+    propertyId?: IntFieldUpdateOperationsInput | number
   }
 
   export type ReviewCreateInput = {
@@ -4936,7 +4936,7 @@ export namespace Prisma {
     id?: number
     rating: number
     review?: string | null
-    property_Id: number
+    propertyId: number
   }
 
   export type ReviewUpdateInput = {
@@ -4949,14 +4949,14 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     rating?: IntFieldUpdateOperationsInput | number
     review?: NullableStringFieldUpdateOperationsInput | string | null
-    property_Id?: IntFieldUpdateOperationsInput | number
+    propertyId?: IntFieldUpdateOperationsInput | number
   }
 
   export type ReviewCreateManyInput = {
     id?: number
     rating: number
     review?: string | null
-    property_Id: number
+    propertyId: number
   }
 
   export type ReviewUpdateManyMutationInput = {
@@ -4968,7 +4968,7 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     rating?: IntFieldUpdateOperationsInput | number
     review?: NullableStringFieldUpdateOperationsInput | string | null
-    property_Id?: IntFieldUpdateOperationsInput | number
+    propertyId?: IntFieldUpdateOperationsInput | number
   }
 
   export type IntFilter<$PrismaModel = never> = {
@@ -5044,15 +5044,15 @@ export namespace Prisma {
 
   export type PropertyCountOrderByAggregateInput = {
     id?: SortOrder
-    address_1?: SortOrder
-    address_2?: SortOrder
-    address_3?: SortOrder
-    address_4?: SortOrder
-    address_5?: SortOrder
+    address1?: SortOrder
+    address2?: SortOrder
+    address3?: SortOrder
+    address4?: SortOrder
+    address5?: SortOrder
     county?: SortOrder
     eircode?: SortOrder
     bedroom_no?: SortOrder
-    is_registered?: SortOrder
+    isRegistered?: SortOrder
   }
 
   export type PropertyAvgOrderByAggregateInput = {
@@ -5062,28 +5062,28 @@ export namespace Prisma {
 
   export type PropertyMaxOrderByAggregateInput = {
     id?: SortOrder
-    address_1?: SortOrder
-    address_2?: SortOrder
-    address_3?: SortOrder
-    address_4?: SortOrder
-    address_5?: SortOrder
+    address1?: SortOrder
+    address2?: SortOrder
+    address3?: SortOrder
+    address4?: SortOrder
+    address5?: SortOrder
     county?: SortOrder
     eircode?: SortOrder
     bedroom_no?: SortOrder
-    is_registered?: SortOrder
+    isRegistered?: SortOrder
   }
 
   export type PropertyMinOrderByAggregateInput = {
     id?: SortOrder
-    address_1?: SortOrder
-    address_2?: SortOrder
-    address_3?: SortOrder
-    address_4?: SortOrder
-    address_5?: SortOrder
+    address1?: SortOrder
+    address2?: SortOrder
+    address3?: SortOrder
+    address4?: SortOrder
+    address5?: SortOrder
     county?: SortOrder
     eircode?: SortOrder
     bedroom_no?: SortOrder
-    is_registered?: SortOrder
+    isRegistered?: SortOrder
   }
 
   export type PropertySumOrderByAggregateInput = {
@@ -5158,68 +5158,68 @@ export namespace Prisma {
 
   export type RentCountOrderByAggregateInput = {
     id?: SortOrder
-    rent_value?: SortOrder
-    rent_period?: SortOrder
-    property_Id?: SortOrder
+    rentValue?: SortOrder
+    rentPeriod?: SortOrder
+    propertyId?: SortOrder
   }
 
   export type RentAvgOrderByAggregateInput = {
     id?: SortOrder
-    rent_value?: SortOrder
-    property_Id?: SortOrder
+    rentValue?: SortOrder
+    propertyId?: SortOrder
   }
 
   export type RentMaxOrderByAggregateInput = {
     id?: SortOrder
-    rent_value?: SortOrder
-    rent_period?: SortOrder
-    property_Id?: SortOrder
+    rentValue?: SortOrder
+    rentPeriod?: SortOrder
+    propertyId?: SortOrder
   }
 
   export type RentMinOrderByAggregateInput = {
     id?: SortOrder
-    rent_value?: SortOrder
-    rent_period?: SortOrder
-    property_Id?: SortOrder
+    rentValue?: SortOrder
+    rentPeriod?: SortOrder
+    propertyId?: SortOrder
   }
 
   export type RentSumOrderByAggregateInput = {
     id?: SortOrder
-    rent_value?: SortOrder
-    property_Id?: SortOrder
+    rentValue?: SortOrder
+    propertyId?: SortOrder
   }
 
   export type ReviewCountOrderByAggregateInput = {
     id?: SortOrder
     rating?: SortOrder
     review?: SortOrder
-    property_Id?: SortOrder
+    propertyId?: SortOrder
   }
 
   export type ReviewAvgOrderByAggregateInput = {
     id?: SortOrder
     rating?: SortOrder
-    property_Id?: SortOrder
+    propertyId?: SortOrder
   }
 
   export type ReviewMaxOrderByAggregateInput = {
     id?: SortOrder
     rating?: SortOrder
     review?: SortOrder
-    property_Id?: SortOrder
+    propertyId?: SortOrder
   }
 
   export type ReviewMinOrderByAggregateInput = {
     id?: SortOrder
     rating?: SortOrder
     review?: SortOrder
-    property_Id?: SortOrder
+    propertyId?: SortOrder
   }
 
   export type ReviewSumOrderByAggregateInput = {
     id?: SortOrder
     rating?: SortOrder
-    property_Id?: SortOrder
+    propertyId?: SortOrder
   }
 
   export type RentCreateNestedManyWithoutPropertyInput = {
@@ -5479,14 +5479,14 @@ export namespace Prisma {
   }
 
   export type RentCreateWithoutPropertyInput = {
-    rent_value: number
-    rent_period: string
+    rentValue: number
+    rentPeriod: string
   }
 
   export type RentUncheckedCreateWithoutPropertyInput = {
     id?: number
-    rent_value: number
-    rent_period: string
+    rentValue: number
+    rentPeriod: string
   }
 
   export type RentCreateOrConnectWithoutPropertyInput = {
@@ -5541,9 +5541,9 @@ export namespace Prisma {
     OR?: RentScalarWhereInput[]
     NOT?: RentScalarWhereInput | RentScalarWhereInput[]
     id?: IntFilter<"Rent"> | number
-    rent_value?: IntFilter<"Rent"> | number
-    rent_period?: StringFilter<"Rent"> | string
-    property_Id?: IntFilter<"Rent"> | number
+    rentValue?: IntFilter<"Rent"> | number
+    rentPeriod?: StringFilter<"Rent"> | string
+    propertyId?: IntFilter<"Rent"> | number
   }
 
   export type ReviewUpsertWithWhereUniqueWithoutPropertyInput = {
@@ -5569,33 +5569,33 @@ export namespace Prisma {
     id?: IntFilter<"Review"> | number
     rating?: IntFilter<"Review"> | number
     review?: StringNullableFilter<"Review"> | string | null
-    property_Id?: IntFilter<"Review"> | number
+    propertyId?: IntFilter<"Review"> | number
   }
 
   export type PropertyCreateWithoutRentsInput = {
-    address_1: string
-    address_2?: string | null
-    address_3?: string | null
-    address_4?: string | null
-    address_5?: string | null
+    address1: string
+    address2?: string | null
+    address3?: string | null
+    address4?: string | null
+    address5?: string | null
     county: string
     eircode: string
     bedroom_no: number
-    is_registered?: boolean
+    isRegistered?: boolean
     reviews?: ReviewCreateNestedManyWithoutPropertyInput
   }
 
   export type PropertyUncheckedCreateWithoutRentsInput = {
     id?: number
-    address_1: string
-    address_2?: string | null
-    address_3?: string | null
-    address_4?: string | null
-    address_5?: string | null
+    address1: string
+    address2?: string | null
+    address3?: string | null
+    address4?: string | null
+    address5?: string | null
     county: string
     eircode: string
     bedroom_no: number
-    is_registered?: boolean
+    isRegistered?: boolean
     reviews?: ReviewUncheckedCreateNestedManyWithoutPropertyInput
   }
 
@@ -5616,56 +5616,56 @@ export namespace Prisma {
   }
 
   export type PropertyUpdateWithoutRentsInput = {
-    address_1?: StringFieldUpdateOperationsInput | string
-    address_2?: NullableStringFieldUpdateOperationsInput | string | null
-    address_3?: NullableStringFieldUpdateOperationsInput | string | null
-    address_4?: NullableStringFieldUpdateOperationsInput | string | null
-    address_5?: NullableStringFieldUpdateOperationsInput | string | null
+    address1?: StringFieldUpdateOperationsInput | string
+    address2?: NullableStringFieldUpdateOperationsInput | string | null
+    address3?: NullableStringFieldUpdateOperationsInput | string | null
+    address4?: NullableStringFieldUpdateOperationsInput | string | null
+    address5?: NullableStringFieldUpdateOperationsInput | string | null
     county?: StringFieldUpdateOperationsInput | string
     eircode?: StringFieldUpdateOperationsInput | string
     bedroom_no?: IntFieldUpdateOperationsInput | number
-    is_registered?: BoolFieldUpdateOperationsInput | boolean
+    isRegistered?: BoolFieldUpdateOperationsInput | boolean
     reviews?: ReviewUpdateManyWithoutPropertyNestedInput
   }
 
   export type PropertyUncheckedUpdateWithoutRentsInput = {
     id?: IntFieldUpdateOperationsInput | number
-    address_1?: StringFieldUpdateOperationsInput | string
-    address_2?: NullableStringFieldUpdateOperationsInput | string | null
-    address_3?: NullableStringFieldUpdateOperationsInput | string | null
-    address_4?: NullableStringFieldUpdateOperationsInput | string | null
-    address_5?: NullableStringFieldUpdateOperationsInput | string | null
+    address1?: StringFieldUpdateOperationsInput | string
+    address2?: NullableStringFieldUpdateOperationsInput | string | null
+    address3?: NullableStringFieldUpdateOperationsInput | string | null
+    address4?: NullableStringFieldUpdateOperationsInput | string | null
+    address5?: NullableStringFieldUpdateOperationsInput | string | null
     county?: StringFieldUpdateOperationsInput | string
     eircode?: StringFieldUpdateOperationsInput | string
     bedroom_no?: IntFieldUpdateOperationsInput | number
-    is_registered?: BoolFieldUpdateOperationsInput | boolean
+    isRegistered?: BoolFieldUpdateOperationsInput | boolean
     reviews?: ReviewUncheckedUpdateManyWithoutPropertyNestedInput
   }
 
   export type PropertyCreateWithoutReviewsInput = {
-    address_1: string
-    address_2?: string | null
-    address_3?: string | null
-    address_4?: string | null
-    address_5?: string | null
+    address1: string
+    address2?: string | null
+    address3?: string | null
+    address4?: string | null
+    address5?: string | null
     county: string
     eircode: string
     bedroom_no: number
-    is_registered?: boolean
+    isRegistered?: boolean
     rents?: RentCreateNestedManyWithoutPropertyInput
   }
 
   export type PropertyUncheckedCreateWithoutReviewsInput = {
     id?: number
-    address_1: string
-    address_2?: string | null
-    address_3?: string | null
-    address_4?: string | null
-    address_5?: string | null
+    address1: string
+    address2?: string | null
+    address3?: string | null
+    address4?: string | null
+    address5?: string | null
     county: string
     eircode: string
     bedroom_no: number
-    is_registered?: boolean
+    isRegistered?: boolean
     rents?: RentUncheckedCreateNestedManyWithoutPropertyInput
   }
 
@@ -5686,36 +5686,36 @@ export namespace Prisma {
   }
 
   export type PropertyUpdateWithoutReviewsInput = {
-    address_1?: StringFieldUpdateOperationsInput | string
-    address_2?: NullableStringFieldUpdateOperationsInput | string | null
-    address_3?: NullableStringFieldUpdateOperationsInput | string | null
-    address_4?: NullableStringFieldUpdateOperationsInput | string | null
-    address_5?: NullableStringFieldUpdateOperationsInput | string | null
+    address1?: StringFieldUpdateOperationsInput | string
+    address2?: NullableStringFieldUpdateOperationsInput | string | null
+    address3?: NullableStringFieldUpdateOperationsInput | string | null
+    address4?: NullableStringFieldUpdateOperationsInput | string | null
+    address5?: NullableStringFieldUpdateOperationsInput | string | null
     county?: StringFieldUpdateOperationsInput | string
     eircode?: StringFieldUpdateOperationsInput | string
     bedroom_no?: IntFieldUpdateOperationsInput | number
-    is_registered?: BoolFieldUpdateOperationsInput | boolean
+    isRegistered?: BoolFieldUpdateOperationsInput | boolean
     rents?: RentUpdateManyWithoutPropertyNestedInput
   }
 
   export type PropertyUncheckedUpdateWithoutReviewsInput = {
     id?: IntFieldUpdateOperationsInput | number
-    address_1?: StringFieldUpdateOperationsInput | string
-    address_2?: NullableStringFieldUpdateOperationsInput | string | null
-    address_3?: NullableStringFieldUpdateOperationsInput | string | null
-    address_4?: NullableStringFieldUpdateOperationsInput | string | null
-    address_5?: NullableStringFieldUpdateOperationsInput | string | null
+    address1?: StringFieldUpdateOperationsInput | string
+    address2?: NullableStringFieldUpdateOperationsInput | string | null
+    address3?: NullableStringFieldUpdateOperationsInput | string | null
+    address4?: NullableStringFieldUpdateOperationsInput | string | null
+    address5?: NullableStringFieldUpdateOperationsInput | string | null
     county?: StringFieldUpdateOperationsInput | string
     eircode?: StringFieldUpdateOperationsInput | string
     bedroom_no?: IntFieldUpdateOperationsInput | number
-    is_registered?: BoolFieldUpdateOperationsInput | boolean
+    isRegistered?: BoolFieldUpdateOperationsInput | boolean
     rents?: RentUncheckedUpdateManyWithoutPropertyNestedInput
   }
 
   export type RentCreateManyPropertyInput = {
     id?: number
-    rent_value: number
-    rent_period: string
+    rentValue: number
+    rentPeriod: string
   }
 
   export type ReviewCreateManyPropertyInput = {
@@ -5725,20 +5725,20 @@ export namespace Prisma {
   }
 
   export type RentUpdateWithoutPropertyInput = {
-    rent_value?: IntFieldUpdateOperationsInput | number
-    rent_period?: StringFieldUpdateOperationsInput | string
+    rentValue?: IntFieldUpdateOperationsInput | number
+    rentPeriod?: StringFieldUpdateOperationsInput | string
   }
 
   export type RentUncheckedUpdateWithoutPropertyInput = {
     id?: IntFieldUpdateOperationsInput | number
-    rent_value?: IntFieldUpdateOperationsInput | number
-    rent_period?: StringFieldUpdateOperationsInput | string
+    rentValue?: IntFieldUpdateOperationsInput | number
+    rentPeriod?: StringFieldUpdateOperationsInput | string
   }
 
   export type RentUncheckedUpdateManyWithoutPropertyInput = {
     id?: IntFieldUpdateOperationsInput | number
-    rent_value?: IntFieldUpdateOperationsInput | number
-    rent_period?: StringFieldUpdateOperationsInput | string
+    rentValue?: IntFieldUpdateOperationsInput | number
+    rentPeriod?: StringFieldUpdateOperationsInput | string
   }
 
   export type ReviewUpdateWithoutPropertyInput = {
