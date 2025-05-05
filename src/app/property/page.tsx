@@ -26,7 +26,7 @@ export default function PropertyPage() {
       </div>
       <div className="max-w-screen-xl flex flex-wrap items-center mx-auto p-4">
         <div className="w-full">
-          <PropertyList />
+          <PropertyList properties={properties} />
         </div>
       </div>
     </main>
