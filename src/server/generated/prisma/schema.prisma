@@ -15,32 +15,32 @@ datasource db {
 }
 
 model Property {
-  id            Int      @id @default(autoincrement())
-  address_1     String
-  address_2     String?
-  address_3     String?
-  address_4     String?
-  address_5     String?
-  county        String
-  eircode       String   @unique
-  bedroom_no    Int
-  is_registered Boolean  @default(true)
-  rents         Rent[]
-  reviews       Review[]
+  id           Int      @id @default(autoincrement())
+  address1     String   @map("address_1")
+  address2     String?  @map("address_2")
+  address3     String?  @map("address_3")
+  address4     String?  @map("address_4")
+  address5     String?  @map("address_5")
+  county       String
+  eircode      String   @unique
+  bedroom_no   Int
+  isRegistered Boolean  @default(true) @map("is_registered")
+  rents        Rent[]
+  reviews      Review[]
 }
 
 model Rent {
-  id          Int      @id @default(autoincrement())
-  rent_value  Int
-  rent_period String
-  property_Id Int
-  property    Property @relation(fields: [property_Id], references: [id])
+  id         Int      @id @default(autoincrement())
+  rentValue  Int      @map("rent_value")
+  rentPeriod String   @map("rent_period")
+  propertyId Int      @map("property_id")
+  property   Property @relation(fields: [propertyId], references: [id])
 }
 
 model Review {
-  id          Int      @id @default(autoincrement())
-  rating      Int
-  review      String?
-  property_Id Int
-  property    Property @relation(fields: [property_Id], references: [id])
+  id         Int      @id @default(autoincrement())
+  rating     Int
+  review     String?
+  propertyId Int      @map("property_id")
+  property   Property @relation(fields: [propertyId], references: [id])
 }

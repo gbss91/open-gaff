@@ -122,29 +122,29 @@ exports.Prisma.TransactionIsolationLevel = makeStrictEnum({
 
 exports.Prisma.PropertyScalarFieldEnum = {
   id: 'id',
-  address_1: 'address_1',
-  address_2: 'address_2',
-  address_3: 'address_3',
-  address_4: 'address_4',
-  address_5: 'address_5',
+  address1: 'address1',
+  address2: 'address2',
+  address3: 'address3',
+  address4: 'address4',
+  address5: 'address5',
   county: 'county',
   eircode: 'eircode',
   bedroom_no: 'bedroom_no',
-  is_registered: 'is_registered'
+  isRegistered: 'isRegistered'
 };
 
 exports.Prisma.RentScalarFieldEnum = {
   id: 'id',
-  rent_value: 'rent_value',
-  rent_period: 'rent_period',
-  property_Id: 'property_Id'
+  rentValue: 'rentValue',
+  rentPeriod: 'rentPeriod',
+  propertyId: 'propertyId'
 };
 
 exports.Prisma.ReviewScalarFieldEnum = {
   id: 'id',
   rating: 'rating',
   review: 'review',
-  property_Id: 'property_Id'
+  propertyId: 'propertyId'
 };
 
 exports.Prisma.SortOrder = {

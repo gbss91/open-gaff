@@ -15,8 +15,6 @@ export default function PropertyPage() {
       .catch((error) => console.error("Error fetching properties:", error));
   }, []);
 
-  console.log(properties);
-
   return (
     <main style={{ minHeight: "calc(100vh - 64px)" }}>
       <div className="max-w-screen-xl flex flex-wrap items-center mx-auto p-4">

@@ -2,7 +2,7 @@
 
 export type Property = {
   id: string;
-  address_1: string;
+  address1: string;
   address2?: string;
   address3?: string;
   address4?: string;
