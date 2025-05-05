@@ -1,6 +1,6 @@
 import Form from "next/form";
 
-const MainSearch = () => {
+const SearchBar = () => {
   return (
     <div>
       <Form action="/property" className="w-full">
