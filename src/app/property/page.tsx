@@ -1,4 +1,5 @@
 import SearchBar from "../components/SearchBar";
+import PropertyList from "./components/PropertyList";
 
 export default function PropertyPage() {
   return (
@@ -8,7 +9,11 @@ export default function PropertyPage() {
           <SearchBar />
         </div>
       </div>
-      <div className="max-w-screen-xl flex flex-wrap items-center mx-auto p-4"></div>
+      <div className="max-w-screen-xl flex flex-wrap items-center mx-auto p-4">
+        <div className="w-full">
+          <PropertyList />
+        </div>
+      </div>
     </main>
   );
 }
