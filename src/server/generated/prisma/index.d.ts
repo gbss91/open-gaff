@@ -1104,12 +1104,12 @@ export namespace Prisma {
 
   export type PropertyAvgAggregateOutputType = {
     id: number | null
-    bedroom_no: number | null
+    bedroomNo: number | null
   }
 
   export type PropertySumAggregateOutputType = {
     id: number | null
-    bedroom_no: number | null
+    bedroomNo: number | null
   }
 
   export type PropertyMinAggregateOutputType = {
@@ -1121,7 +1121,7 @@ export namespace Prisma {
     address5: string | null
     county: string | null
     eircode: string | null
-    bedroom_no: number | null
+    bedroomNo: number | null
     isRegistered: boolean | null
   }
 
@@ -1134,7 +1134,7 @@ export namespace Prisma {
     address5: string | null
     county: string | null
     eircode: string | null
-    bedroom_no: number | null
+    bedroomNo: number | null
     isRegistered: boolean | null
   }
 
@@ -1147,7 +1147,7 @@ export namespace Prisma {
     address5: number
     county: number
     eircode: number
-    bedroom_no: number
+    bedroomNo: number
     isRegistered: number
     _all: number
   }
@@ -1155,12 +1155,12 @@ export namespace Prisma {
 
   export type PropertyAvgAggregateInputType = {
     id?: true
-    bedroom_no?: true
+    bedroomNo?: true
   }
 
   export type PropertySumAggregateInputType = {
     id?: true
-    bedroom_no?: true
+    bedroomNo?: true
   }
 
   export type PropertyMinAggregateInputType = {
@@ -1172,7 +1172,7 @@ export namespace Prisma {
     address5?: true
     county?: true
     eircode?: true
-    bedroom_no?: true
+    bedroomNo?: true
     isRegistered?: true
   }
 
@@ -1185,7 +1185,7 @@ export namespace Prisma {
     address5?: true
     county?: true
     eircode?: true
-    bedroom_no?: true
+    bedroomNo?: true
     isRegistered?: true
   }
 
@@ -1198,7 +1198,7 @@ export namespace Prisma {
     address5?: true
     county?: true
     eircode?: true
-    bedroom_no?: true
+    bedroomNo?: true
     isRegistered?: true
     _all?: true
   }
@@ -1298,7 +1298,7 @@ export namespace Prisma {
     address5: string | null
     county: string
     eircode: string
-    bedroom_no: number
+    bedroomNo: number
     isRegistered: boolean
     _count: PropertyCountAggregateOutputType | null
     _avg: PropertyAvgAggregateOutputType | null
@@ -1330,7 +1330,7 @@ export namespace Prisma {
     address5?: boolean
     county?: boolean
     eircode?: boolean
-    bedroom_no?: boolean
+    bedroomNo?: boolean
     isRegistered?: boolean
     rents?: boolean | Property$rentsArgs<ExtArgs>
     reviews?: boolean | Property$reviewsArgs<ExtArgs>
@@ -1346,7 +1346,7 @@ export namespace Prisma {
     address5?: boolean
     county?: boolean
     eircode?: boolean
-    bedroom_no?: boolean
+    bedroomNo?: boolean
     isRegistered?: boolean
   }, ExtArgs["result"]["property"]>
 
@@ -1359,7 +1359,7 @@ export namespace Prisma {
     address5?: boolean
     county?: boolean
     eircode?: boolean
-    bedroom_no?: boolean
+    bedroomNo?: boolean
     isRegistered?: boolean
   }, ExtArgs["result"]["property"]>
 
@@ -1372,11 +1372,11 @@ export namespace Prisma {
     address5?: boolean
     county?: boolean
     eircode?: boolean
-    bedroom_no?: boolean
+    bedroomNo?: boolean
     isRegistered?: boolean
   }
 
-  export type PropertyOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "address1" | "address2" | "address3" | "address4" | "address5" | "county" | "eircode" | "bedroom_no" | "isRegistered", ExtArgs["result"]["property"]>
+  export type PropertyOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "address1" | "address2" | "address3" | "address4" | "address5" | "county" | "eircode" | "bedroomNo" | "isRegistered", ExtArgs["result"]["property"]>
   export type PropertyInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     rents?: boolean | Property$rentsArgs<ExtArgs>
     reviews?: boolean | Property$reviewsArgs<ExtArgs>
@@ -1400,7 +1400,7 @@ export namespace Prisma {
       address5: string | null
       county: string
       eircode: string
-      bedroom_no: number
+      bedroomNo: number
       isRegistered: boolean
     }, ExtArgs["result"]["property"]>
     composites: {}
@@ -1835,7 +1835,7 @@ export namespace Prisma {
     readonly address5: FieldRef<"Property", 'String'>
     readonly county: FieldRef<"Property", 'String'>
     readonly eircode: FieldRef<"Property", 'String'>
-    readonly bedroom_no: FieldRef<"Property", 'Int'>
+    readonly bedroomNo: FieldRef<"Property", 'Int'>
     readonly isRegistered: FieldRef<"Property", 'Boolean'>
   }
     
@@ -4488,7 +4488,7 @@ export namespace Prisma {
     address5: 'address5',
     county: 'county',
     eircode: 'eircode',
-    bedroom_no: 'bedroom_no',
+    bedroomNo: 'bedroomNo',
     isRegistered: 'isRegistered'
   };
 
@@ -4608,7 +4608,7 @@ export namespace Prisma {
     address5?: StringNullableFilter<"Property"> | string | null
     county?: StringFilter<"Property"> | string
     eircode?: StringFilter<"Property"> | string
-    bedroom_no?: IntFilter<"Property"> | number
+    bedroomNo?: IntFilter<"Property"> | number
     isRegistered?: BoolFilter<"Property"> | boolean
     rents?: RentListRelationFilter
     reviews?: ReviewListRelationFilter
@@ -4623,7 +4623,7 @@ export namespace Prisma {
     address5?: SortOrderInput | SortOrder
     county?: SortOrder
     eircode?: SortOrder
-    bedroom_no?: SortOrder
+    bedroomNo?: SortOrder
     isRegistered?: SortOrder
     rents?: RentOrderByRelationAggregateInput
     reviews?: ReviewOrderByRelationAggregateInput
@@ -4641,7 +4641,7 @@ export namespace Prisma {
     address4?: StringNullableFilter<"Property"> | string | null
     address5?: StringNullableFilter<"Property"> | string | null
     county?: StringFilter<"Property"> | string
-    bedroom_no?: IntFilter<"Property"> | number
+    bedroomNo?: IntFilter<"Property"> | number
     isRegistered?: BoolFilter<"Property"> | boolean
     rents?: RentListRelationFilter
     reviews?: ReviewListRelationFilter
@@ -4656,7 +4656,7 @@ export namespace Prisma {
     address5?: SortOrderInput | SortOrder
     county?: SortOrder
     eircode?: SortOrder
-    bedroom_no?: SortOrder
+    bedroomNo?: SortOrder
     isRegistered?: SortOrder
     _count?: PropertyCountOrderByAggregateInput
     _avg?: PropertyAvgOrderByAggregateInput
@@ -4677,7 +4677,7 @@ export namespace Prisma {
     address5?: StringNullableWithAggregatesFilter<"Property"> | string | null
     county?: StringWithAggregatesFilter<"Property"> | string
     eircode?: StringWithAggregatesFilter<"Property"> | string
-    bedroom_no?: IntWithAggregatesFilter<"Property"> | number
+    bedroomNo?: IntWithAggregatesFilter<"Property"> | number
     isRegistered?: BoolWithAggregatesFilter<"Property"> | boolean
   }
 
@@ -4793,7 +4793,7 @@ export namespace Prisma {
     address5?: string | null
     county: string
     eircode: string
-    bedroom_no: number
+    bedroomNo: number
     isRegistered?: boolean
     rents?: RentCreateNestedManyWithoutPropertyInput
     reviews?: ReviewCreateNestedManyWithoutPropertyInput
@@ -4808,7 +4808,7 @@ export namespace Prisma {
     address5?: string | null
     county: string
     eircode: string
-    bedroom_no: number
+    bedroomNo: number
     isRegistered?: boolean
     rents?: RentUncheckedCreateNestedManyWithoutPropertyInput
     reviews?: ReviewUncheckedCreateNestedManyWithoutPropertyInput
@@ -4822,7 +4822,7 @@ export namespace Prisma {
     address5?: NullableStringFieldUpdateOperationsInput | string | null
     county?: StringFieldUpdateOperationsInput | string
     eircode?: StringFieldUpdateOperationsInput | string
-    bedroom_no?: IntFieldUpdateOperationsInput | number
+    bedroomNo?: IntFieldUpdateOperationsInput | number
     isRegistered?: BoolFieldUpdateOperationsInput | boolean
     rents?: RentUpdateManyWithoutPropertyNestedInput
     reviews?: ReviewUpdateManyWithoutPropertyNestedInput
@@ -4837,7 +4837,7 @@ export namespace Prisma {
     address5?: NullableStringFieldUpdateOperationsInput | string | null
     county?: StringFieldUpdateOperationsInput | string
     eircode?: StringFieldUpdateOperationsInput | string
-    bedroom_no?: IntFieldUpdateOperationsInput | number
+    bedroomNo?: IntFieldUpdateOperationsInput | number
     isRegistered?: BoolFieldUpdateOperationsInput | boolean
     rents?: RentUncheckedUpdateManyWithoutPropertyNestedInput
     reviews?: ReviewUncheckedUpdateManyWithoutPropertyNestedInput
@@ -4852,7 +4852,7 @@ export namespace Prisma {
     address5?: string | null
     county: string
     eircode: string
-    bedroom_no: number
+    bedroomNo: number
     isRegistered?: boolean
   }
 
@@ -4864,7 +4864,7 @@ export namespace Prisma {
     address5?: NullableStringFieldUpdateOperationsInput | string | null
     county?: StringFieldUpdateOperationsInput | string
     eircode?: StringFieldUpdateOperationsInput | string
-    bedroom_no?: IntFieldUpdateOperationsInput | number
+    bedroomNo?: IntFieldUpdateOperationsInput | number
     isRegistered?: BoolFieldUpdateOperationsInput | boolean
   }
 
@@ -4877,7 +4877,7 @@ export namespace Prisma {
     address5?: NullableStringFieldUpdateOperationsInput | string | null
     county?: StringFieldUpdateOperationsInput | string
     eircode?: StringFieldUpdateOperationsInput | string
-    bedroom_no?: IntFieldUpdateOperationsInput | number
+    bedroomNo?: IntFieldUpdateOperationsInput | number
     isRegistered?: BoolFieldUpdateOperationsInput | boolean
   }
 
@@ -5051,13 +5051,13 @@ export namespace Prisma {
     address5?: SortOrder
     county?: SortOrder
     eircode?: SortOrder
-    bedroom_no?: SortOrder
+    bedroomNo?: SortOrder
     isRegistered?: SortOrder
   }
 
   export type PropertyAvgOrderByAggregateInput = {
     id?: SortOrder
-    bedroom_no?: SortOrder
+    bedroomNo?: SortOrder
   }
 
   export type PropertyMaxOrderByAggregateInput = {
@@ -5069,7 +5069,7 @@ export namespace Prisma {
     address5?: SortOrder
     county?: SortOrder
     eircode?: SortOrder
-    bedroom_no?: SortOrder
+    bedroomNo?: SortOrder
     isRegistered?: SortOrder
   }
 
@@ -5082,13 +5082,13 @@ export namespace Prisma {
     address5?: SortOrder
     county?: SortOrder
     eircode?: SortOrder
-    bedroom_no?: SortOrder
+    bedroomNo?: SortOrder
     isRegistered?: SortOrder
   }
 
   export type PropertySumOrderByAggregateInput = {
     id?: SortOrder
-    bedroom_no?: SortOrder
+    bedroomNo?: SortOrder
   }
 
   export type IntWithAggregatesFilter<$PrismaModel = never> = {
@@ -5580,7 +5580,7 @@ export namespace Prisma {
     address5?: string | null
     county: string
     eircode: string
-    bedroom_no: number
+    bedroomNo: number
     isRegistered?: boolean
     reviews?: ReviewCreateNestedManyWithoutPropertyInput
   }
@@ -5594,7 +5594,7 @@ export namespace Prisma {
     address5?: string | null
     county: string
     eircode: string
-    bedroom_no: number
+    bedroomNo: number
     isRegistered?: boolean
     reviews?: ReviewUncheckedCreateNestedManyWithoutPropertyInput
   }
@@ -5623,7 +5623,7 @@ export namespace Prisma {
     address5?: NullableStringFieldUpdateOperationsInput | string | null
     county?: StringFieldUpdateOperationsInput | string
     eircode?: StringFieldUpdateOperationsInput | string
-    bedroom_no?: IntFieldUpdateOperationsInput | number
+    bedroomNo?: IntFieldUpdateOperationsInput | number
     isRegistered?: BoolFieldUpdateOperationsInput | boolean
     reviews?: ReviewUpdateManyWithoutPropertyNestedInput
   }
@@ -5637,7 +5637,7 @@ export namespace Prisma {
     address5?: NullableStringFieldUpdateOperationsInput | string | null
     county?: StringFieldUpdateOperationsInput | string
     eircode?: StringFieldUpdateOperationsInput | string
-    bedroom_no?: IntFieldUpdateOperationsInput | number
+    bedroomNo?: IntFieldUpdateOperationsInput | number
     isRegistered?: BoolFieldUpdateOperationsInput | boolean
     reviews?: ReviewUncheckedUpdateManyWithoutPropertyNestedInput
   }
@@ -5650,7 +5650,7 @@ export namespace Prisma {
     address5?: string | null
     county: string
     eircode: string
-    bedroom_no: number
+    bedroomNo: number
     isRegistered?: boolean
     rents?: RentCreateNestedManyWithoutPropertyInput
   }
@@ -5664,7 +5664,7 @@ export namespace Prisma {
     address5?: string | null
     county: string
     eircode: string
-    bedroom_no: number
+    bedroomNo: number
     isRegistered?: boolean
     rents?: RentUncheckedCreateNestedManyWithoutPropertyInput
   }
@@ -5693,7 +5693,7 @@ export namespace Prisma {
     address5?: NullableStringFieldUpdateOperationsInput | string | null
     county?: StringFieldUpdateOperationsInput | string
     eircode?: StringFieldUpdateOperationsInput | string
-    bedroom_no?: IntFieldUpdateOperationsInput | number
+    bedroomNo?: IntFieldUpdateOperationsInput | number
     isRegistered?: BoolFieldUpdateOperationsInput | boolean
     rents?: RentUpdateManyWithoutPropertyNestedInput
   }
@@ -5707,7 +5707,7 @@ export namespace Prisma {
     address5?: NullableStringFieldUpdateOperationsInput | string | null
     county?: StringFieldUpdateOperationsInput | string
     eircode?: StringFieldUpdateOperationsInput | string
-    bedroom_no?: IntFieldUpdateOperationsInput | number
+    bedroomNo?: IntFieldUpdateOperationsInput | number
     isRegistered?: BoolFieldUpdateOperationsInput | boolean
     rents?: RentUncheckedUpdateManyWithoutPropertyNestedInput
   }
