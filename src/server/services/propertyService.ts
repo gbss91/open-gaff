@@ -5,8 +5,22 @@ export const propertyService = {
     return await prisma.property.findMany();
   },
 
-  getPropertiesByQuery: async () => {
-    //Todo
+  getPropertiesByQuery: async (query: string) => {
+    const properties = await prisma.property.findMany({
+      where: {
+        OR: [
+          { address1: { contains: query, mode: "insensitive" } },
+          { address2: { contains: query, mode: "insensitive" } },
+          { address3: { contains: query, mode: "insensitive" } },
+          { address4: { contains: query, mode: "insensitive" } },
+          { address5: { contains: query, mode: "insensitive" } },
+          { county: { contains: query, mode: "insensitive" } },
+          { eircode: { contains: query, mode: "insensitive" } },
+        ],
+      },
+    });
+
+    return properties;
   },
 
   getPropertyById: async (id: number) => {
