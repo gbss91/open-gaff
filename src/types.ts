@@ -1,7 +1,7 @@
 // Custom types
 
 export type Property = {
-  id: string;
+  id?: string;
   address1: string;
   address2?: string | null;
   address3?: string | null;
