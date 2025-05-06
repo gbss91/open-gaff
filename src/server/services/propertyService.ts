@@ -40,8 +40,9 @@ export const propertyService = {
         county: data.county,
         eircode: data.eircode,
         bedroomNo: data.bedroomNo,
-        isRegistered: False,
+        isRegistered: false,
       },
     });
+    return property;
   },
 };
