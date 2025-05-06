@@ -23,7 +23,7 @@ model Property {
   address5     String?  @map("address_5")
   county        String
   eircode       String   @unique
-  bedroom_no    Int
+  bedroomNo    Int     @map("bedroom_no")
   isRegistered Boolean  @default(true) @map("is_registered")
   rents         Rent[]
   reviews       Review[]

@@ -1,3 +1,4 @@
+import { Property } from "@/types";
 import prisma from "../prisma";
 
 export const propertyService = {
@@ -28,7 +29,19 @@ export const propertyService = {
     return property;
   },
 
-  addProperty: async () => {
-    //TODO
+  addProperty: async (data: Property) => {
+    const property = await prisma.property.create({
+      data: {
+        address1: data.address1,
+        address2: data.address2,
+        address3: data.address3,
+        address4: data.address4,
+        address5: data.address5,
+        county: data.county,
+        eircode: data.eircode,
+        bedroomNo: data.bedroomNo,
+        isRegistered: False,
+      },
+    });
   },
 };

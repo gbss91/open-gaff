@@ -129,7 +129,7 @@ exports.Prisma.PropertyScalarFieldEnum = {
   address5: 'address5',
   county: 'county',
   eircode: 'eircode',
-  bedroom_no: 'bedroom_no',
+  bedroomNo: 'bedroomNo',
   isRegistered: 'isRegistered'
 };
 
