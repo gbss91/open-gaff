@@ -4,16 +4,23 @@ import { useEffect, useState } from "react";
 import SearchBar from "../components/SearchBar";
 import PropertyList from "./components/PropertyList";
 import { Property } from "@/types";
+import { useSearchParams } from "next/navigation";
 
 export default function PropertyPage() {
   const [properties, setProperties] = useState<Property[]>([]);
+  const searchParams = useSearchParams();
 
   useEffect(() => {
-    fetch("/api/properties")
+    const queryString = searchParams.toString();
+    const url = queryString
+      ? `/api/properties?${queryString}`
+      : `/api/properties`;
+
+    fetch(url)
       .then((res) => res.json())
       .then((data: Property[]) => setProperties(data))
       .catch((error) => console.error("Error fetching properties:", error));
-  }, []);
+  }, [searchParams]);
 
   return (
     <main style={{ minHeight: "calc(100vh - 64px)" }}>

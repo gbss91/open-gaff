@@ -2,8 +2,11 @@ import { propertyService } from "@/server/services/propertyService";
 import { NextRequest, NextResponse } from "next/server";
 
 // Get all properties
-export const GET = async () => {
+export const GET = async (request: NextRequest) => {
   try {
+    const searchParams = request.nextUrl.searchParams;
+    console.log(request.nextUrl);
+
     const properties = await propertyService.getAllProperties();
     return NextResponse.json(properties);
   } catch (error) {
