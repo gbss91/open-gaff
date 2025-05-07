@@ -5,9 +5,13 @@ import { NextRequest, NextResponse } from "next/server";
 export const GET = async (request: NextRequest) => {
   try {
     const searchParams = request.nextUrl.searchParams;
-    console.log(request.nextUrl);
+    const searchValue = searchParams.get("search")?.trim();
 
-    const properties = await propertyService.getAllProperties();
+    // Get all properties if no search value
+    const properties = searchValue
+      ? await propertyService.getPropertiesByQuery(searchValue)
+      : await propertyService.getAllProperties();
+
     return NextResponse.json(properties);
   } catch (error) {
     console.error("API Error: ", error);
