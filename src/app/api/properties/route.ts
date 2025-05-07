@@ -1,7 +1,15 @@
+import { propertyService } from "@/server/services/propertyService";
 import { NextResponse } from "next/server";
-import { getAllProperties } from "@/server/services/propertyService";
 
 export const GET = async () => {
-  const properties = await getAllProperties();
-  return NextResponse.json(properties);
+  try {
+    const properties = await propertyService.getAllProperties();
+    return NextResponse.json(properties);
+  } catch (error) {
+    console.error(error);
+    return NextResponse.json(
+      { error: "Internal Server Error" },
+      { status: 500 }
+    );
+  }
 };
