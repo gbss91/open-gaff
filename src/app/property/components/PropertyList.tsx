@@ -1,15 +1,42 @@
+"use client";
+
 import { Property } from "@/types";
 import PropertyCard from "./PropertyCard";
+import { useEffect, useState } from "react";
+import { useSearchParams } from "next/navigation";
 
-type PropertyProps = {
-  properties: Property[];
-};
+const PropertyList = () => {
+  const [properties, setProperties] = useState<Property[]>([]);
+  const searchParams = useSearchParams();
 
-const PropertyList = ({ properties }: PropertyProps) => {
+  useEffect(() => {
+    const queryString = searchParams.toString();
+    const url = queryString
+      ? `/api/properties?${queryString}`
+      : `/api/properties`;
+
+    fetch(url)
+      .then(async (res) => {
+        if (!res.ok) {
+          // Might add error page
+          setProperties([]); // Fallback to empty list
+          return;
+        }
+        const data = await res.json();
+        setProperties(data);
+      })
+      .catch(() => {
+        console.log("Error fetching properties");
+        setProperties([]);
+      });
+  }, [searchParams]);
+
   return (
     <div className="w-full space-y-4">
       {properties.map((property) => (
-        <PropertyCard key={property.id} property={property} />
+        <div key={property.id}>
+          <PropertyCard property={property} />
+        </div>
       ))}
     </div>
   );
