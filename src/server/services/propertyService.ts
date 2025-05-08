@@ -2,12 +2,21 @@ import { Property } from "@/types";
 import prisma from "../prisma";
 
 export const propertyService = {
-  getAllProperties: async () => {
-    return await prisma.property.findMany();
+  getAllProperties: async (page: number, pageSize: number = 5) => {
+    return await prisma.property.findMany({
+      skip: (page - 1) * pageSize,
+      take: pageSize,
+    });
   },
 
-  getPropertiesByQuery: async (query: string) => {
+  getPropertiesByQuery: async (
+    query: string,
+    page: number,
+    pageSize: number = 5
+  ) => {
     const properties = await prisma.property.findMany({
+      skip: (page - 1) * pageSize,
+      take: pageSize,
       where: {
         OR: [
           { address1: { contains: query, mode: "insensitive" } },
