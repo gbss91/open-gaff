@@ -11,8 +11,8 @@ export type Property = {
   eircode: string;
   bedroomNo: number;
   isRegistered?: boolean | null;
-  rentPrices?: Rent | null;
-  reviews?: Review | null;
+  rentPrices?: Rent[] | null;
+  reviews?: Review[] | null;
 };
 
 export type Rent = {
