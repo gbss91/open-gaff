@@ -3,7 +3,7 @@
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 
-const Map = () => {
+const DynamicMap = () => {
   return (
     <MapContainer
       center={[53.3498, -6.2603]}
@@ -21,4 +21,4 @@ const Map = () => {
   );
 };
 
-export default Map;
+export default DynamicMap;
