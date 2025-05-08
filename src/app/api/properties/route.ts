@@ -6,11 +6,19 @@ export const GET = async (request: NextRequest) => {
   try {
     const searchParams = request.nextUrl.searchParams;
     const searchValue = searchParams.get("search")?.trim();
+    const page = parseInt(searchParams.get("page") || "1");
+
+    if (isNaN(page) || page < 1) {
+      return NextResponse.json(
+        { error: "Invalid page number" },
+        { status: 400 }
+      );
+    }
 
     // Get all properties if no search value
     const properties = searchValue
-      ? await propertyService.getPropertiesByQuery(searchValue)
-      : await propertyService.getAllProperties();
+      ? await propertyService.getPropertiesByQuery(searchValue, page)
+      : await propertyService.getAllProperties(page);
 
     return NextResponse.json(properties);
   } catch (error) {

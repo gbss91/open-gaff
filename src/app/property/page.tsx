@@ -17,9 +17,16 @@ export default function PropertyPage() {
       : `/api/properties`;
 
     fetch(url)
-      .then((res) => res.json())
-      .then((data: Property[]) => setProperties(data))
-      .catch((error) => console.error("Error fetching properties:", error));
+      .then(async (res) => {
+        if (!res.ok) {
+          // Might add error page
+          setProperties([]); // Fallback to empty list
+          return;
+        }
+        const data = await res.json();
+        setProperties(data);
+      })
+      .catch((error) => console.log("Error fetching properties", error));
   }, [searchParams]);
 
   return (
