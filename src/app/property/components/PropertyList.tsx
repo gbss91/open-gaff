@@ -1,4 +1,5 @@
 import { Property } from "@/types";
+import PropertyCard from "./PropertyCard";
 
 type PropertyProps = {
   properties: Property[];
@@ -6,12 +7,9 @@ type PropertyProps = {
 
 const PropertyList = ({ properties }: PropertyProps) => {
   return (
-    <div>
+    <div className="w-full space-y-4">
       {properties.map((property) => (
-        <div key={property.id}>
-          <h3>{property.address1}</h3>
-          <p>{property.eircode}</p>
-        </div>
+        <PropertyCard key={property.id} property={property} />
       ))}
     </div>
   );

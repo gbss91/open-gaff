@@ -26,7 +26,10 @@ export default function PropertyPage() {
         const data = await res.json();
         setProperties(data);
       })
-      .catch((error) => console.log("Error fetching properties", error));
+      .catch(() => {
+        console.log("Error fetching properties");
+        setProperties([]);
+      });
   }, [searchParams]);
 
   return (
