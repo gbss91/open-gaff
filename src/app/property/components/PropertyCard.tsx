@@ -11,7 +11,7 @@ const PropertyCard = ({ property }: PropertyTileProps) => {
   const eircode = property.eircode.trim();
 
   return (
-    <Link href="/">
+    <Link href={`/property/${property.id}`}>
       <div className="w-full">
         <div className="bg-white rounded-lg shadow-xs border border-gray-300 p-6 flex flex-col justify-between">
           <div className="flex items-center">
