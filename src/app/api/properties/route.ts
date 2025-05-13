@@ -17,8 +17,8 @@ export const GET = async (request: NextRequest) => {
 
     // Get all properties if no search value
     const properties = searchValue
-      ? await propertyService.getPropertiesByQuery(searchValue, page)
-      : await propertyService.getAllProperties(page);
+      ? await propertyService.getPropertiesByQuery(searchValue, ["rents"], page)
+      : await propertyService.getAllProperties(["rents"], page);
 
     return NextResponse.json(properties);
   } catch (error) {

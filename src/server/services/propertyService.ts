@@ -1,16 +1,25 @@
-import { Property } from "@/types";
+import { Property, PropertyRelations } from "@/types";
 import prisma from "../prisma";
 
 export const propertyService = {
-  getAllProperties: async (page: number, pageSize: number = 5) => {
+  getAllProperties: async (
+    includeRelations: PropertyRelations,
+    page: number,
+    pageSize: number = 5
+  ) => {
     return await prisma.property.findMany({
       skip: (page - 1) * pageSize,
       take: pageSize,
+      include: {
+        reviews: includeRelations.includes("reviews"),
+        rents: includeRelations.includes("rents"),
+      },
     });
   },
 
   getPropertiesByQuery: async (
     query: string,
+    includeRelations: PropertyRelations,
     page: number,
     pageSize: number = 5
   ) => {
@@ -28,13 +37,23 @@ export const propertyService = {
           { eircode: { contains: query, mode: "insensitive" } },
         ],
       },
+      include: {
+        reviews: includeRelations.includes("reviews"),
+        rents: includeRelations.includes("rents"),
+      },
     });
 
     return properties;
   },
 
-  getPropertyById: async (id: number) => {
-    const property = await prisma.property.findUnique({ where: { id: id } });
+  getPropertyById: async (id: number, includeRelations: PropertyRelations) => {
+    const property = await prisma.property.findUnique({
+      where: { id: id },
+      include: {
+        reviews: includeRelations.includes("reviews"),
+        rents: includeRelations.includes("rents"),
+      },
+    });
     return property;
   },
 

@@ -28,3 +28,5 @@ export type Review = {
   review?: string | null;
   propertyId?: number | null;
 };
+
+export type PropertyRelations = Array<"reviews" | "rents">;
