@@ -25,7 +25,7 @@ const Navbar = () => {
           className="flex items-center space-x-3 rtl:space-x-reverse"
         >
           <Image
-            src="globe.svg"
+            src="/globe.svg"
             className="h-8"
             alt="OpenGaff Logo"
             width={50}

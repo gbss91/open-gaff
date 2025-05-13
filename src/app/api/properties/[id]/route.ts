@@ -7,12 +7,13 @@ export const GET = async (
 ) => {
   try {
     const { id } = await params;
-    const property = propertyService.getPropertyById(parseInt(id), [
+    console.log("IM CALLED WITH", id);
+    const property = await propertyService.getPropertyById(parseInt(id), [
       "reviews",
       "rents",
     ]);
 
-    if (!property) {
+    if (!property || Object.keys(property).length === 0) {
       return NextResponse.json(
         { error: "Property not found" },
         { status: 404 }
