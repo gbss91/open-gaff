@@ -22,9 +22,17 @@ const PropertyCard = ({ property }: PropertyTileProps) => {
                 }`}
               >
                 {property.isRegistered ? (
-                  <House size={16} className="w-4 h-4 mr-1 text-green-600" />
+                  <House
+                    size={16}
+                    className="w-4 h-4 mr-1 text-green-600"
+                    data-testid="house-icon"
+                  />
                 ) : (
-                  <House size={16} className="w-4 h-4 mr-1 text-gray-600" />
+                  <House
+                    size={16}
+                    className="w-4 h-4 mr-1 text-gray-600"
+                    data-testid="house-icon"
+                  />
                 )}
                 {property.isRegistered ? "Registered" : "Not Registered"}
               </p>
