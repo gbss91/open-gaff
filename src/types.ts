@@ -1,7 +1,7 @@
 // Custom types
 
 export type Property = {
-  id?: string;
+  id?: number | null;
   address1: string;
   address2?: string | null;
   address3?: string | null;
@@ -16,14 +16,14 @@ export type Property = {
 };
 
 export type Rent = {
-  id: string;
+  id?: number | null;
   rentValue: number;
   rentPeriod: string;
   propertyId?: number | null;
 };
 
 export type Review = {
-  id: string;
+  id?: number | null;
   rating: number;
   review?: string | null;
   propertyId?: number | null;
