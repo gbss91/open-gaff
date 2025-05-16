@@ -1,5 +1,3 @@
-import DynamicMap from "@/app/components/DynamicMap";
-
 export default async function PropertyPage({
   params,
 }: {
