@@ -2,9 +2,9 @@ import { cleanup, render, screen } from "@testing-library/react";
 import { Property } from "@/types";
 import PropertyCard from "@/app/property/components/PropertyCard";
 import "@testing-library/jest-dom";
-import { propertyFixture } from "../fixtures/property";
+import { propertyFixtures } from "../fixtures/properties";
 
-const mockProperty = propertyFixture;
+const mockProperty = propertyFixtures[0];
 
 afterEach(() => {
   cleanup();

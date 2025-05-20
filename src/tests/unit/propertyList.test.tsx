@@ -1,6 +1,7 @@
-import { cleanup, render, screen, waitFor } from "@testing-library/react";
+import { act, cleanup, render, screen, waitFor } from "@testing-library/react";
 import fetchMock from "jest-fetch-mock";
-import { propertiesFixtures } from "../fixtures/properties";
+import "@testing-library/jest-dom";
+import { propertyFixtures } from "../fixtures/properties";
 import PropertyList from "@/app/property/components/PropertyList";
 
 // Mock searchParams
@@ -25,7 +26,10 @@ afterEach(() => {
 
 describe("Property list unit tests", () => {
   test("renders property list data", async () => {
-    fetchMock.mockResponseOnce(JSON.stringify(propertiesFixtures));
+    fetchMock.mockResponse(() =>
+      Promise.resolve(JSON.stringify(propertyFixtures))
+    );
+
     render(<PropertyList />);
 
     await waitFor(() =>
@@ -34,7 +38,6 @@ describe("Property list unit tests", () => {
 
     expect(screen.getByText("22 Blue Avenue")).toBeInTheDocument();
     expect(screen.getByText("8 Red Lane")).toBeInTheDocument();
-
     const cards = screen.getAllByText(/Registered|Not Registered/);
     expect(cards).toHaveLength(3);
   });
