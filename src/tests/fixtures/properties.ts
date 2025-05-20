@@ -32,8 +32,8 @@ export const propertyFixtures: Property[] = [
     county: "Cork",
     eircode: "T12 XYZ",
     bedroomNo: 3,
-    isRegistered: false,
-    rentPrices: null,
+    isRegistered: true,
+    rentPrices: [],
     reviews: [
       {
         id: 2,
@@ -49,7 +49,7 @@ export const propertyFixtures: Property[] = [
     county: "Galway",
     eircode: "H91 DEF",
     bedroomNo: 1,
-    isRegistered: true,
+    isRegistered: false,
     rentPrices: [
       {
         id: 2,
@@ -58,6 +58,6 @@ export const propertyFixtures: Property[] = [
         propertyId: 3,
       },
     ],
-    reviews: null,
+    reviews: [],
   },
 ];
