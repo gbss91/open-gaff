@@ -2,23 +2,9 @@ import { cleanup, render, screen } from "@testing-library/react";
 import { Property } from "@/types";
 import PropertyCard from "@/app/property/components/PropertyCard";
 import "@testing-library/jest-dom";
+import { propertyFixture } from "../fixtures/property";
 
-const mockProperty: Property = {
-  id: 1,
-  address1: "123 Main St ",
-  county: "Dublin ",
-  eircode: "D01 XYZ ",
-  bedroomNo: 1,
-  isRegistered: true,
-  rentPrices: [
-    {
-      id: 1,
-      rentValue: 1500,
-      rentPeriod: "monthly",
-      propertyId: 1,
-    },
-  ],
-};
+const mockProperty = propertyFixture;
 
 afterEach(() => {
   cleanup();
@@ -28,9 +14,9 @@ describe("Property card unit tests", () => {
   test("renders property data correctly", () => {
     render(<PropertyCard property={mockProperty} />);
     expect(screen.getByText("Registered")).toBeInTheDocument();
-    expect(screen.getByText("123 Main St")).toBeInTheDocument();
-    expect(screen.getByText("Dublin, D01 XYZ")).toBeInTheDocument();
-    expect(screen.getByText("1500")).toBeInTheDocument();
+    expect(screen.getByText("10 Green Street")).toBeInTheDocument();
+    expect(screen.getByText("Dublin, D01 ABC")).toBeInTheDocument();
+    expect(screen.getByText("1800")).toBeInTheDocument();
   });
 
   test("renders fallback when rent data is missing", () => {
