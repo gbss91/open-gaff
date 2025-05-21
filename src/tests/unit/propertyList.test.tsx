@@ -36,8 +36,7 @@ describe("Property list unit tests", () => {
       expect(screen.getByText("10 Green Street")).toBeInTheDocument()
     );
 
-    expect(screen.getByText("Dublin")).toBeInTheDocument();
-    expect(screen.getByText("D01 ABC")).toBeInTheDocument();
+    expect(screen.getByText("Dublin, D01 ABC")).toBeInTheDocument();
     const cards = screen.getAllByText(/Registered|Not Registered/);
     expect(cards).toHaveLength(3);
   });

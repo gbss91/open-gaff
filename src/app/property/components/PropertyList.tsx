@@ -33,11 +33,15 @@ const PropertyList = () => {
 
   return (
     <div className="w-full space-y-4">
-      {properties.map((property) => (
-        <div key={property.id}>
-          <PropertyCard property={property} />
-        </div>
-      ))}
+      {properties.length > 0 ? (
+        properties.map((property) => (
+          <div key={property.id}>
+            <PropertyCard property={property} />
+          </div>
+        ))
+      ) : (
+        <span>Nothing found</span>
+      )}
     </div>
   );
 };
