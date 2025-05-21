@@ -36,10 +36,20 @@ describe("Property list unit tests", () => {
       expect(screen.getByText("10 Green Street")).toBeInTheDocument()
     );
 
-    expect(screen.getByText("22 Blue Avenue")).toBeInTheDocument();
-    expect(screen.getByText("8 Red Lane")).toBeInTheDocument();
+    expect(screen.getByText("Dublin")).toBeInTheDocument();
+    expect(screen.getByText("D01 ABC")).toBeInTheDocument();
     const cards = screen.getAllByText(/Registered|Not Registered/);
     expect(cards).toHaveLength(3);
+  });
+
+  test("renders empty list if no properties", async () => {
+    fetchMock.mockResponse(() => Promise.resolve(JSON.stringify({})));
+
+    render(<PropertyList />);
+
+    await waitFor(() =>
+      expect(screen.getByText("Nothing found")).toBeInTheDocument()
+    );
   });
 
   // test("", () => {});
