@@ -1,6 +1,6 @@
 import { Suspense } from "react";
 import SearchBar from "../../components/SearchBar";
-import PropertyList from "./components/PropertyList";
+import PropertyList from "../../components/properties/PropertyList";
 
 export default function PropertiesPage() {
   return (
