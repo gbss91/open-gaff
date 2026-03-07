@@ -20,4 +20,4 @@ jobs:
         with:
           node-version-file: ".nvmrc"
           cache: "pnpm"
-      - run: pnpm ci
+      - run: pnpm run ci
