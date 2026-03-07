@@ -1,5 +1,14 @@
 @import "tailwindcss";
 
+@theme {
+  --primary: #1e4d35;
+  --secondary: #e8ede9;
+  --accent: #52976e;
+  --text-dark: #0f0f0e;
+  --text-light: #8a9189;
+  --text-accent: #52976e;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
