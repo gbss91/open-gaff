@@ -1,4 +1,4 @@
-import DynamicMap from "@/app/components/DynamicMap";
+import DynamicMap from "@/components/DynamicMap";
 
 export default function PropertyPage() {
   return (
