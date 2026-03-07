@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
+    "ci": "pnpm install --frozen-lockfile && pnpm run build --if-present && pnpm test",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
