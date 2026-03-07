@@ -20,6 +20,4 @@ jobs:
         with:
           node-version-file: ".nvmrc"
           cache: "pnpm"
-      - run: pnpm install --frozen-lockfile
-      - run: pnpm run build --if-present
-      - run: pnpm test
+      - run: pnpm ci
