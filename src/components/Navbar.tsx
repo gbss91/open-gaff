@@ -9,7 +9,7 @@ const navItems = [
   {
     id: "properties",
     label: "Properties",
-    href: "/property",
+    href: "/properties",
   },
 ];
 
