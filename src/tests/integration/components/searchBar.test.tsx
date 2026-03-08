@@ -6,15 +6,9 @@ describe("Integration | SearchBar", () => {
     render(<SearchBar action="/properties" />);
   });
 
-  it("renders the search input", () => {
+  it("renders the search bar with all elements", () => {
     expect(screen.getByTestId("search-bar")).toBeInTheDocument();
-  });
-
-  it("renders the search correct icon", () => {
     expect(screen.getByTestId("search-bar-icon")).toBeInTheDocument();
-  });
-
-  it("renders the search button", () => {
     expect(screen.getByTestId("search-bar-btn")).toBeInTheDocument();
   });
 
