@@ -17,7 +17,7 @@ const SearchBar = ({ action, className }: SearchBarProps) => {
           name="search"
           size="18"
           className="stroke-muted absolute left-2.5 top-1/2 -translate-y-1/2"
-          data-testId="search-bar-icon"
+          data-testid="search-bar-icon"
         />
         <input
           type="search"
@@ -25,12 +25,12 @@ const SearchBar = ({ action, className }: SearchBarProps) => {
           name="q"
           className={`${styles.input} bg-white text-sm block w-full px-8 py-4`}
           placeholder="Search by address or Eircode..."
-          data-testId="search-bar"
+          data-testid="search-bar"
         />
         <button
           type="submit"
           className={`${styles.searchBtn} bg-primary absolute right-2.5 top-1/2 -translate-y-1/2 text-white text-sm px-4 py-2`}
-          data-testId="search-bar-btn"
+          data-testid="search-bar-btn"
         >
           Search
         </button>

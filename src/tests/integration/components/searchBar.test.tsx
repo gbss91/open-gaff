@@ -1,26 +1,21 @@
 import { render, screen, fireEvent } from "@testing-library/react";
+import SearchBar from "@/components/search/SearchBar";
 
 describe("Integration | SearchBar", () => {
   beforeEach(() => {
-    render(<SearchBar action='/properties' />);
+    render(<SearchBar action="/properties" />);
   });
 
   it("renders the search input", () => {
-    expect(
-      screen.getAllByTestId("search-bar")
-    ).toBeInTheDocument();
+    expect(screen.getByTestId("search-bar")).toBeInTheDocument();
   });
 
   it("renders the search correct icon", () => {
-    expect(
-      screen.getByTestId("search-bar-icon")
-    ).toBeInTheDocument();
+    expect(screen.getByTestId("search-bar-icon")).toBeInTheDocument();
   });
 
   it("renders the search button", () => {
-    expect(
-      screen.getByTestId("search-bar-button")
-    ).toBeInTheDocument();
+    expect(screen.getByTestId("search-bar-btn")).toBeInTheDocument();
   });
 
   it("accepts user input", () => {
