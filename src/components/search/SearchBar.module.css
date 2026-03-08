@@ -1,23 +1,16 @@
-.searchIcon {
-  color: #aaa;
-}
-
 .input {
   color: var(--text-dark);
-  border: 1.5px solid var(--input-border);
+  border: 1.5px solid var(--color-input-border);
   border-radius: 12px;
   box-shadow: 0 2px 20px rgba(30, 77, 53, 0.1);
-  transition:
-    border-color 0.2s,
-    box-shadow 0.2s;
   outline: none;
 }
 
-.input:focus-within {
-  border-color: var(--color-accent);
+.input:focus {
+  border-color: var(--color-primary);
   box-shadow:
-    0 2px 20px rgba(82, 151, 110, 0.2),
-    0 0 0 3px rgba(82, 151, 110, 0.1);
+    0 2px 20px rgba(58, 125, 85, 0.15),
+    0 0 0 3px rgba(58, 125, 85, 0.08);
 }
 
 .searchBtn {
@@ -31,6 +24,6 @@
 }
 
 .searchBtn:focus-visible {
-  outline: 2px solid var(--color-accent);
+  outline: 1.5px solid var(--color-secondary);
   outline-offset: 2px;
 }
