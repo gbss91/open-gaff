@@ -2,7 +2,7 @@ import { render, screen, fireEvent } from "@testing-library/react";
 
 describe("Integration | SearchBar", () => {
   beforeEach(() => {
-    render(<SearchBar action="/property" />);
+    render(<SearchBar action='/properties' />);
   });
 
   it("renders the search input", () => {
