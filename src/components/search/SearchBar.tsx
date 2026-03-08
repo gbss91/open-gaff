@@ -3,13 +3,13 @@ import styles from "./SearchBar.module.css";
 import { Search } from "lucide-react";
 
 type SearchBarProps = {
-  onSearch: (formData: FormData) => void | Promise<void>;
+  action: string;
   className?: string;
 };
 
-const SearchBar = ({ onSearch, className }: SearchBarProps) => {
+const SearchBar = ({ action, className }: SearchBarProps) => {
   return (
-    <Form action={onSearch} className={className}>
+    <Form action={action} className={className}>
       <div className="relative">
         <Search
           name="search"
@@ -19,7 +19,7 @@ const SearchBar = ({ onSearch, className }: SearchBarProps) => {
         <input
           type="search"
           id="search-bar"
-          name="search"
+          name="q"
           className={`${styles.input} bg-white text-sm block w-full px-8 py-4`}
           placeholder="Search by address or Eircode..."
         />
