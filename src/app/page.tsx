@@ -1,4 +1,4 @@
-import SearchBar from "../components/SearchBar";
+import SearchBar from "@/components/search/SearchBar";
 
 export default function MainPage() {
   return (
@@ -10,7 +10,7 @@ export default function MainPage() {
         <h3 className="text-3xl font-bold mb-6 text-center">
           Search Properties
         </h3>
-        <SearchBar />
+        <SearchBar action="/properties" />
       </div>
     </main>
   );
