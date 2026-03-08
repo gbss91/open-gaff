@@ -33,4 +33,13 @@ nav {
   .brand {
     font-family: var(--font-bricolage);
   }
+
+  .nav-menu-open {
+    position: absolute;
+    top: 64px;
+    left: 0;
+    right: 0;
+    background-color: white;
+    padding: 1rem 1.5rem;
+  }
 }
