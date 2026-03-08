@@ -4,6 +4,8 @@ import Link from "next/link";
 import { House } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+import Button from "./ui/Button";
+import { Plus } from "lucide-react";
 
 const navItems = [
   {
@@ -82,6 +84,13 @@ const Navbar = () => {
             })}
           </ul>
         </div>
+        <Button
+          btnType="secondary"
+          size="sm"
+          icon={<Plus />}
+          text="Add Rent"
+          testId="add-rent-btn"
+        />
       </div>
     </nav>
   );
