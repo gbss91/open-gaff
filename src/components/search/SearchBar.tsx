@@ -1,20 +1,31 @@
 import Form from "next/form";
+import styles from "./SearchBar.module.css";
+import { Search } from "lucide-react";
 
-const SearchBar = () => {
+type SearchBarProps = {
+  className?: string;
+};
+
+const SearchBar = ({ className }: SearchBarProps) => {
   return (
     <div>
-      <Form action="/property" className="w-full">
-        <div className="relative">
+      <Form action="/property" className={className}>
+        <div className={`${styles.searchContainer} relative`}>
+          <Search
+            name="search"
+            size="18"
+            className={`${styles.searchIcon} absolute left-2.5 top-1/2 -translate-y-1/2`}
+          />
           <input
             type="search"
             id="search-bar"
             name="search"
-            className="block w-full p-4 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            className={`${styles.input} bg-white text-sm block w-full px-8 py-4`}
             placeholder="Search address or Eircode..."
           />
           <button
             type="submit"
-            className="text-white absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            className={`${styles.searchBtn} bg-primary absolute right-2.5 top-1/2 -translate-y-1/2 text-white text-sm font-bold px-4 py-2`}
           >
             Search
           </button>
