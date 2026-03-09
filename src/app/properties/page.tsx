@@ -1,5 +1,4 @@
 import FilterBar from "@/components/filter/FilterBar";
-import DynamicMap from "@/components/map/DynamicMap";
 import SearchBar from "@/components/search/SearchBar";
 import { Suspense } from "react";
 
@@ -20,7 +19,7 @@ export default function PropertiesPage() {
           data-testid="list-panel"
         ></div>
         <div className="map-panel flex-1 p" data-testid="map-panel">
-          <DynamicMap />
+          {/* <DynamicMap /> */}
         </div>
       </div>
     </main>
