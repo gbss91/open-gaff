@@ -12,7 +12,7 @@ export const propertyService = {
   getPropertiesByQuery: async (
     query: string,
     page: number,
-    pageSize: number = 5
+    pageSize: number = 5,
   ) => {
     const properties = await prisma.property.findMany({
       skip: (page - 1) * pageSize,
