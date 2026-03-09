@@ -1,7 +1,7 @@
 import { dirname } from "path";
 import { fileURLToPath } from "url";
 import { FlatCompat } from "@eslint/eslintrc";
-import { defineConfig, globalIgnores } from "eslint/config";
+import { globalIgnores } from "eslint/config";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -11,8 +11,15 @@ const compat = new FlatCompat({
 });
 
 const eslintConfig = [
-  ...compat.extends("next/core-web-vitals", "next/typescript"),
-  globalIgnores(["./src/server/generated"]),
+  ...compat.extends("next/core-web-vitals", "next/typescript", "prettier"),
+  globalIgnores([
+    "./src/server/generated", // prisma generated
+    ".next", // next build output
+    "node_modules",
+    "coverage", // jest coverage
+    "*.config.js", // config files
+    "*.config.ts",
+  ]),
 ];
 
 export default eslintConfig;
