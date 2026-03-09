@@ -28,7 +28,9 @@ const FilterBar = () => {
     } else {
       params.set("type", type);
     }
-    router.push(`/properties?${params.toString()}`);
+
+    const query = params.toString();
+    router.push(`/properties${query ? `?${query}` : ""}`);
   };
 
   const handleSort = () => {
@@ -71,7 +73,7 @@ const FilterBar = () => {
         icon={currentSortOption.icon}
         iconPosition="right"
         onClick={handleSort}
-        data-testid="filter-sort-pill"
+        testId="filter-sort-pill"
       />
     </div>
   );

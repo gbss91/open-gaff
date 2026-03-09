@@ -5,6 +5,7 @@ type FilterPillProps = {
   icon?: React.ReactNode;
   iconPosition?: "left" | "right";
   active?: boolean;
+  testId?: string;
   onClick?: () => void;
 };
 
@@ -13,13 +14,14 @@ const FilterPill = ({
   icon,
   iconPosition = "left",
   active,
+  testId,
   onClick,
 }: FilterPillProps) => {
   return (
     <div
       className={`${syles["filter-pill"]} ${active ? syles["active"] : ""} inline-flex items-center text-sm font-medium px-3`}
       onClick={onClick}
-      data-testid="filter-pill"
+      data-testid={testId ?? "filter-pill"}
     >
       {icon && iconPosition === "left" && icon}
       {label}
