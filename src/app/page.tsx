@@ -24,7 +24,7 @@ export default function MainPage() {
           </p>
           <SearchBar action="/properties" />
           <p className="text-text-light text-sm py-2">
-            Can't find your property?
+            {"Can't find your property?"}
             <a
               href="#"
               className="text-text-accent no-underline font-semibold ml-1"
