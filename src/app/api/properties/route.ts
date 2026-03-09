@@ -11,7 +11,7 @@ export const GET = async (request: NextRequest) => {
     if (isNaN(page) || page < 1) {
       return NextResponse.json(
         { error: "Invalid page number" },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -25,7 +25,7 @@ export const GET = async (request: NextRequest) => {
     console.error("API Error: ", error);
     return NextResponse.json(
       { error: "Internal Server Error" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 };
@@ -40,7 +40,7 @@ export const POST = async (request: NextRequest) => {
     console.error("API Error: ", error);
     return NextResponse.json(
       { error: "Internal Server Error" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 };

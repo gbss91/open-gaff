@@ -1,0 +1,24 @@
+# Dependencies
+node_modules
+
+# Next.js
+.next
+out
+
+# Build
+dist
+build
+
+# Generated
+src/server/generated
+
+# Coverage
+coverage
+
+# Lock files
+pnpm-lock.yaml
+package-lock.json
+
+# Misc
+.github/pull_request_template.md
+.vscode
