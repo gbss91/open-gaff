@@ -1,8 +1,8 @@
 "use client";
 
+import { Search } from "lucide-react";
 import Form from "next/form";
 import styles from "./searchBar.module.css";
-import { Search } from "lucide-react";
 
 type SearchBarProps = {
   action: string;

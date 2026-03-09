@@ -1,6 +1,5 @@
-import { Suspense } from "react";
-import SearchBar from "@/components/search/SearchBar";
 import FilterBar from "@/components/filter/FilterBar";
+import SearchBar from "@/components/search/SearchBar";
 
 export default function PropertiesPage() {
   return (
