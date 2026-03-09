@@ -3,5 +3,9 @@
 
   "editor.codeActionsOnSave": {
     "source.organizeImports":"explicit"
-  }
+  },
+
+  "[prisma]": {
+    "editor.defaultFormatter": "Prisma.prisma"
+  } ,
 }
