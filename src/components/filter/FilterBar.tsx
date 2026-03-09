@@ -1,12 +1,7 @@
 "use client";
 import { ChevronDown, ChevronUp } from "lucide-react";
 import { useRouter, useSearchParams } from "next/navigation";
-import styles from "./filterBar.module.css";
 import FilterPill from "./FilterPill";
-
-type FilterBarProps = {
-  resultCount?: number;
-};
 
 const sortOptions = [
   { label: "Most recent", value: "most_recent", icon: <ChevronDown /> },
@@ -16,7 +11,7 @@ const sortOptions = [
   { label: "Most entries", value: "most_entries", icon: <ChevronDown /> },
 ];
 
-const FilterBar = ({ resultCount = 0 }: FilterBarProps) => {
+const FilterBar = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -47,11 +42,8 @@ const FilterBar = ({ resultCount = 0 }: FilterBarProps) => {
   };
 
   return (
-    <div
-      className={`${styles["filter-bar"]} flex items-center justify-between`}
-      data-testid="filter-bar"
-    >
-      <div className={styles["filter-pills"]}>
+    <div className="flex items-center justify-between" data-testid="filter-bar">
+      <div className="flex gap-2" data-testid="filter-type-pills">
         <FilterPill
           label="All"
           active={activeType === "all"}
@@ -74,16 +66,13 @@ const FilterBar = ({ resultCount = 0 }: FilterBarProps) => {
         />
       </div>
 
-      <div className="flex items-center gap-3">
-        <span className={styles["result-count"]} data-testid="result-count">
-          <strong>{resultCount}</strong> properties found
-        </span>
-        <FilterPill
-          label={`Sort: ${currentSortOption.label}`}
-          icon={currentSortOption.icon}
-          onClick={handleSort}
-        />
-      </div>
+      <FilterPill
+        label={`Sort: ${currentSortOption.label}`}
+        icon={currentSortOption.icon}
+        iconPosition="right"
+        onClick={handleSort}
+        data-testid="filter-sort-pill"
+      />
     </div>
   );
 };

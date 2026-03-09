@@ -1,5 +1,6 @@
 import FilterBar from "@/components/filter/FilterBar";
 import SearchBar from "@/components/search/SearchBar";
+import { Suspense } from "react";
 
 export default function PropertiesPage() {
   return (
@@ -7,22 +8,17 @@ export default function PropertiesPage() {
       <div className="py-4 px-main" data-testid="search-container">
         <SearchBar action="/properties" />
       </div>
-      <div className="filter-container px-main">
-        <FilterBar resultCount={47} />
+      <div className="filter-container py-2 px-main">
+        <Suspense fallback={null}>
+          <FilterBar />
+        </Suspense>
       </div>
       <div className="flex flex-1 flex-row">
         <div
-          className="list-panel bg-accent flex-1 pl-main"
+          className="list-panel flex-1 pl-main"
           data-testid="list-panel"
-        >
-          S
-        </div>
-        <div
-          className="map-panel bg-amber-500 flex-1 px-0"
-          data-testid="map-panel"
-        >
-          S
-        </div>
+        ></div>
+        <div className="map-panel flex-1 p" data-testid="map-panel"></div>
       </div>
     </main>
   );
