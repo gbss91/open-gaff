@@ -1,8 +1,8 @@
 "use client";
 
-import Form from "next/form";
-import styles from "./SearchBar.module.css";
 import { Search } from "lucide-react";
+import Form from "next/form";
+import styles from "./searchBar.module.css";
 
 type SearchBarProps = {
   action: string;
@@ -29,7 +29,7 @@ const SearchBar = ({ action, className }: SearchBarProps) => {
         />
         <button
           type="submit"
-          className={`${styles.searchBtn} bg-primary absolute right-2.5 top-1/2 -translate-y-1/2 text-white text-sm px-4 py-2`}
+          className={`${styles["search-btn"]} bg-primary absolute right-2.5 top-1/2 -translate-y-1/2 text-white text-sm px-4 py-2`}
           data-testid="search-bar-btn"
         >
           Search

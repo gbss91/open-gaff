@@ -16,8 +16,8 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <nav className="bg-primary h-16" data-testid="nav-container">
-      <div className="max-w-full flex items-center justify-between mx-auto px-4 h-full">
+    <nav className="bg-primary h-16 px-main" data-testid="nav-container">
+      <div className="max-w-full flex items-center justify-between mx-auto h-full">
         <Link
           href="/"
           className="flex items-center space-x-3 rtl:space-x-reverse"

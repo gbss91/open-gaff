@@ -1,0 +1,28 @@
+/* Filter Bar */
+
+/* Filter Pill */
+.filter-pill {
+  height: 28px;
+  color: var(--text-dark);
+  background: white;
+  border: 1px solid var(--color-border);
+  gap: 3px;
+  border-radius: 25px;
+  cursor: pointer;
+  white-space: nowrap;
+
+  svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+.filter-pill.active {
+  background: var(--color-primary);
+  color: white;
+  border-color: var(--color-primary);
+}
+
+.filter-pill:hover {
+  border-color: var(--color-primary);
+}

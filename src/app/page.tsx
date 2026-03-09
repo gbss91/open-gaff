@@ -2,10 +2,10 @@ import SearchBar from "@/components/search/SearchBar";
 
 export default function MainPage() {
   return (
-    <main className="flex-1 flex flex-col">
+    <main className="flex-1 flex flex-col px-main">
       <section
         id="hero"
-        className="flex flex-col flex-1 items-center justify-center p-4"
+        className="flex flex-col flex-1 items-center justify-center py-4"
       >
         <div className="w-full max-w-3xl text-center mb-8">
           <p className="text-text-accent font-semibold text-sm mb-5">
