@@ -22,6 +22,7 @@ model Property {
   county       String
   eircode      String  @unique
   bedroomNo    Int     @map("bedroom_no")
+  type         String
   isRegistered Boolean @default(true) @map("is_registered")
   rents        Rent[]
 }

@@ -30,7 +30,10 @@ export default async function PropertiesPage(searchParams: SearchParams) {
         </Suspense>
       </div>
       <div className="flex flex-1 flex-row">
-        <div className="list-panel flex-1 pl-main" data-testid="list-panel">
+        <div
+          className="list-panel flex flex-1 flex-col px-main pt-4 gap-3"
+          data-testid="list-panel"
+        >
           {properties.map((property: Property) => (
             <PropertyCard key={property.id} property={property} />
           ))}
