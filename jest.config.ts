@@ -3,6 +3,11 @@ import type { Config } from "jest";
 const config: Config = {
   preset: "ts-jest",
   testEnvironment: "jsdom",
+  testEnvironmentOptions: {
+    env: {
+      DATABASE_URL: process.env.DATABASE_URL,
+    },
+  },
   globals: {
     "ts-jest": {
       tsconfig: "./tsconfig.jest.json",
