@@ -10,7 +10,9 @@
     "lint": "next lint",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "test": "jest"
+    "test": "jest",
+    "seed:dev": "pnpm prisma db seed",
+    "seed:test": "dotenv -e .env.test pnpm prisma db seed"
   },
   "dependencies": {
     "@prisma/adapter-pg": "^7.4.2",
