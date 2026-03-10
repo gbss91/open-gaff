@@ -19,7 +19,6 @@ const config: Config = {
     "^@/(.*)$": "<rootDir>/src/$1",
     "\\.(css|scss|sass)$": "identity-obj-proxy",
   },
-  setupFiles: ["<rootDir>/jest.setup.env.ts"],
   setupFilesAfterEnv: ["<rootDir>/jest.setup.ts"],
 };
 
