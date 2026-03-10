@@ -27,9 +27,11 @@ model Property {
 }
 
 model Rent {
-  id         Int      @id @default(autoincrement())
-  rentValue  Int      @map("rent_value")
-  rentPeriod String   @map("rent_period")
-  propertyId Int      @map("property_id")
-  property   Property @relation(fields: [propertyId], references: [id])
+  id              Int      @id @default(autoincrement())
+  amount          Float
+  arrangementType String // "whole_unit" | "private_room" | "shared_room"
+  occupantsCount  Int?     @map("occupants_count") // Total number of occupants for shared accomodation at time of submission 
+  addedAt         DateTime @default(now()) @map("added_at")
+  propertyId      Int      @map("property_id")
+  property        Property @relation(fields: [propertyId], references: [id])
 }
