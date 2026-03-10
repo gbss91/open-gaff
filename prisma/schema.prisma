@@ -11,36 +11,25 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL")
 }
 
 model Property {
-  id           Int      @id @default(autoincrement())
-  address1     String   @map("address_1")
-  address2     String?  @map("address_2")
-  address3     String?  @map("address_3")
-  address4     String?  @map("address_4")
-  address5     String?  @map("address_5")
+  id           Int     @id @default(autoincrement())
+  address1     String  @map("address_1")
+  address2     String? @map("address_2")
+  address3     String? @map("address_3")
+  address4     String? @map("address_4")
   county       String
-  eircode      String   @unique
-  bedroomNo    Int      @map("bedroom_no")
-  isRegistered Boolean  @default(true) @map("is_registered")
+  eircode      String  @unique
+  bedroomNo    Int     @map("bedroom_no")
+  isRegistered Boolean @default(true) @map("is_registered")
   rents        Rent[]
-  reviews      Review[]
 }
 
 model Rent {
   id         Int      @id @default(autoincrement())
   rentValue  Int      @map("rent_value")
   rentPeriod String   @map("rent_period")
-  propertyId Int      @map("property_id")
-  property   Property @relation(fields: [propertyId], references: [id])
-}
-
-model Review {
-  id         Int      @id @default(autoincrement())
-  rating     Int
-  review     String?
   propertyId Int      @map("property_id")
   property   Property @relation(fields: [propertyId], references: [id])
 }
