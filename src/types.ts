@@ -1,30 +1,28 @@
 // Custom types
+export type ArrangementType = "whole_unit" | "private_room" | "shared_room";
 
 export type Property = {
-  id?: string;
+  id: number;
   address1: string;
-  address2?: string | null;
-  address3?: string | null;
-  address4?: string | null;
-  address5?: string | null;
+  address2: string | null;
+  address3: string | null;
+  address4: string | null;
   county: string;
   eircode: string;
   bedroomNo: number;
-  isRegistered?: boolean | null;
-  rentPrices?: Rent[] | null;
-  reviews?: Review[] | null;
+  isRegistered: boolean;
+  rents?: Rent[];
 };
 
 export type Rent = {
-  id: string;
-  rentValue: number;
-  rentPeriod: string;
-  propertyId?: number | null;
+  id: number;
+  amount: number;
+  arrangementType: ArrangementType;
+  occupantsCount: number | null;
+  addedAt: Date;
+  propertyId: number;
 };
 
-export type Review = {
-  id: string;
-  rating: number;
-  review?: string | null;
-  propertyId?: number | null;
+export type PropertyWithRents = Property & {
+  rents: Rent[];
 };
