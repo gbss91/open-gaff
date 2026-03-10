@@ -3,6 +3,11 @@ import type { Config } from "jest";
 const config: Config = {
   preset: "ts-jest",
   testEnvironment: "jsdom",
+  testEnvironmentOptions: {
+    env: {
+      DATABASE_URL: process.env.DATABASE_URL,
+    },
+  },
   globals: {
     "ts-jest": {
       tsconfig: "./tsconfig.jest.json",
@@ -14,6 +19,7 @@ const config: Config = {
     "^@/(.*)$": "<rootDir>/src/$1",
     "\\.(css|scss|sass)$": "identity-obj-proxy",
   },
+  setupFiles: ["<rootDir>/jest.setup.env.ts"],
   setupFilesAfterEnv: ["<rootDir>/jest.setup.ts"],
 };
 
