@@ -17,7 +17,7 @@ export type Property = {
 export type Rent = {
   id: number;
   amount: number;
-  arrangementType: ArrangementType;
+  arrangementType: string;
   occupantsCount: number | null;
   addedAt: Date;
   propertyId: number;
