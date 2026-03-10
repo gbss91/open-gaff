@@ -1,75 +1,109 @@
-import { prismaMock } from "@/tests/mocks/prisma";
 import { propertyService } from "@/server/services/propertyService";
-import { skip } from "node:test";
+import { prismaMock } from "@/tests/prisma";
 
-describe("Property service unit tests", () => {
-  test("getAllProperties returns properties", async () => {
-    const mockProperties = [
-      {
-        id: 1,
-        address1: "Test",
-        county: "Dublin",
-        eircode: "D08",
-        bedroomNo: 2,
+const mockProperty = {
+  id: 1,
+  address1: "14 Grafton Street",
+  address2: "Dublin 2",
+  address3: null,
+  address4: null,
+  county: "Dublin",
+  eircode: "D02Y828",
+  bedroomNo: 2,
+  isRegistered: true,
+  rents: [],
+};
+
+describe("Unit | propertyService", () => {
+  describe("getAllProperties", () => {
+    it("returns paginated properties and total count", async () => {
+      prismaMock.property.findMany.mockResolvedValue([mockProperty]);
+      prismaMock.property.count.mockResolvedValue(1);
+
+      const result = await propertyService.getAllProperties(1);
+
+      expect(result.properties).toHaveLength(1);
+      expect(result.total).toBe(1);
+      expect(result.page).toBe(1);
+      expect(result.pageSize).toBe(10);
+    });
+
+    it("returns empty array when no properties exist", async () => {
+      prismaMock.property.findMany.mockResolvedValue([]);
+      prismaMock.property.count.mockResolvedValue(0);
+
+      const result = await propertyService.getAllProperties(1);
+
+      expect(result.properties).toHaveLength(0);
+      expect(result.total).toBe(0);
+    });
+  });
+
+  describe("getPropertyById", () => {
+    it("returns a property with rents when found", async () => {
+      prismaMock.property.findUnique.mockResolvedValue(mockProperty);
+
+      const result = await propertyService.getPropertyById(1);
+
+      expect(result).toEqual(mockProperty);
+      expect(prismaMock.property.findUnique).toHaveBeenCalledWith({
+        where: { id: 1 },
+        include: { rents: true },
+      });
+    });
+
+    it("returns null when property is not found", async () => {
+      prismaMock.property.findUnique.mockResolvedValue(null);
+
+      const result = await propertyService.getPropertyById(999);
+
+      expect(result).toBeNull();
+    });
+  });
+
+  describe("searchProperties", () => {
+    it("returns matching properties and total count", async () => {
+      prismaMock.property.findMany.mockResolvedValue([mockProperty]);
+      prismaMock.property.count.mockResolvedValue(1);
+
+      const result = await propertyService.searchProperties("Dublin", 1);
+
+      expect(result.properties).toHaveLength(1);
+      expect(result.total).toBe(1);
+    });
+
+    it("returns empty array when no properties match the query", async () => {
+      prismaMock.property.findMany.mockResolvedValue([]);
+      prismaMock.property.count.mockResolvedValue(0);
+
+      const result = await propertyService.searchProperties("nowhere", 1);
+
+      expect(result.properties).toHaveLength(0);
+      expect(result.total).toBe(0);
+    });
+  });
+
+  describe("addProperty", () => {
+    it("creates and returns a new property", async () => {
+      prismaMock.property.create.mockResolvedValue({
+        ...mockProperty,
         isRegistered: false,
-      },
-    ];
-    prismaMock.property.findMany.mockResolvedValue(mockProperties);
+      });
 
-    const result = await propertyService.getAllProperties();
-    expect(prismaMock.property.findMany).toHaveBeenCalled();
-    expect(result).toEqual(mockProperties);
-  });
+      const result = await propertyService.addProperty(mockProperty);
 
-  test("getPropertyById returns a property", async () => {
-    const mockProperty = {
-      id: 1,
-      address1: "Test",
-      county: "Dublin",
-      isRegistered: false,
-    };
-    prismaMock.property.findUnique.mockResolvedValue(mockProperty);
-
-    const result = await propertyService.getPropertyById(1);
-    expect(prismaMock.property.findUnique).toHaveBeenCalledWith({
-      where: { id: 1 },
+      expect(result.isRegistered).toBe(false);
+      expect(prismaMock.property.create).toHaveBeenCalledTimes(1);
     });
-    expect(result).toEqual(mockProperty);
-  });
 
-  test("addProperty creates a property", async () => {
-    const mockInput = {
-      address1: "123",
-      address2: "Street",
-      address3: "",
-      address4: "",
-      address5: "",
-      county: "Cork",
-      eircode: "123",
-      bedroomNo: 3,
-    };
-    const mockCreated = { ...mockInput, id: 1, isRegistered: false };
-    prismaMock.property.create.mockResolvedValue(mockCreated);
+    it("throws when required fields are missing", async () => {
+      prismaMock.property.create.mockRejectedValue(
+        new Error("Missing required fields"),
+      );
 
-    const result = await propertyService.addProperty(mockInput);
-    expect(prismaMock.property.create).toHaveBeenCalled();
-    expect(result).toEqual(mockCreated);
-  });
-
-  skip("getPropertiesByQuery calls findMany with OR conditions", async () => {
-    const mockResult = [
-      { id: 2, address1: "Gran Street", county: "Galway", isRegistered: false },
-    ];
-    prismaMock.property.findMany.mockResolvedValue(mockResult);
-
-    const query = "Grand";
-    const result = await propertyService.getPropertiesByQuery(query);
-
-    expect(prismaMock.property.findMany).toHaveBeenCalledWith({
-      where: {
-        OR: expect.any(Array),
-      },
+      await expect(propertyService.addProperty({} as any)).rejects.toThrow(
+        "Missing required fields",
+      );
     });
-    expect(result).toEqual(mockResult);
   });
 });
