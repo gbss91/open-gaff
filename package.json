@@ -11,6 +11,7 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "test": "jest",
+    "test:coverage": "jest --verbose --coverage",
     "seed:dev": "pnpm prisma db seed",
     "seed:test": "dotenv -e .env.test pnpm prisma db seed"
   },
