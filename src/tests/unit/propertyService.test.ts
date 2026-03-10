@@ -1,5 +1,6 @@
 import { propertyService } from "@/server/services/propertyService";
 import { prismaMock } from "@/tests/prisma";
+import { Property } from "@/types";
 
 const mockProperty = {
   id: 1,
@@ -101,7 +102,7 @@ describe("Unit | propertyService", () => {
         new Error("Missing required fields"),
       );
 
-      await expect(propertyService.addProperty({} as any)).rejects.toThrow(
+      await expect(propertyService.addProperty({} as Property)).rejects.toThrow(
         "Missing required fields",
       );
     });
