@@ -6,18 +6,29 @@ export const propertyService = {
    * Fetches paginated properties with their rent history
    * @param page - Current page number (1-indexed)
    * @param pageSize - Number of properties per page (default: 10)
+   * @param type - Property type filter
+   * @param sort - Sort by
    * @returns Object containing properties array, total count, current page and page size
    */
-  getAllProperties: async (page: number, pageSize: number = 10) => {
+  getAllProperties: async (
+    page: number,
+    pageSize: number = 10,
+    type?: string,
+  ) => {
+    // Filter by type
+    const where = {
+      ...(type && { type }),
+    };
+
     const [properties, total] = await Promise.all([
       prisma.property.findMany({
+        where,
         skip: (page - 1) * pageSize,
         take: pageSize,
         include: { rents: true },
       }),
-      prisma.property.count(),
+      prisma.property.count({ where }),
     ]);
-
     return { properties, total, page, pageSize };
   },
 

@@ -1,22 +1,31 @@
 import FilterBar from "@/components/filter/FilterBar";
-import DynamicMap from "@/components/map/DynamicMap";
 import PropertyCard from "@/components/property/PropertyCard";
 import SearchBar from "@/components/search/SearchBar";
 import { propertyService } from "@/server/services/propertyService";
 import { Property } from "@/types";
 import { Suspense } from "react";
 
-// type SearchParams = {
-//   q?: string;
-//   page?: string;
-//   type?: string;
-//   sort?: string;
-// };
+type SearchParams = {
+  q?: string;
+  page?: string;
+  type?: string;
+  sort?: string;
+};
 
 export const dynamic = "force-dynamic";
 
-export default async function PropertiesPage() {
-  const { properties } = await propertyService.getAllProperties(1);
+export default async function PropertiesPage({
+  searchParams,
+}: {
+  searchParams: Promise<SearchParams>;
+}) {
+  const { q, page: pageParam, type } = await searchParams;
+  const page = Number(pageParam) || 1;
+  console.log({ q, page, type });
+
+  const { properties } = q
+    ? await propertyService.searchProperties(q, page)
+    : await propertyService.getAllProperties(page, 10, type);
 
   return (
     <main className="flex-1 flex flex-col">
@@ -30,13 +39,13 @@ export default async function PropertiesPage() {
       </div>
       <div className="flex flex-1 flex-col md:flex-row">
         <div
-          className="map-panel order-1 md:order-2 flex-1"
+          className="map-panel order-1 h-64 md:order-2 md:h-full md:sticky md:top-0 md:flex-1"
           data-testid="map-panel"
         >
-          <DynamicMap />
+          {/* <DynamicMap /> */}
         </div>
         <div
-          className="list-panel order-2 md:order-1 flex flex-1 flex-col px-main pt-4 gap-3"
+          className="list-panel order-2 flex flex-1 flex-col px-main pt-4 gap-3 md:order-1 md:overflow-y-auto md:h-screen"
           data-testid="list-panel"
         >
           {properties.map((property: Property) => (
