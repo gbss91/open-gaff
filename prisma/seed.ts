@@ -15,7 +15,7 @@ const properties = [
     county: "Dublin",
     eircode: "D02Y828",
     bedroomNo: 2,
-    type: "Apartment",
+    type: "apartment",
     isRegistered: true,
     rents: [
       {
@@ -37,7 +37,7 @@ const properties = [
     county: "Dublin",
     eircode: "D06H210",
     bedroomNo: 3,
-    type: "House",
+    type: "house",
     isRegistered: true,
     rents: [
       {
@@ -60,7 +60,7 @@ const properties = [
     county: "Dublin",
     eircode: "D03V6K2",
     bedroomNo: 2,
-    type: "House",
+    type: "house",
     isRegistered: true,
     rents: [],
   },
@@ -71,7 +71,7 @@ const properties = [
     county: "Dublin",
     eircode: "D06W821",
     bedroomNo: 1,
-    type: "Studio",
+    type: "studio",
     isRegistered: true,
     rents: [
       {
@@ -93,7 +93,7 @@ const properties = [
     county: "Dublin",
     eircode: "D09W2K4",
     bedroomNo: 3,
-    type: "Apartment",
+    type: "apartment",
     isRegistered: false,
     rents: [
       {
@@ -116,7 +116,7 @@ const properties = [
     county: "Dublin",
     eircode: "D02XK50",
     bedroomNo: 1,
-    type: "Apartment",
+    type: "apartment",
     isRegistered: false,
     rents: [
       {
@@ -132,7 +132,7 @@ const properties = [
     county: "Galway",
     eircode: "H91XD24",
     bedroomNo: 2,
-    type: "Apartment",
+    type: "apartment",
     isRegistered: true,
     rents: [
       {
@@ -154,7 +154,7 @@ const properties = [
     county: "Galway",
     eircode: "H91Y3N8",
     bedroomNo: 4,
-    type: "House",
+    type: "house",
     isRegistered: false,
     rents: [
       {
@@ -176,7 +176,7 @@ const properties = [
     county: "Cork",
     eircode: "T12W6X4",
     bedroomNo: 2,
-    type: "House",
+    type: "house",
     isRegistered: true,
     rents: [
       {
@@ -192,7 +192,7 @@ const properties = [
     county: "Cork",
     eircode: "T23HP54",
     bedroomNo: 3,
-    type: "House",
+    type: "house",
     isRegistered: true,
     rents: [
       {
@@ -214,7 +214,7 @@ const properties = [
     county: "Limerick",
     eircode: "V94XP28",
     bedroomNo: 2,
-    type: "Apartment",
+    type: "apartment",
     isRegistered: true,
     rents: [
       {
@@ -230,7 +230,7 @@ const properties = [
     county: "Limerick",
     eircode: "V94C5R2",
     bedroomNo: 3,
-    type: "Apartment",
+    type: "apartment",
     isRegistered: true,
     rents: [
       {
@@ -252,7 +252,7 @@ const properties = [
     county: "Waterford",
     eircode: "X91YK32",
     bedroomNo: 2,
-    type: "Apartment",
+    type: "apartment",
     isRegistered: true,
     rents: [
       {
@@ -269,7 +269,7 @@ const properties = [
     county: "Kilkenny",
     eircode: "R95XH48",
     bedroomNo: 1,
-    type: "Apartment",
+    type: "apartment",
     isRegistered: false,
     rents: [
       {
@@ -285,7 +285,7 @@ const properties = [
     county: "Kilkenny",
     eircode: "R95W2N6",
     bedroomNo: 3,
-    type: "Apartment",
+    type: "apartment",
     isRegistered: true,
     rents: [
       {
@@ -308,7 +308,7 @@ const properties = [
     county: "Dublin",
     eircode: "D04V6P8",
     bedroomNo: 2,
-    type: "House",
+    type: "house",
     isRegistered: true,
     rents: [
       {
@@ -331,7 +331,7 @@ const properties = [
     county: "Galway",
     eircode: "H91V8K2",
     bedroomNo: 2,
-    type: "Apartment",
+    type: "apartment",
     isRegistered: true,
     rents: [
       {
@@ -347,7 +347,7 @@ const properties = [
     county: "Dublin",
     eircode: "D01Y6W4",
     bedroomNo: 1,
-    type: "Studio",
+    type: "studio",
     isRegistered: true,
     rents: [
       {
@@ -369,7 +369,7 @@ const properties = [
     county: "Cork",
     eircode: "T23KP62",
     bedroomNo: 2,
-    type: "Apartment",
+    type: "apartment",
     isRegistered: true,
     rents: [
       {
@@ -386,7 +386,7 @@ const properties = [
     county: "Galway",
     eircode: "H91T4R6",
     bedroomNo: 1,
-    type: "Apartment",
+    type: "apartment",
     isRegistered: true,
     rents: [
       {
