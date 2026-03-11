@@ -1,0 +1,100 @@
+/* Property Card */
+.property-card {
+  background-color: white;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+
+  .card-type {
+    color: var(--color-text-accent);
+    font-size: 0.67rem;
+    font-weight: 600;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+  }
+
+  .card-address {
+    color: var(--color-text-dark);
+    font-family: var(--font-bricolage);
+    font-weight: 700;
+    font-size: 1.5rem;
+    line-height: 1.25;
+    letter-spacing: -0.015em;
+  }
+
+  .meta-pill {
+    font-size: 0.67rem;
+    font-weight: 500;
+    background: var(--color-section-bg);
+    color: var(--text-light);
+    padding: 0.18rem 0.55rem;
+    border-radius: 999px;
+    border: 1px solid var(--color-border);
+  }
+
+  .rtb-pill {
+    font-size: 0.67rem;
+    font-weight: 600;
+    color: var(--color-secondary);
+    border: 1px solid var(--color-secondary);
+    padding: 0.18rem 0.55rem;
+    border-radius: 999px;
+  }
+
+  .card-divider {
+    height: 1px;
+    background: var(--color-border);
+  }
+
+  .card-rent-label {
+    font-family: var(--font-body);
+    font-size: 0.62rem;
+    font-weight: 500;
+    color: var(--color-text-light);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .card-rent {
+    font-family: var(--font-bricolage);
+    font-size: 1.65rem;
+    font-weight: 800;
+    color: var(--color-primary);
+    letter-spacing: -0.04em;
+    line-height: 1;
+  }
+
+  .card-no-rent {
+    font-family: var(--font-geist-sans);
+    letter-spacing: normal;
+  }
+
+  .card-history-cta {
+    font-size: 0.72rem;
+    font-weight: 500;
+    color: var(--color-text-light);
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    transition:
+      opacity 0.15s,
+      color 0.15s;
+    white-space: nowrap;
+    align-self: flex-end;
+    padding-bottom: 0.05rem;
+  }
+}
+
+.property-card:hover {
+  border-color: var(--color-primary);
+  box-shadow: 0 4px 20px rgba(58, 125, 85, 0.1);
+  transform: translateY(-1px);
+
+  .card-history-cta {
+    color: var(--color-primary);
+  }
+}
+
+.property-card.highlighted {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(58, 125, 85, 0.1);
+}

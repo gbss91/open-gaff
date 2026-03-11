@@ -10,6 +10,7 @@ export type Property = {
   county: string;
   eircode: string;
   bedroomNo: number;
+  type: string;
   isRegistered: boolean;
   rents?: Rent[];
 };
@@ -17,7 +18,7 @@ export type Property = {
 export type Rent = {
   id: number;
   amount: number;
-  arrangementType: ArrangementType;
+  arrangementType: string;
   occupantsCount: number | null;
   addedAt: Date;
   propertyId: number;

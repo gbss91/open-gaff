@@ -20,29 +20,29 @@
 .btn-sm {
   padding: 0.375rem 0.75rem;
   font-size: var(--text-sm);
+}
 
-  .icon svg {
-    width: 16px;
-    height: 16px;
-  }
+.btn-sm .icon svg {
+  width: 16px;
+  height: 16px;
 }
 
 .btn-md {
   padding: 0.5rem 1rem;
   font-size: var(--text-md);
+}
 
-  .icon svg {
-    width: 20px;
-    height: 20px;
-  }
+.btn-md .icon svg {
+  width: 20px;
+  height: 20px;
 }
 
 .btn-lg {
   padding: 0.75rem 1.5rem;
   font-size: var(--text-lg);
+}
 
-  .icon svg {
-    width: 24px;
-    height: 24px;
-  }
+.btn-lg .icon svg {
+  width: 24px;
+  height: 24px;
 }
