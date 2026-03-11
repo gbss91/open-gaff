@@ -62,13 +62,7 @@ const properties = [
     bedroomNo: 2,
     type: "House",
     isRegistered: true,
-    rents: [
-      {
-        amount: 2600,
-        arrangementType: "whole_unit",
-        addedAt: new Date("2024-02-20"),
-      },
-    ],
+    rents: [],
   },
   {
     address1: "8 Ranelagh Road",

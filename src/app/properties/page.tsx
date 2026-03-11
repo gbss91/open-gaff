@@ -29,7 +29,7 @@ export default async function PropertiesPage(searchParams: SearchParams) {
           <FilterBar />
         </Suspense>
       </div>
-      <div className="flex flex-1 flex-row">
+      <div className="flex flex-1 flex-col md:flex-row">
         <div
           className="list-panel flex flex-1 flex-col px-main pt-4 gap-3"
           data-testid="list-panel"
