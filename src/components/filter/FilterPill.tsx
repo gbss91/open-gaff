@@ -1,4 +1,4 @@
-import syles from "./filterBar.module.css";
+import "./filterBar.css";
 
 type FilterPillProps = {
   label: string;
@@ -19,7 +19,7 @@ const FilterPill = ({
 }: FilterPillProps) => {
   return (
     <div
-      className={`${syles["filter-pill"]} ${active ? syles["active"] : ""} inline-flex items-center text-sm font-medium px-3`}
+      className={`filter-pill ${active ? "active" : ""} inline-flex items-center text-sm font-medium px-3`}
       onClick={onClick}
       data-testid={testId ?? "filter-pill"}
     >

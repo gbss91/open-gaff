@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import styles from "./Button.module.css";
+import "./Button.css";
 
 type ButtonTypes = "primary" | "secondary";
 type ButtonSize = "sm" | "md" | "lg";
@@ -21,9 +21,9 @@ const typeClasses: Record<ButtonTypes, string> = {
 };
 
 const sizeClass: Record<ButtonSize, string> = {
-  sm: styles["btn-sm"],
-  md: styles["btn-md"],
-  lg: styles["btn-lg"],
+  sm: "btn-sm",
+  md: "btn-md",
+  lg: "btn-lg",
 };
 
 const Button = ({
@@ -39,12 +39,12 @@ const Button = ({
   return (
     <button
       type="button"
-      className={`${className} ${typeClasses[btnType]} ${sizeClass[size]} ${styles.btn} p-1`}
+      className={`${className} ${typeClasses[btnType]} ${sizeClass[size]} btn p-1`}
       disabled={disabled}
       data-testid={testId}
       aria-label={ariaLabel ?? text}
     >
-      {icon && <span className={styles.icon}>{icon}</span>}
+      {icon && <span className="icon">{icon}</span>}
       {text && <span>{text}</span>}
     </button>
   );

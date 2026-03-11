@@ -1,6 +1,6 @@
 import { Property } from "@/types";
 import Link from "next/link";
-import styles from "./property.module.css";
+import "./property.css";
 
 type PropertyTileProps = {
   property: Property;
@@ -9,21 +9,21 @@ type PropertyTileProps = {
 const PropertyCard = ({ property }: PropertyTileProps) => {
   return (
     <Link href={`/property/${property.id}`}>
-      <div className={`${styles["property-card"]} flex flex-col p-5`}>
-        {/* <!-- top row: type · bedrooms · RTB --> */}
+      <div className="property-card flex flex-col p-5">
         <div className="flex flex-row justify-between items-cente">
-          <span className={`${styles["card-type"]} text-sm font-semibold`}>
-            Apartment · {property.county}
+          <span className="card-type">
+            {property.type} · {property.county}
           </span>
           <div className="flex gap-2">
-            <span className="meta-pill">2 bed</span>
-            <span className="rtb-pill">RTB ✓</span>
+            <span className="meta-pill">{`${property.bedroomNo} bed`}</span>
+
+            {property.isRegistered && <span className="rtb-pill">RTB</span>}
           </div>
         </div>
 
-        {/* <!-- identity --> */}
-        <div className="card-address">1 Grand Canal Dock</div>
-        <div className="card-eircode">D02 DX67</div>
+        <div className="card-address">{property.address1}</div>
+
+        <div className="text-text-light">{property.eircode}</div>
 
         <div className="card-divider"></div>
       </div>

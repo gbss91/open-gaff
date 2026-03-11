@@ -10,11 +10,11 @@
   border-radius: 25px;
   cursor: pointer;
   white-space: nowrap;
+}
 
-  svg {
-    width: 16px;
-    height: 16px;
-  }
+.filter-pill svg {
+  width: 16px;
+  height: 16px;
 }
 
 .filter-pill.active {

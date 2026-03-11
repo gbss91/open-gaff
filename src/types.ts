@@ -10,6 +10,7 @@ export type Property = {
   county: string;
   eircode: string;
   bedroomNo: number;
+  type: string;
   isRegistered: boolean;
   rents?: Rent[];
 };

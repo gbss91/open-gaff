@@ -16,6 +16,7 @@ const properties = [
     eircode: "D02Y828",
     bedroomNo: 2,
     type: "Apartment",
+    isRegistered: true,
     rents: [
       {
         amount: 2800,
@@ -37,6 +38,7 @@ const properties = [
     eircode: "D06H210",
     bedroomNo: 3,
     type: "House",
+    isRegistered: true,
     rents: [
       {
         amount: 3200,
@@ -59,6 +61,7 @@ const properties = [
     eircode: "D03V6K2",
     bedroomNo: 2,
     type: "House",
+    isRegistered: true,
     rents: [
       {
         amount: 2600,
@@ -75,6 +78,7 @@ const properties = [
     eircode: "D06W821",
     bedroomNo: 1,
     type: "Studio",
+    isRegistered: true,
     rents: [
       {
         amount: 1950,
@@ -96,6 +100,7 @@ const properties = [
     eircode: "D09W2K4",
     bedroomNo: 3,
     type: "Apartment",
+    isRegistered: false,
     rents: [
       {
         amount: 3400,
@@ -118,6 +123,7 @@ const properties = [
     eircode: "D02XK50",
     bedroomNo: 1,
     type: "Apartment",
+    isRegistered: false,
     rents: [
       {
         amount: 2200,
@@ -133,6 +139,7 @@ const properties = [
     eircode: "H91XD24",
     bedroomNo: 2,
     type: "Apartment",
+    isRegistered: true,
     rents: [
       {
         amount: 1800,
@@ -154,6 +161,7 @@ const properties = [
     eircode: "H91Y3N8",
     bedroomNo: 4,
     type: "House",
+    isRegistered: false,
     rents: [
       {
         amount: 2800,
@@ -175,6 +183,7 @@ const properties = [
     eircode: "T12W6X4",
     bedroomNo: 2,
     type: "House",
+    isRegistered: true,
     rents: [
       {
         amount: 1900,
@@ -190,6 +199,7 @@ const properties = [
     eircode: "T23HP54",
     bedroomNo: 3,
     type: "House",
+    isRegistered: true,
     rents: [
       {
         amount: 2400,
@@ -211,6 +221,7 @@ const properties = [
     eircode: "V94XP28",
     bedroomNo: 2,
     type: "Apartment",
+    isRegistered: true,
     rents: [
       {
         amount: 1600,
@@ -226,6 +237,7 @@ const properties = [
     eircode: "V94C5R2",
     bedroomNo: 3,
     type: "Apartment",
+    isRegistered: true,
     rents: [
       {
         amount: 2100,
@@ -247,6 +259,7 @@ const properties = [
     eircode: "X91YK32",
     bedroomNo: 2,
     type: "Apartment",
+    isRegistered: true,
     rents: [
       {
         amount: 1500,
@@ -263,6 +276,7 @@ const properties = [
     eircode: "R95XH48",
     bedroomNo: 1,
     type: "Apartment",
+    isRegistered: false,
     rents: [
       {
         amount: 1300,
@@ -278,6 +292,7 @@ const properties = [
     eircode: "R95W2N6",
     bedroomNo: 3,
     type: "Apartment",
+    isRegistered: true,
     rents: [
       {
         amount: 2000,
@@ -300,6 +315,7 @@ const properties = [
     eircode: "D04V6P8",
     bedroomNo: 2,
     type: "House",
+    isRegistered: true,
     rents: [
       {
         amount: 3100,
@@ -322,6 +338,7 @@ const properties = [
     eircode: "H91V8K2",
     bedroomNo: 2,
     type: "Apartment",
+    isRegistered: true,
     rents: [
       {
         amount: 2000,
@@ -337,6 +354,7 @@ const properties = [
     eircode: "D01Y6W4",
     bedroomNo: 1,
     type: "Studio",
+    isRegistered: true,
     rents: [
       {
         amount: 1800,
@@ -358,6 +376,7 @@ const properties = [
     eircode: "T23KP62",
     bedroomNo: 2,
     type: "Apartment",
+    isRegistered: true,
     rents: [
       {
         amount: 1750,
@@ -374,6 +393,7 @@ const properties = [
     eircode: "H91T4R6",
     bedroomNo: 1,
     type: "Apartment",
+    isRegistered: true,
     rents: [
       {
         amount: 1600,
