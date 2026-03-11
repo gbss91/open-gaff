@@ -26,7 +26,6 @@ export const propertyService = {
       most_entries: { _count: "desc" },
       least_entries: { _count: "asc" },
     };
-
     const orderBy = { rents: sortOptions[sort ?? "most_recent"] };
 
     const [properties, total] = await Promise.all([
@@ -65,6 +64,8 @@ export const propertyService = {
     query: string,
     page: number,
     pageSize: number = 10,
+    type?: string,
+    sort?: string,
   ) => {
     const where = {
       OR: [
@@ -72,11 +73,20 @@ export const propertyService = {
         { eircode: { contains: query, mode: "insensitive" as const } },
         { county: { contains: query, mode: "insensitive" as const } },
       ],
+      ...(type && { type }),
     };
+
+    // Sorting
+    const sortOptions: Record<string, Object> = {
+      most_entries: { _count: "desc" },
+      least_entries: { _count: "asc" },
+    };
+    const orderBy = { rents: sortOptions[sort ?? "most_recent"] };
 
     const [properties, total] = await Promise.all([
       prisma.property.findMany({
         where,
+        orderBy,
         skip: (page - 1) * pageSize,
         take: pageSize,
         include: { rents: true },

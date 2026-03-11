@@ -24,7 +24,7 @@ export default async function PropertiesPage({
   console.log({ q, page, type });
 
   const { properties } = q
-    ? await propertyService.searchProperties(q, page)
+    ? await propertyService.searchProperties(q, page, 10, type, sort)
     : await propertyService.getAllProperties(page, 10, type, sort);
 
   return (
