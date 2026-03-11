@@ -14,15 +14,25 @@ export const propertyService = {
     page: number,
     pageSize: number = 10,
     type?: string,
+    sort?: string,
   ) => {
     // Filter by type
     const where = {
       ...(type && { type }),
     };
 
+    // Sorting
+    const sortOptions: Record<string, Object> = {
+      most_entries: { _count: "desc" },
+      least_entries: { _count: "asc" },
+    };
+
+    const orderBy = { rents: sortOptions[sort ?? "most_recent"] };
+
     const [properties, total] = await Promise.all([
       prisma.property.findMany({
         where,
+        orderBy,
         skip: (page - 1) * pageSize,
         take: pageSize,
         include: { rents: true },

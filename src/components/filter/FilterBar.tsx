@@ -4,11 +4,8 @@ import { useRouter, useSearchParams } from "next/navigation";
 import FilterPill from "./FilterPill";
 
 const sortOptions = [
-  { label: "Most recent", value: "most_recent", icon: <ChevronDown /> },
-  { label: "Oldest first", value: "oldest_first", icon: <ChevronUp /> },
-  { label: "Highest rent", value: "highest_rent", icon: <ChevronDown /> },
-  { label: "Lowest rent", value: "lowest_rent", icon: <ChevronUp /> },
   { label: "Most entries", value: "most_entries", icon: <ChevronDown /> },
+  { label: "Least entries", value: "least_entries", icon: <ChevronUp /> },
 ];
 
 const FilterBar = () => {
@@ -16,7 +13,7 @@ const FilterBar = () => {
   const searchParams = useSearchParams();
 
   const activeType = searchParams.get("type") || "all";
-  const currentSort = searchParams.get("sort") || "most_recent";
+  const currentSort = searchParams.get("sort") || "most_entries";
   const currentSortOption =
     sortOptions.find((option) => option.value === currentSort) ??
     sortOptions[0];
