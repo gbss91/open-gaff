@@ -1,22 +1,19 @@
 import FilterBar from "@/components/filter/FilterBar";
+import DynamicMap from "@/components/map/DynamicMap";
 import PropertyCard from "@/components/property/PropertyCard";
 import SearchBar from "@/components/search/SearchBar";
 import { propertyService } from "@/server/services/propertyService";
 import { Property } from "@/types";
 import { Suspense } from "react";
 
-type SearchParams = {
-  q?: string;
-  page?: string;
-  type?: string;
-  sort?: string;
-};
+// type SearchParams = {
+//   q?: string;
+//   page?: string;
+//   type?: string;
+//   sort?: string;
+// };
 
-export default async function PropertiesPage(searchParams: SearchParams) {
-  const query = searchParams?.q ?? "";
-  const page = Number(searchParams?.page ?? 1);
-  console.log(query, page);
-
+export default async function PropertiesPage() {
   const { properties } = await propertyService.getAllProperties(1);
 
   return (
@@ -39,7 +36,7 @@ export default async function PropertiesPage(searchParams: SearchParams) {
           ))}
         </div>
         <div className="map-panel flex-1 p" data-testid="map-panel">
-          {/* <DynamicMap /> */}
+          <DynamicMap />
         </div>
       </div>
     </main>
