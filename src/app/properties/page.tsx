@@ -13,6 +13,8 @@ import { Suspense } from "react";
 //   sort?: string;
 // };
 
+export const dynamic = "force-dynamic";
+
 export default async function PropertiesPage() {
   const { properties } = await propertyService.getAllProperties(1);
 
@@ -28,15 +30,18 @@ export default async function PropertiesPage() {
       </div>
       <div className="flex flex-1 flex-col md:flex-row">
         <div
-          className="list-panel flex flex-1 flex-col px-main pt-4 gap-3"
+          className="map-panel order-1 md:order-2 flex-1"
+          data-testid="map-panel"
+        >
+          <DynamicMap />
+        </div>
+        <div
+          className="list-panel order-2 md:order-1 flex flex-1 flex-col px-main pt-4 gap-3"
           data-testid="list-panel"
         >
           {properties.map((property: Property) => (
             <PropertyCard key={property.id} property={property} />
           ))}
-        </div>
-        <div className="map-panel flex-1 p" data-testid="map-panel">
-          <DynamicMap />
         </div>
       </div>
     </main>
