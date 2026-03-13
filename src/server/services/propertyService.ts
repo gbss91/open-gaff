@@ -22,7 +22,7 @@ export const propertyService = {
     };
 
     // Sorting
-    const sortOptions: Record<string, Object> = {
+    const sortOptions: Record<string, object> = {
       most_entries: { _count: "desc" },
       least_entries: { _count: "asc" },
     };
@@ -77,7 +77,7 @@ export const propertyService = {
     };
 
     // Sorting
-    const sortOptions: Record<string, Object> = {
+    const sortOptions: Record<string, object> = {
       most_entries: { _count: "desc" },
       least_entries: { _count: "asc" },
     };
