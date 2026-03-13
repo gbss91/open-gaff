@@ -19,13 +19,13 @@ export default async function PropertiesPage({
 }: {
   searchParams: Promise<SearchParams>;
 }) {
-  const { q, page: pageParam, type } = await searchParams;
+  const { q, page: pageParam, type, sort } = await searchParams;
   const page = Number(pageParam) || 1;
   console.log({ q, page, type });
 
   const { properties } = q
-    ? await propertyService.searchProperties(q, page)
-    : await propertyService.getAllProperties(page, 10, type);
+    ? await propertyService.searchProperties(q, page, 10, type, sort)
+    : await propertyService.getAllProperties(page, 10, type, sort);
 
   return (
     <main className="flex-1 flex flex-col">

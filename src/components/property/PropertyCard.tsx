@@ -21,6 +21,9 @@ const PropertyCard = ({ property }: PropertyTileProps) => {
     setRecentRent(mostRecentRent);
   }, [property.rents]);
 
+  const formattedEircode =
+    property.eircode.slice(0, 3) + " " + property.eircode.slice(3);
+
   return (
     <Link href={`/property/${property.id}`}>
       <div className="property-card flex flex-col p-5">
@@ -38,7 +41,7 @@ const PropertyCard = ({ property }: PropertyTileProps) => {
 
         <div className="card-address">{property.address1}</div>
 
-        <div className="text-text-light">{property.eircode}</div>
+        <div className="text-text-light">{formattedEircode}</div>
 
         <div className="card-divider my-2"></div>
 

@@ -11,6 +11,7 @@ const mockProperty = {
   county: "Dublin",
   eircode: "D02Y828",
   bedroomNo: 2,
+  type: "apartment",
   isRegistered: true,
   rents: [],
 };
@@ -37,6 +38,58 @@ describe("Unit | propertyService", () => {
 
       expect(result.properties).toHaveLength(0);
       expect(result.total).toBe(0);
+    });
+
+    it("filters by type when provided", async () => {
+      prismaMock.property.findMany.mockResolvedValue([mockProperty]);
+      prismaMock.property.count.mockResolvedValue(1);
+
+      const result = await propertyService.getAllProperties(1, 10, "apartment");
+
+      expect(result.properties).toHaveLength(1);
+      expect(prismaMock.property.findMany).toHaveBeenCalledWith(
+        expect.objectContaining({
+          where: { type: "apartment" },
+        }),
+      );
+    });
+
+    it("sorts by most entries when specified", async () => {
+      prismaMock.property.findMany.mockResolvedValue([mockProperty]);
+      prismaMock.property.count.mockResolvedValue(1);
+
+      const result = await propertyService.getAllProperties(
+        1,
+        10,
+        undefined,
+        "most_entries",
+      );
+
+      expect(result.properties).toHaveLength(1);
+      expect(prismaMock.property.findMany).toHaveBeenCalledWith(
+        expect.objectContaining({
+          orderBy: { rents: { _count: "desc" } },
+        }),
+      );
+    });
+
+    it("sorts by least entries when specified", async () => {
+      prismaMock.property.findMany.mockResolvedValue([mockProperty]);
+      prismaMock.property.count.mockResolvedValue(1);
+
+      const result = await propertyService.getAllProperties(
+        1,
+        10,
+        undefined,
+        "least_entries",
+      );
+
+      expect(result.properties).toHaveLength(1);
+      expect(prismaMock.property.findMany).toHaveBeenCalledWith(
+        expect.objectContaining({
+          orderBy: { rents: { _count: "asc" } },
+        }),
+      );
     });
   });
 
@@ -81,6 +134,67 @@ describe("Unit | propertyService", () => {
 
       expect(result.properties).toHaveLength(0);
       expect(result.total).toBe(0);
+    });
+
+    it("filters by type when provided", async () => {
+      prismaMock.property.findMany.mockResolvedValue([mockProperty]);
+      prismaMock.property.count.mockResolvedValue(1);
+
+      const result = await propertyService.searchProperties(
+        "Dublin",
+        1,
+        10,
+        "apartment",
+      );
+
+      expect(result.properties).toHaveLength(1);
+      expect(prismaMock.property.findMany).toHaveBeenCalledWith(
+        expect.objectContaining({
+          where: expect.objectContaining({
+            type: "apartment",
+          }),
+        }),
+      );
+    });
+
+    it("sorts by most entries when specified", async () => {
+      prismaMock.property.findMany.mockResolvedValue([mockProperty]);
+      prismaMock.property.count.mockResolvedValue(1);
+
+      const result = await propertyService.searchProperties(
+        "Dublin",
+        1,
+        10,
+        undefined,
+        "most_entries",
+      );
+
+      expect(result.properties).toHaveLength(1);
+      expect(prismaMock.property.findMany).toHaveBeenCalledWith(
+        expect.objectContaining({
+          orderBy: { rents: { _count: "desc" } },
+        }),
+      );
+    });
+
+    it("sorts by least entries when specified", async () => {
+      prismaMock.property.findMany.mockResolvedValue([mockProperty]);
+      prismaMock.property.count.mockResolvedValue(1);
+
+      const result = await propertyService.searchProperties(
+        "Dublin",
+        1,
+        10,
+        undefined,
+        "least_entries",
+      );
+
+      expect(result.properties).toHaveLength(1);
+      expect(prismaMock.property.findMany).toHaveBeenCalledWith(
+        expect.objectContaining({
+          orderBy: { rents: { _count: "asc" } },
+        }),
+      );
     });
   });
 
