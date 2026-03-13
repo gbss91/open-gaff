@@ -30,7 +30,7 @@ describe("Integration | FilterBar", () => {
     expect(screen.getByText("Apartment")).toBeInTheDocument();
     expect(screen.getByText("House")).toBeInTheDocument();
     expect(screen.getByText("Studio")).toBeInTheDocument();
-    expect(screen.getByText("Sort: Most recent")).toBeInTheDocument();
+    expect(screen.getByText("Sort: Most entries")).toBeInTheDocument();
   });
 
   it("highlights active type", () => {
@@ -74,10 +74,10 @@ describe("Integration | FilterBar", () => {
     render(<FilterBar />);
 
     const sortPill = screen.getByTestId("filter-sort-pill");
-    expect(sortPill).toHaveTextContent("Sort: Most recent");
+    expect(sortPill).toHaveTextContent("Sort: Most entries");
 
     fireEvent.click(sortPill);
-    expect(mockPush).toHaveBeenCalledWith("/properties?sort=oldest_first");
+    expect(mockPush).toHaveBeenCalledWith("/properties?sort=least_entries");
   });
 
   it("preserves other params when changing type", () => {
