@@ -3,6 +3,7 @@
 import { PropertySuggestion } from "@/types";
 import { Search } from "lucide-react";
 import Form from "next/form";
+import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import "./searchBar.css";
 
@@ -17,6 +18,7 @@ const SearchBar = ({
   includeSuggestions,
   className,
 }: SearchBarProps) => {
+  const router = useRouter();
   const [query, setQuery] = useState("");
   const [suggestions, setSuggestions] = useState<PropertySuggestion[]>([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
@@ -74,79 +76,38 @@ const SearchBar = ({
     setSelectedIndex(-1);
   };
 
-  // const handleSuggestionClick = (property: PropertySuggestion) => {
-  //   setQuery(property.address);
-  //   setShowSuggestions(false);
+  const handleSuggestionItemClick = (property: PropertySuggestion) => {
+    setShowSuggestions(false);
+    router.push(`/property/${property.id}`);
+  };
 
-  //   if (onSuggestionSelect) {
-  //     // Client-side navigation via callback
-  //     onSuggestionSelect(property);
-  //   } else {
-  //     // Server-side navigation - submit form with eircode
-  //     const form = wrapperRef.current?.querySelector("form");
-  //     if (form) {
-  //       const input = form.querySelector('input[name="q"]') as HTMLInputElement;
-  //       if (input) {
-  //         input.value = property.eircode; // Use eircode for precise search
-  //         form.requestSubmit();
-  //       }
-  //     }
-  //   }
-  // };
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (!showSuggestions || suggestions.length === 0) return;
 
-  // const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-  //   if (!showSuggestions || suggestions.length === 0) return;
-
-  //   switch (e.key) {
-  //     case "ArrowDown":
-  //       e.preventDefault();
-  //       setSelectedIndex((prev) =>
-  //         prev < suggestions.length - 1 ? prev + 1 : prev,
-  //       );
-  //       break;
-  //     case "ArrowUp":
-  //       e.preventDefault();
-  //       setSelectedIndex((prev) => (prev > 0 ? prev - 1 : -1));
-  //       break;
-  //     case "Enter":
-  //       if (selectedIndex >= 0) {
-  //         e.preventDefault();
-  //         handleSuggestionClick(suggestions[selectedIndex]);
-  //       }
-  //       // If selectedIndex is -1, let the form submit normally
-  //       break;
-  //     case "Escape":
-  //       setShowSuggestions(false);
-  //       setSelectedIndex(-1);
-  //       break;
-  //   }
-  // };
-
-  // const handleClear = () => {
-  //   setQuery("");
-  //   setSuggestions([]);
-  //   setShowSuggestions(false);
-  // };
-
-  // const highlightMatch = (text: string, query: string) => {
-  //   if (!query) return text;
-
-  //   const regex = new RegExp(
-  //     `(${query.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")})`,
-  //     "gi",
-  //   );
-  //   const parts = text.split(regex);
-
-  //   return parts.map((part, index) =>
-  //     regex.test(part) ? (
-  //       <strong key={index} className="font-semibold text-primary">
-  //         {part}
-  //       </strong>
-  //     ) : (
-  //       part
-  //     ),
-  //   );
-  // };
+    switch (e.key) {
+      case "ArrowDown":
+        e.preventDefault();
+        setSelectedIndex((prev) =>
+          prev < suggestions.length - 1 ? prev + 1 : prev,
+        );
+        break;
+      case "ArrowUp":
+        e.preventDefault();
+        setSelectedIndex((prev) => (prev > 0 ? prev - 1 : -1));
+        break;
+      case "Enter":
+        if (selectedIndex >= 0) {
+          e.preventDefault();
+          handleSuggestionItemClick(suggestions[selectedIndex]);
+        }
+        // If selectedIndex is -1, let the form submit normally
+        break;
+      case "Escape":
+        setShowSuggestions(false);
+        setSelectedIndex(-1);
+        break;
+    }
+  };
 
   return (
     <div className="relative">
@@ -166,6 +127,7 @@ const SearchBar = ({
               showSuggestions || isLoading ? "has-suggestions" : ""
             }`}
             onChange={handleInputChange}
+            onKeyDown={handleKeyDown}
             placeholder="Search by address or Eircode..."
             data-testid="search-bar"
           />
@@ -194,7 +156,7 @@ const SearchBar = ({
               {suggestions.map((property, index) => (
                 <li
                   key={property.id}
-                  // onClick={() => handleSuggestionClick(property)}
+                  onClick={() => handleSuggestionItemClick(property)}
                   className={`suggestion-item py-3 px-8 cursor-pointer transition-colors text-start ${
                     index === selectedIndex
                       ? "bg-primary/10"

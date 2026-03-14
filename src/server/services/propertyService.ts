@@ -72,11 +72,12 @@ export const propertyService = {
     type?: string,
     sort?: string,
   ): Promise<PropertySearchResponse> {
+    const trimedQuery = query?.trim() || "";
     const where = {
       OR: [
-        { address1: { contains: query, mode: "insensitive" as const } },
-        { eircode: { contains: query, mode: "insensitive" as const } },
-        { county: { contains: query, mode: "insensitive" as const } },
+        { address1: { contains: trimedQuery, mode: "insensitive" as const } },
+        { eircode: { contains: trimedQuery, mode: "insensitive" as const } },
+        { county: { contains: trimedQuery, mode: "insensitive" as const } },
       ],
       ...(type && { type }),
     };
@@ -112,12 +113,13 @@ export const propertyService = {
     query: string,
     limit: number = 5,
   ): Promise<PropertySuggestion[]> {
+    const trimedQuery = query?.trim() || "";
     const properties = await prisma.property.findMany({
       where: {
         OR: [
-          { address1: { contains: query, mode: "insensitive" as const } },
-          { address2: { contains: query, mode: "insensitive" as const } },
-          { eircode: { contains: query, mode: "insensitive" as const } },
+          { address1: { contains: trimedQuery, mode: "insensitive" as const } },
+          { address2: { contains: trimedQuery, mode: "insensitive" as const } },
+          { eircode: { contains: trimedQuery, mode: "insensitive" as const } },
         ],
       },
       select: {
