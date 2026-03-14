@@ -10,12 +10,12 @@ export const propertyService = {
    * @param sort - Sort by
    * @returns Object containing properties array, total count, current page and page size
    */
-  getAllProperties: async (
+  async getAllProperties(
     page: number,
     pageSize: number = 10,
     type?: string,
     sort?: string,
-  ) => {
+  ) {
     // Filter by type
     const where = {
       ...(type && { type }),
@@ -46,7 +46,7 @@ export const propertyService = {
    * @param id - Property ID
    * @returns Property with rents or null if not found
    */
-  getPropertyById: async (id: number) => {
+  async getPropertyById(id: number) {
     return prisma.property.findUnique({
       where: { id },
       include: { rents: true },
@@ -60,13 +60,13 @@ export const propertyService = {
    * @param pageSize - Number of properties per page (default: 10)
    * @returns Object containing matching properties, total count, current page and page size
    */
-  searchProperties: async (
+  async searchProperties(
     query: string,
     page: number,
     pageSize: number = 10,
     type?: string,
     sort?: string,
-  ) => {
+  ) {
     const where = {
       OR: [
         { address1: { contains: query, mode: "insensitive" as const } },
@@ -102,7 +102,7 @@ export const propertyService = {
    * @param data - Property data to insert
    * @returns Newly created property
    */
-  addProperty: async (data: Property) => {
+  async addProperty(data: Property) {
     return prisma.property.create({
       data: {
         address1: data.address1,
