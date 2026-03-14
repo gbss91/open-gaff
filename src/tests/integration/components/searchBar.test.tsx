@@ -1,20 +1,83 @@
-import { render, screen, fireEvent } from "@testing-library/react";
 import SearchBar from "@/components/search/SearchBar";
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 
 describe("Integration | SearchBar", () => {
   beforeEach(() => {
-    render(<SearchBar action="/properties" />);
+    global.fetch = jest.fn();
+  });
+
+  afterEach(() => {
+    jest.restoreAllMocks();
   });
 
   it("renders the search bar with all elements", () => {
+    render(<SearchBar action="/properties" includeSuggestions={false} />);
     expect(screen.getByTestId("search-bar")).toBeInTheDocument();
     expect(screen.getByTestId("search-bar-icon")).toBeInTheDocument();
     expect(screen.getByTestId("search-bar-btn")).toBeInTheDocument();
   });
 
   it("accepts user input", () => {
+    render(<SearchBar action="/properties" includeSuggestions={false} />);
     const input = screen.getByRole("searchbox");
     fireEvent.change(input, { target: { value: "Dublin" } });
     expect(input).toHaveValue("Dublin");
+  });
+
+  it("does not get suggestions when false", () => {
+    render(<SearchBar action="/properties" includeSuggestions={false} />);
+    const input = screen.getByRole("searchbox");
+    fireEvent.change(input, { target: { value: "Dublin 2" } });
+
+    expect(screen.queryByTestId("suggestion-box")).not.toBeInTheDocument();
+    expect(global.fetch).not.toHaveBeenCalled();
+  });
+
+  it("does not fetch suggestions for short queries", () => {
+    render(<SearchBar action="/properties" includeSuggestions={true} />);
+    const input = screen.getByRole("searchbox");
+
+    fireEvent.change(input, { target: { value: "Dub" } });
+
+    expect(screen.queryByTestId("suggestion-box")).not.toBeInTheDocument();
+    expect(global.fetch).not.toHaveBeenCalled();
+  });
+
+  it("shows suggestions when API returns data", async () => {
+    const mockSuggestions = [
+      {
+        id: 1,
+        address1: "14 Grafton Street",
+        eircode: "D02Y828",
+        county: "Dublin",
+      },
+      {
+        id: 2,
+        address1: "22 O'Connell Street",
+        eircode: "D01X5X2",
+        county: "Dublin",
+      },
+    ];
+
+    // Mock successful API response
+    (global.fetch as jest.Mock).mockResolvedValueOnce({
+      ok: true,
+      json: () => Promise.resolve(mockSuggestions),
+    });
+
+    render(<SearchBar action="/properties" includeSuggestions={true} />);
+
+    const input = screen.getByRole("searchbox");
+    fireEvent.change(input, { target: { value: "Dublin" } });
+
+    await waitFor(() => {
+      expect(screen.getByTestId("suggestion-box")).toBeInTheDocument();
+    });
+
+    const suggestionItems = screen.getAllByRole("listitem");
+    expect(suggestionItems).toHaveLength(mockSuggestions.length);
+
+    expect(screen.getByText("14 Grafton Street")).toBeInTheDocument();
+    expect(screen.getByText("22 O'Connell Street")).toBeInTheDocument();
   });
 });

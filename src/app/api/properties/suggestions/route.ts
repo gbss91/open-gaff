@@ -7,7 +7,7 @@ export const GET = async (request: NextRequest) => {
     const query = searchParams.get("q")?.trim() || "";
 
     // Validate minimum query length
-    if (query.length < 5) {
+    if (query.length < 4) {
       return NextResponse.json([]);
     }
 

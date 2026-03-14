@@ -4,12 +4,23 @@
   border-radius: 12px;
   box-shadow: 0 2px 20px rgba(30, 77, 53, 0.1);
   outline: none;
+  transition: all 0.2s ease;
 }
 
 .input:focus {
   border-color: var(--color-primary);
   box-shadow:
     0 2px 20px rgba(58, 125, 85, 0.15),
+    0 0 0 3px rgba(58, 125, 85, 0.08);
+}
+
+.input.has-suggestions {
+  border-color: var(--color-primary);
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-bottom: none;
+  box-shadow:
+    0 -2px 10px rgba(58, 125, 85, 0.15),
     0 0 0 3px rgba(58, 125, 85, 0.08);
 }
 
@@ -26,4 +37,26 @@
 .search-btn:focus-visible {
   outline: 1.5px solid var(--color-secondary);
   outline-offset: 2px;
+}
+
+.suggestions-box {
+  position: absolute;
+  z-index: 10;
+  width: 100%;
+  border: 1.5px solid var(--color-primary);
+  border-top: 1px solid var(--color-secondary);
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+  box-shadow:
+    -3px 0 0 0 rgba(58, 125, 85, 0.08),
+    3px 0 0 0 rgba(58, 125, 85, 0.08),
+    0 2px 0px rgba(58, 125, 85, 0.15);
+}
+
+.suggestion-item {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.suggestion-item:last-child {
+  border-bottom: none;
 }
