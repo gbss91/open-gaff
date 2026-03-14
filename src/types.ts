@@ -27,3 +27,17 @@ export type Rent = {
 export type PropertyWithRents = Property & {
   rents: Rent[];
 };
+
+// Response types
+export type PropertySearchResponse = {
+  properties: Property[];
+  total: number;
+  page: number;
+  pageSize: number;
+};
+
+export type PropertySuggestionsResponse = {
+  id: number;
+  address1: string;
+  eircode: string;
+};
