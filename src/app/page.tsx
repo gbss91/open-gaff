@@ -22,7 +22,7 @@ export default function MainPage() {
             and see what people actually pay — not just what landlords are
             asking.
           </p>
-          <SearchBar action="/properties" />
+          <SearchBar action="/properties" includeSuggestions={true} />
           <p className="text-text-light text-sm py-2">
             {"Can't find your property?"}
             <a

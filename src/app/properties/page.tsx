@@ -21,7 +21,6 @@ export default async function PropertiesPage({
 }) {
   const { q, page: pageParam, type, sort } = await searchParams;
   const page = Number(pageParam) || 1;
-  console.log({ q, page, type });
 
   const { properties } = q
     ? await propertyService.searchProperties(q, page, 10, type, sort)
@@ -30,7 +29,7 @@ export default async function PropertiesPage({
   return (
     <main className="flex-1 flex flex-col">
       <div className="py-4 px-main" data-testid="search-container">
-        <SearchBar action="/properties" />
+        <SearchBar action="/properties" includeSuggestions={false} />
       </div>
       <div className="filter-container py-2 px-main">
         <Suspense fallback={null}>

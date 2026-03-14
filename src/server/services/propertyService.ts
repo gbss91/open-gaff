@@ -2,7 +2,7 @@ import prisma from "@/server/prisma";
 import {
   Property,
   PropertySearchResponse,
-  PropertySuggestionsResponse,
+  PropertySuggestion,
   PropertyWithRents,
 } from "@/types";
 
@@ -111,7 +111,7 @@ export const propertyService = {
   async getSuggestions(
     query: string,
     limit: number = 5,
-  ): Promise<PropertySuggestionsResponse[]> {
+  ): Promise<PropertySuggestion[]> {
     const properties = await prisma.property.findMany({
       where: {
         OR: [
