@@ -23,15 +23,6 @@ export default function MainPage() {
             asking.
           </p>
           <SearchBar action="/properties" includeSuggestions={true} />
-          <p className="text-text-light text-sm py-2">
-            {"Can't find your property?"}
-            <a
-              href="#"
-              className="text-text-accent no-underline font-semibold ml-1"
-            >
-              Add it here →
-            </a>
-          </p>
         </div>
         <div
           className="stats-wrapper w-full max-w-3xl flex justify-center"

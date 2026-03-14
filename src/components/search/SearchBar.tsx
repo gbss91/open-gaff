@@ -3,6 +3,7 @@
 import { PropertySuggestion } from "@/types";
 import { Search } from "lucide-react";
 import Form from "next/form";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import "./searchBar.css";
@@ -22,7 +23,6 @@ const SearchBar = ({
   const [query, setQuery] = useState("");
   const [suggestions, setSuggestions] = useState<PropertySuggestion[]>([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState(-1);
   const debounceTimer = useRef<NodeJS.Timeout | null>(null);
 
@@ -38,12 +38,10 @@ const SearchBar = ({
 
       const results = await response.json();
       setSuggestions(results);
-      setShowSuggestions(results.length > 0);
+      setShowSuggestions(true);
     } catch (error) {
       console.error("Failed to fetch suggestions:", error);
       setSuggestions([]);
-    } finally {
-      setIsLoading(false);
     }
   };
 
@@ -60,7 +58,6 @@ const SearchBar = ({
     }
 
     debounceTimer.current = setTimeout(async () => {
-      setIsLoading(true);
       getSuggestions();
     }, 300);
 
@@ -124,7 +121,7 @@ const SearchBar = ({
             id="search-bar"
             name="q"
             className={`input bg-white text-sm block w-full px-8 py-4 ${
-              showSuggestions || isLoading ? "has-suggestions" : ""
+              showSuggestions ? "has-suggestions" : ""
             }`}
             onChange={handleInputChange}
             onKeyDown={handleKeyDown}
@@ -142,16 +139,12 @@ const SearchBar = ({
       </Form>
 
       {/* Suggestions Dropdown */}
-      {(showSuggestions || isLoading) && (
+      {showSuggestions && (
         <div
           className="suggestions-box bg-white text-sm overflow-y-auto"
           data-testid="suggestion-box"
         >
-          {isLoading ? (
-            <div className="text-start py-3 px-8 text-sm text-muted">
-              Loading suggestions...
-            </div>
-          ) : suggestions.length > 0 ? (
+          {suggestions.length > 0 ? (
             <ul>
               {suggestions.map((property, index) => (
                 <li
@@ -172,7 +165,18 @@ const SearchBar = ({
                 </li>
               ))}
             </ul>
-          ) : null}
+          ) : (
+            <Link href="/properties/new">
+              <div className="px-8 py-3 text-center hover:bg-secondary/10">
+                <p className="text-text-light text-sm">
+                  {"Can't find your property?"}
+                  <span className="text-text-accent no-underline font-semibold ml-1">
+                    Add it here →
+                  </span>
+                </p>
+              </div>
+            </Link>
+          )}
         </div>
       )}
     </div>
@@ -180,6 +184,3 @@ const SearchBar = ({
 };
 
 export default SearchBar;
-function async() {
-  throw new Error("Function not implemented.");
-}
