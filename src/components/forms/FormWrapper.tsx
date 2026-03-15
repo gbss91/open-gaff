@@ -30,10 +30,32 @@ const FormWrapper = () => {
     router.push(`/new?step=rent`);
   };
 
-  const handleRentSubmit = (e: React.SubmitEvent<HTMLFormElement>) => {
+  const handleRentSubmit = async (e: React.SubmitEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const formData = new FormData(e.currentTarget);
 
-    console.log("Rent Submitted ");
+    const completeData = {
+      property: newPropertyData,
+      rent: {
+        monthlyRent: Number(formData.get("monthlyRent")),
+        depositAmount: Number(formData.get("depositAmount")),
+        occupantsCount: Number(formData.get("occupantsCount")),
+      },
+    };
+
+    console.log(completeData);
+
+    try {
+      await fetch("/api/new", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(completeData),
+      });
+
+      router.push("/properties");
+    } catch (error) {
+      console.error("Failed to create property with rent:", error);
+    }
   };
 
   return (

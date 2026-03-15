@@ -7,9 +7,15 @@
   border: 1px solid var(--color-border);
   border-radius: 12px;
   overflow: hidden;
+  background-color: color-mix(in oklab, var(--color-secondary) 5%, transparent);
 
   .address-title {
     font-family: var(--font-bricolage);
+  }
+
+  .change-btn {
+    color: var(--color-primary);
+    cursor: pointer;
   }
 }
 

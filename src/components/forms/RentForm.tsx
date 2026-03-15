@@ -17,17 +17,19 @@ const RentForm = ({ onSubmit, property }: RentFormProps) => {
 
   return (
     <>
-      <div className="property-box flex">
+      <div className="property-box flex justify-between px-8 py-4 mb-5">
         <div className="flex flex-col">
           <span className="text-xs font-semibold uppercase text-text-accent">
             Adding rent for
           </span>
-          <div className="address-title">{property?.address1}</div>
-          <div className="pbm" id="pbm">
-            D01 F5P2 · Dublin · Apartment · 2 bed
+          <div className="address-title text-md font-bold">
+            {property?.address1}
+          </div>
+          <div className="text-sm text-text-light">
+            {property?.eircode} · {property?.county}
           </div>
         </div>
-        <button className="pbc" onClick={handleChangeClick}>
+        <button className="change-btn text-sm" onClick={handleChangeClick}>
           Change
         </button>
       </div>
@@ -46,6 +48,7 @@ const RentForm = ({ onSubmit, property }: RentFormProps) => {
           </span>
           <CustomInput
             name="amount"
+            type="number"
             label="Monthly rent (€)"
             helperText="The full monthly amount you pay"
             isRequired

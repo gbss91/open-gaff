@@ -146,14 +146,56 @@ export const propertyService = {
     return prisma.property.create({
       data: {
         address1: data.address1,
-        address2: data.address2,
-        address3: data.address3,
-        address4: data.address4,
+        address2: data.address2 ?? null,
+        address3: data.address3 ?? null,
+        address4: data.address4 ?? null,
         county: data.county,
         eircode: data.eircode,
         bedroomNo: data.bedroomNo,
         type: data.type,
-        isRegistered: data.isRegistered || false,
+        ...(data.isRegistered !== undefined && {
+          isRegistered: data.isRegistered,
+        }),
+      },
+    });
+  },
+
+  /**
+   * Creates a new property with rent
+   * @param data - Property data to insert, including rent
+   * @returns Newly created property with rent
+   */
+  async addPropertyWithRent(data: Property): Promise<Property> {
+    const firstRent = data.rents?.[0];
+
+    if (!firstRent) {
+      throw new Error("addPropertyWithRent requires at least one rent record");
+    }
+
+    return prisma.property.create({
+      data: {
+        address1: data.address1,
+        address2: data.address2 ?? null,
+        address3: data.address3 ?? null,
+        address4: data.address4 ?? null,
+        county: data.county,
+        eircode: data.eircode,
+        bedroomNo: data.bedroomNo,
+        type: data.type,
+        ...(data.isRegistered !== undefined && {
+          isRegistered: data.isRegistered,
+        }),
+
+        rents: {
+          create: {
+            amount: firstRent.amount,
+            arrangementType: firstRent.arrangementType,
+            occupantsCount: firstRent.occupantsCount ?? null,
+          },
+        },
+      },
+      include: {
+        rents: true,
       },
     });
   },
