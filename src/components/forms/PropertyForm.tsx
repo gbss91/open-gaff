@@ -2,6 +2,7 @@
 import { Bed, Building, House } from "lucide-react";
 import { useState } from "react";
 import Button from "../ui/Button";
+import CustomInput from "../ui/CustomInput";
 import "./forms.css";
 
 const COUNTIES = [
@@ -40,7 +41,7 @@ type PropertyFormProps = {
 };
 
 const PropertyForm = ({ onSubmit }: PropertyFormProps) => {
-  const [selectedType, setSelectedType] = useState<PropertyType>("house");
+  const [selectedType, setSelectedType] = useState<PropertyType>();
 
   const propertyTypes = [
     { id: "house" as PropertyType, label: "House", icon: House },
@@ -49,83 +50,25 @@ const PropertyForm = ({ onSubmit }: PropertyFormProps) => {
   ];
 
   const formatEircode = (e: React.ChangeEvent<HTMLInputElement>) => {
-    e.target.value = e.target.value.toUpperCase().replace(/[^A-Z0-9 ]/g, "");
+    let value = e.target.value.toUpperCase().replace(/[^A-Z0-9]/g, "");
+
+    if (value.length > 3) value = value.slice(0, 3) + " " + value.slice(3, 7);
+
+    e.target.value = value;
   };
 
   return (
     <form onSubmit={onSubmit} className="form-container">
-      <input type="hidden" name="type" value={selectedType} />
-      <div className="px-7 py-6 flex flex-col gap-4">
+      {/* Form Address Details Section  */}
+      <div className="px-8 py-6 flex flex-col gap-4">
         <span className="text-xs font-semibold uppercase text-text-accent">
           Address
         </span>
 
-        <div className="flex flex-col gap-1.5">
-          <label
-            htmlFor="address1"
-            className="text-[0.8rem] font-semibold text-text-dark flex gap-1.5 items-center"
-          >
-            Address line 1
-          </label>
-          <input
-            id="address1"
-            name="address1"
-            type="text"
-            required
-            className="form-input w-full px-3.5 py-2.5 text-sm"
-          />
-        </div>
-
-        <div className="flex flex-col gap-1.5">
-          <label
-            htmlFor="address2"
-            className="text-[0.8rem] font-semibold text-text-dark flex gap-1.5 items-center"
-          >
-            Address line 2
-            <span className="font-normal text-text-light text-[0.73rem]">
-              (optional)
-            </span>
-          </label>
-          <input
-            id="address2"
-            name="address2"
-            type="text"
-            className="form-input w-full px-3.5 py-2.5 text-sm"
-          />
-        </div>
-
-        <div className="flex flex-col gap-1.5">
-          <label
-            htmlFor="address3"
-            className="text-[0.8rem] font-semibold text-text-dark flex gap-1.5 items-center"
-          >
-            Address line 3
-            <span className="font-normal text-text-light text-[0.73rem]">
-              (optional)
-            </span>
-          </label>
-          <input
-            id="address3"
-            name="address3"
-            type="text"
-            className="form-input w-full px-3.5 py-2.5 text-sm"
-          />
-          <label
-            htmlFor="address4"
-            className="text-[0.8rem] font-semibold text-text-dark flex gap-1.5 items-center"
-          >
-            Address line 4
-            <span className="font-normal text-text-light text-[0.73rem]">
-              (optional)
-            </span>
-          </label>
-          <input
-            id="address4"
-            name="address4"
-            type="text"
-            className="form-input w-full px-3.5 py-2.5 text-sm"
-          />
-        </div>
+        <CustomInput name="address1" label="Address line 1" isRequired />
+        <CustomInput name="address2" label="Address line 2" />
+        <CustomInput name="address3" label="Address line 3" />
+        <CustomInput name="address4" label="Address line 4" />
 
         <div className="grid grid-cols-2 gap-3.5">
           <div className="flex flex-col gap-1.5">
@@ -150,26 +93,18 @@ const PropertyForm = ({ onSubmit }: PropertyFormProps) => {
             </select>
           </div>
 
-          <div className="flex flex-col gap-1.5">
-            <label
-              htmlFor="eircode"
-              className="text-[0.8rem] font-semibold text-text-dark"
-            >
-              Eircode
-            </label>
-            <input
-              id="eircode"
-              name="eircode"
-              type="text"
-              placeholder="D02 XY12"
-              maxLength={8}
-              required
-              onChange={formatEircode}
-              className="form-input w-full px-3.5 py-2.5 text-sm"
-            />
-          </div>
+          <CustomInput
+            name="eircode"
+            label="Eircode"
+            maxLength={8}
+            placeholder="D08 RX6H"
+            onChange={formatEircode}
+            isRequired
+          />
         </div>
       </div>
+
+      {/* Form Property Details Section  */}
       <div className="px-7 py-6 flex flex-col gap-4">
         <span className="text-xs font-semibold uppercase text-text-accent">
           Property Details
@@ -188,6 +123,15 @@ const PropertyForm = ({ onSubmit }: PropertyFormProps) => {
                 onClick={() => setSelectedType(id)}
                 className={`type-option ${selectedType === id ? "selected" : ""}`}
               >
+                <input
+                  type="radio"
+                  name="type"
+                  value={id}
+                  checked={selectedType === id}
+                  onChange={() => setSelectedType(id)}
+                  required
+                  className="sr-only"
+                />
                 <Icon className="stroke-primary" />
                 <span className="text-[0.8rem] font-semibold text-text-dark">
                   {label}
@@ -197,38 +141,22 @@ const PropertyForm = ({ onSubmit }: PropertyFormProps) => {
           </div>
         </div>
         <div className="grid grid-cols-2 items-center gap-3.5">
-          <div className="flex flex-col gap-1.5">
-            <label
-              htmlFor="bedrooms"
-              className="text-[0.8rem] font-semibold text-text-dark"
-            >
-              Bedrooms
-            </label>
-            <input
-              id="bedrooms"
-              name="bedrooms"
-              type="number"
-              className="form-input w-full px-3.5 py-2.5 text-sm"
-              required
-            />
-          </div>
-          <div className="flex items-center gap-2">
-            <label
-              htmlFor="isRegistered"
-              className="text-[0.8rem] font-semibold text-text-dark"
-            >
-              RTB Registered
-            </label>
-            <input
-              id="isRegistered"
-              name="isRegistered"
-              type="checkbox"
-              value="true"
-              className="form-input w-4 h-4"
-            />
-          </div>
+          <CustomInput
+            name="bedrooms"
+            label="Bedrooms"
+            type="number"
+            isRequired
+          />
+          <CustomInput
+            name="isRegistered"
+            label="RTB Resgistred"
+            type="checkbox"
+            isRequired
+          />
         </div>
       </div>
+
+      {/* Form Footer Section  */}
       <div className="form-footer flex justify-end px-7 py-6 ">
         <Button
           type="submit"

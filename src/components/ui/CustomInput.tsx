@@ -1,7 +1,6 @@
-// components/ui/FormInput.tsx
 import { forwardRef, InputHTMLAttributes } from "react";
+import "./CustomInput.css";
 
-// Extend native input props
 interface FormInputProps extends InputHTMLAttributes<HTMLInputElement> {
   label?: string;
   isRequired?: boolean;

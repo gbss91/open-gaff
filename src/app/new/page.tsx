@@ -22,16 +22,13 @@ export default function NewPage() {
       address3: formData.get("address3") as string,
       address4: formData.get("address4") as string,
       county: formData.get("county") as string,
-      eircode: formData.get("eircode") as string,
+      eircode: formData.get("eircode")?.toString().replace(/\s/g, "") || "",
       bedroomNo: Number(formData.get("bedroomNo")),
       type: formData.get("type") as string,
       isRegistered: formData.has("isRegistered"),
     });
-    console.log(newPropertyData);
     router.push(`/rents/new?step=rent`);
   };
-
-  console.log(newPropertyData);
 
   return (
     <main className="flex-1 flex flex-col">

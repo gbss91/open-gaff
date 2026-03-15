@@ -3,26 +3,6 @@
   border: 1px solid var(--color-border);
   border-radius: 12px;
 
-  .optional {
-    font-weight: 400;
-    color: var(--text-light);
-    font-size: 0.73rem;
-  }
-
-  .form-input {
-    color: var(--color-text-dark);
-    border: 1px solid var(--color-input-border);
-    border-radius: 12px;
-    outline: none;
-  }
-
-  .form-input:focus {
-    border-color: var(--color-primary);
-    box-shadow:
-      0 2px 20px rgba(58, 125, 85, 0.15),
-      0 0 0 3px rgba(58, 125, 85, 0.08);
-  }
-
   .type-option {
     border: 1.5px solid var(--color-border);
     border-radius: 8px;
@@ -44,7 +24,11 @@
 
   .type-option.selected {
     border-color: var(--color-primary);
-    background-color: color-mix(in oklab, var(--color-primary) 5%, transparent);
+    background-color: color-mix(
+      in oklab,
+      var(--color-secondary) 5%,
+      transparent
+    );
   }
 
   .type-option svg {
