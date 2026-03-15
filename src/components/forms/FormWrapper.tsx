@@ -1,22 +1,35 @@
 import { Property } from "@/types";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useState } from "react";
+import SearchBar from "../search/SearchBar";
 import PropertyForm from "./PropertyForm";
 import RentForm from "./RentForm";
 
 type Step = "search" | "property" | "rent";
 
 const FormWrapper = () => {
-  const [newPropertyData, setNewPropertyData] = useState<Property>();
+  const [propertyData, setPropertyData] = useState<Property>();
   const searchParams = useSearchParams();
   const router = useRouter();
   const step = (searchParams.get("step") as Step) || "search";
+
+  const handlePropertySelect = async (propertyId: number) => {
+    try {
+      const response = await fetch(`/api/properties/${propertyId}`);
+      const fullProperty = await response.json();
+
+      setPropertyData(fullProperty);
+      router.push("/new?step=rent");
+    } catch (error) {
+      console.error("Failed to fetch property:", error);
+    }
+  };
 
   const handlePropertySubmit = (e: React.SubmitEvent<HTMLFormElement>) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
 
-    setNewPropertyData({
+    setPropertyData({
       address1: formData.get("address1") as string,
       address2: formData.get("address2")?.toString().trim() || null,
       address3: formData.get("address3")?.toString().trim() || null,
@@ -35,24 +48,28 @@ const FormWrapper = () => {
     const formData = new FormData(e.currentTarget);
 
     const completeData = {
-      property: newPropertyData,
+      property: propertyData,
       rent: {
         amount: Number(formData.get("amount")),
         arrangementType: formData.get("arrangementType") as string,
-        occupantsCount: Number(formData.get("occupantsCount")),
+        occupantsCount: Number(formData.get("occupantsCount")) || null,
       },
     };
 
-    console.log(completeData);
-
     try {
-      await fetch("/api/new", {
+      const response = await fetch("/api/new", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(completeData),
       });
 
-      router.push("/properties");
+      if (!response.ok) {
+        router.push("/properties");
+        return;
+      }
+
+      const data = await response.json();
+      router.push(`/properties/${data.id}`);
     } catch (error) {
       console.error("Failed to create property with rent:", error);
     }
@@ -67,8 +84,12 @@ const FormWrapper = () => {
               Find your property
             </h2>
             <p className="text-text-light text-sm pb-5">
-              Tell us what you pay for this property.
+              Search for an existing property.
             </p>
+            <SearchBar
+              includeSuggestions={true}
+              onPropertySelect={handlePropertySelect}
+            />
           </div>
         </section>
       )}
@@ -78,7 +99,7 @@ const FormWrapper = () => {
           <div className="max-w-3xl mx-auto">
             <h2 className="form-title text-3xl font-bold">Add Property</h2>
             <p className="text-text-light text-sm pb-5">
-              Tell us what you pay for this property.
+              Tell us about the property.
             </p>
             <PropertyForm onSubmit={handlePropertySubmit} />
           </div>
@@ -92,7 +113,7 @@ const FormWrapper = () => {
             <p className="text-text-light text-sm pb-5">
               Tell us what you pay for this property.
             </p>
-            <RentForm property={newPropertyData} onSubmit={handleRentSubmit} />
+            <RentForm property={propertyData} onSubmit={handleRentSubmit} />
           </div>
         </section>
       )}

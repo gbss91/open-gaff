@@ -14,7 +14,7 @@ const RentForm = ({ onSubmit, property }: RentFormProps) => {
   const [showOccupantsCount, setShowOccupantsCount] = useState(false);
 
   const handleChangeClick = () => {
-    router.push("/new?step=search");
+    router.back();
   };
 
   const handleArrangementChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -113,6 +113,7 @@ const RentForm = ({ onSubmit, property }: RentFormProps) => {
           </fieldset>
           {showOccupantsCount && (
             <CustomInput
+              name="occupantsCount"
               type="number"
               label="Total people in the property"
               helperText="How many people live in the property, including yourself? Helps others understand the full picture for shared properties"
