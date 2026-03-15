@@ -1,9 +1,18 @@
 import SearchBar from "@/components/search/SearchBar";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 
+const mockRouter = jest.fn();
+
+jest.mock("next/navigation", () => ({
+  useRouter: () => ({
+    push: mockRouter,
+  }),
+}));
+
 describe("Integration | SearchBar", () => {
   beforeEach(() => {
     global.fetch = jest.fn();
+    mockRouter.mockClear();
   });
 
   afterEach(() => {
@@ -79,5 +88,35 @@ describe("Integration | SearchBar", () => {
 
     expect(screen.getByText("14 Grafton Street")).toBeInTheDocument();
     expect(screen.getByText("22 O'Connell Street")).toBeInTheDocument();
+  });
+
+  it("navigates to property page when suggestion is clicked", async () => {
+    const mockSuggestions = [
+      {
+        id: 1,
+        address1: "14 Grafton Street",
+        eircode: "D02Y828",
+        county: "Dublin",
+      },
+    ];
+
+    (global.fetch as jest.Mock).mockResolvedValueOnce({
+      ok: true,
+      json: () => Promise.resolve(mockSuggestions),
+    });
+
+    render(<SearchBar action="/properties" includeSuggestions={true} />);
+
+    const input = screen.getByRole("searchbox");
+    fireEvent.change(input, { target: { value: "Dublin" } });
+
+    await waitFor(() => {
+      expect(screen.getByTestId("suggestion-box")).toBeInTheDocument();
+    });
+
+    const suggestionItem = screen.getByText("14 Grafton Street");
+    fireEvent.click(suggestionItem);
+
+    expect(mockRouter).toHaveBeenCalledWith("/property/1");
   });
 });
