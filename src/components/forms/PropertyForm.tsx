@@ -1,5 +1,7 @@
 "use client";
 import { Bed, Building, House } from "lucide-react";
+import { useState } from "react";
+import Button from "../ui/Button";
 import "./forms.css";
 
 const COUNTIES = [
@@ -31,11 +33,21 @@ const COUNTIES = [
   "Donegal",
 ];
 
+type PropertyType = "house" | "apartment" | "studio";
+
 type PropertyFormProps = {
   onSubmit: (e: React.SubmitEvent<HTMLFormElement>) => void;
 };
 
 const PropertyForm = ({ onSubmit }: PropertyFormProps) => {
+  const [selectedType, setSelectedType] = useState<PropertyType>("house");
+
+  const propertyTypes = [
+    { id: "house" as PropertyType, label: "House", icon: House },
+    { id: "apartment" as PropertyType, label: "Apartment", icon: Building },
+    { id: "studio" as PropertyType, label: "Studio", icon: Bed },
+  ];
+
   const formatEircode = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.target.value = e.target.value.toUpperCase().replace(/[^A-Z0-9 ]/g, "");
   };
@@ -168,35 +180,55 @@ const PropertyForm = ({ onSubmit }: PropertyFormProps) => {
           >
             Property type
           </label>
-          <div className="grid grid-cols-3">
-            <div className="type-option selected">
-              <House color="stroke-light " />
-              <span className="type-label">House</span>
-            </div>
-            <div className="type-option selected">
-              <Building color="stroke-light " />
-              <span className="type-label">Apartment</span>
-            </div>
-            <div className="type-option selected">
-              <Bed color="stroke-light " />
-              <span className="">Studio</span>
-            </div>
+          <div className="grid grid-cols-3 gap-3.5">
+            {propertyTypes.map(({ id, label, icon: Icon }) => (
+              <div
+                key={id}
+                onClick={() => setSelectedType(id)}
+                className={`type-option ${selectedType === id ? "selected" : ""}`}
+              >
+                <Icon className="stroke-primary" />
+                <span className="text-[0.8rem] font-semibold text-text-dark">
+                  {label}
+                </span>
+              </div>
+            ))}
           </div>
         </div>
-        <div className="flex flex-col gap-1.5">
-          <label
-            htmlFor="bedrooms"
-            className="text-[0.8rem] font-semibold text-text-dark"
-          >
-            Bedrooms
-          </label>
-          <input
-            id="bedrooms"
-            name="bedrooms"
-            type="number"
-            className="form-input w-full px-3.5 py-2.5 text-sm"
-          />
+        <div className="grid grid-cols-2 items-center gap-3.5">
+          <div className="flex flex-col gap-1.5">
+            <label
+              htmlFor="bedrooms"
+              className="text-[0.8rem] font-semibold text-text-dark"
+            >
+              Bedrooms
+            </label>
+            <input
+              id="bedrooms"
+              name="bedrooms"
+              type="number"
+              className="form-input w-full px-3.5 py-2.5 text-sm"
+            />
+          </div>
+          <div className="flex items-center gap-2">
+            <label
+              htmlFor="isRegistered"
+              className="text-[0.8rem] font-semibold text-text-dark"
+            >
+              RTB Registered
+            </label>
+            <input
+              id="isRegistered"
+              name="isRegistered"
+              type="checkbox"
+              value="true"
+              className="form-input w-4 h-4"
+            />
+          </div>
         </div>
+      </div>
+      <div className="form-footer flex justify-end px-7 py-6 ">
+        <Button text="Next: Add Rent" testId="property-submit-btn" />
       </div>
     </form>
   );

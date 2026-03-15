@@ -24,7 +24,7 @@
   }
 
   .type-option {
-    border: 1.5px solid var(--border);
+    border: 1.5px solid var(--color-border);
     border-radius: 8px;
     padding: 0.8rem 0.5rem;
     text-align: center;
@@ -44,6 +44,16 @@
 
   .type-option.selected {
     border-color: var(--color-primary);
-    background: rgba(58, 125, 85, 0.05);
+    background-color: color-mix(in oklab, var(--color-primary) 5%, transparent);
+  }
+
+  .type-option svg {
+    height: 24px;
+    width: 24px;
+  }
+
+  .form-footer {
+    background: var(--color-page-bg);
+    border-top: 1px solid var(--color-border);
   }
 }
