@@ -5,7 +5,7 @@ import { Search } from "lucide-react";
 import Form from "next/form";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import "./searchBar.css";
 
 type SearchBarProps = {
@@ -26,7 +26,7 @@ const SearchBar = ({
   const [selectedIndex, setSelectedIndex] = useState(-1);
   const debounceTimer = useRef<NodeJS.Timeout | null>(null);
 
-  const getSuggestions = async () => {
+  const getSuggestions = useCallback(async () => {
     try {
       const response = await fetch(
         `/api/properties/suggestions?q=${encodeURIComponent(query)}`,
@@ -43,7 +43,7 @@ const SearchBar = ({
       console.error("Failed to fetch suggestions:", error);
       setSuggestions([]);
     }
-  };
+  }, [query]);
 
   // Fetch suggestions with debouncing
   useEffect(() => {
@@ -66,7 +66,7 @@ const SearchBar = ({
         clearTimeout(debounceTimer.current);
       }
     };
-  }, [query]);
+  }, [query, includeSuggestions, getSuggestions]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setQuery(e.target.value);
