@@ -105,7 +105,7 @@ const PropertyForm = ({ onSubmit }: PropertyFormProps) => {
       </div>
 
       {/* Form Property Details Section  */}
-      <div className="px-7 py-6 flex flex-col gap-4">
+      <div className="px-8 py-6 flex flex-col gap-4">
         <span className="text-xs font-semibold uppercase text-text-accent">
           Property Details
         </span>
@@ -157,7 +157,7 @@ const PropertyForm = ({ onSubmit }: PropertyFormProps) => {
       </div>
 
       {/* Form Footer Section  */}
-      <div className="form-footer flex justify-end px-7 py-6 ">
+      <div className="form-footer flex justify-end px-8 py-6 ">
         <Button
           type="submit"
           text="Next: Add Rent"

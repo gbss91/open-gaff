@@ -54,17 +54,14 @@ const CustomInput = forwardRef<HTMLInputElement, FormInputProps>(
         />
 
         {error && (
-          <p
-            className="text-xs text-red-600 mt-1"
-            data-testid="custom-input-error"
-          >
+          <p className="text-xs text-red-600" data-testid="custom-input-error">
             {error}
           </p>
         )}
 
         {helperText && !error && (
           <p
-            className="text-xs text-text-light mt-1"
+            className="text-xs text-text-light"
             data-testid="custom-input-helper"
           >
             {helperText}

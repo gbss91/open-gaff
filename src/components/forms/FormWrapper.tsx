@@ -2,6 +2,7 @@ import { Property } from "@/types";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useState } from "react";
 import PropertyForm from "./PropertyForm";
+import RentForm from "./RentForm";
 
 type Step = "search" | "property" | "rent";
 
@@ -26,31 +27,51 @@ const FormWrapper = () => {
       type: formData.get("type") as string,
       isRegistered: formData.has("isRegistered"),
     });
-    router.push(`/rents/new?step=rent`);
+    router.push(`/new?step=rent`);
   };
 
-  console.log(newPropertyData);
+  const handleRentSubmit = (e: React.SubmitEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    console.log("Rent Submitted ");
+  };
 
   return (
     <main className="flex-1 flex flex-col">
       {step === "search" && (
         <section className="py-4 px-main">
-          <h2 className="form-title text-3xl font-bold pb-2">
-            Find your property
-          </h2>
+          <div className="max-w-3xl mx-auto">
+            <h2 className="form-title text-3xl font-bold">
+              Find your property
+            </h2>
+            <p className="text-text-light text-sm pb-5">
+              Tell us what you pay for this property.
+            </p>
+          </div>
         </section>
       )}
 
       {step === "property" && (
         <section className="py-4 px-main">
-          <h2 className="form-title text-3xl font-bold pb-5">Add Property</h2>
-          <PropertyForm onSubmit={handlePropertySubmit} />
+          <div className="max-w-3xl mx-auto">
+            <h2 className="form-title text-3xl font-bold">Add Property</h2>
+            <p className="text-text-light text-sm pb-5">
+              Tell us what you pay for this property.
+            </p>
+            <PropertyForm onSubmit={handlePropertySubmit} />
+          </div>
         </section>
       )}
 
       {step === "rent" && (
         <section className="py-4 px-main">
-          <h2 className="form-title text-3xl font-bold pb-2">Add Rent</h2>
+          <div className="max-w-3xl mx-auto">
+            <h2 className="form-title text-3xl font-bold">Add Rent</h2>
+            <p className="text-text-light text-sm pb-5">
+              Tell us what you pay for this property.
+            </p>
+            <RentForm property={newPropertyData} onSubmit={handleRentSubmit} />
+          </div>
         </section>
       )}
     </main>
