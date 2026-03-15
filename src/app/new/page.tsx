@@ -1,16 +1,16 @@
 "use client";
 import PropertyForm from "@/components/forms/PropertyForm";
 import { Property } from "@/types";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useState } from "react";
 
 type Step = "search" | "property" | "rent";
 
 export default function NewPage() {
-  const searchParams = useSearchParams();
-
   const [newPropertyData, setNewPropertyData] = useState<Property>();
-  const [step, setStep] = useState<Step>("property");
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  const step = (searchParams.get("step") as Step) || "search";
 
   const handlePropertySubmit = (e: React.SubmitEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -27,26 +27,32 @@ export default function NewPage() {
       type: formData.get("type") as string,
       isRegistered: formData.has("isRegistered"),
     });
-    setStep("rent");
+    console.log(newPropertyData);
+    router.push(`/rents/new?step=rent`);
   };
+
+  console.log(newPropertyData);
 
   return (
     <main className="flex-1 flex flex-col">
+      {step === "search" && (
+        <section className="py-4 px-main">
+          <h2 className="form-title text-3xl font-bold pb-2">
+            Find your property
+          </h2>
+        </section>
+      )}
+
       {step === "property" && (
         <section className="py-4 px-main">
-          <h2 className="form-title text-3xl font-bold pb-5">
-            Property Details
-          </h2>
+          <h2 className="form-title text-3xl font-bold pb-5">Add Property</h2>
           <PropertyForm onSubmit={handlePropertySubmit} />
         </section>
       )}
 
       {step === "rent" && (
         <section className="py-4 px-main">
-          <h2 className="form-title text-3xl font-bold pb-2">
-            Address Details
-          </h2>
-          <PropertyForm onSubmit={handlePropertySubmit} />
+          <h2 className="form-title text-3xl font-bold pb-2">Add Rent</h2>
         </section>
       )}
     </main>

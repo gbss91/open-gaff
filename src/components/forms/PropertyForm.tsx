@@ -54,6 +54,7 @@ const PropertyForm = ({ onSubmit }: PropertyFormProps) => {
 
   return (
     <form onSubmit={onSubmit} className="form-container">
+      <input type="hidden" name="type" value={selectedType} />
       <div className="px-7 py-6 flex flex-col gap-4">
         <span className="text-xs font-semibold uppercase text-text-accent">
           Address
@@ -208,6 +209,7 @@ const PropertyForm = ({ onSubmit }: PropertyFormProps) => {
               name="bedrooms"
               type="number"
               className="form-input w-full px-3.5 py-2.5 text-sm"
+              required
             />
           </div>
           <div className="flex items-center gap-2">
@@ -228,7 +230,11 @@ const PropertyForm = ({ onSubmit }: PropertyFormProps) => {
         </div>
       </div>
       <div className="form-footer flex justify-end px-7 py-6 ">
-        <Button text="Next: Add Rent" testId="property-submit-btn" />
+        <Button
+          type="submit"
+          text="Next: Add Rent"
+          testId="property-submit-btn"
+        />
       </div>
     </form>
   );

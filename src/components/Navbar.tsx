@@ -16,7 +16,7 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const handleOnClick = () => {
-    router.push("/new?from=add-rent");
+    router.push("/new?step=search");
   };
 
   return (

@@ -5,8 +5,9 @@ type ButtonTypes = "primary" | "secondary";
 type ButtonSize = "sm" | "md" | "lg";
 
 type ButtonProps = {
-  onClick: () => void;
   testId: string;
+  type?: "button" | "submit" | "reset" | undefined;
+  onClick?: () => void;
   btnType?: ButtonTypes;
   size?: ButtonSize;
   text?: string;
@@ -28,8 +29,9 @@ const sizeClass: Record<ButtonSize, string> = {
 };
 
 const Button = ({
-  onClick,
   testId,
+  type = "button",
+  onClick,
   btnType = "primary",
   size = "sm",
   text,
@@ -40,7 +42,7 @@ const Button = ({
 }: ButtonProps) => {
   return (
     <button
-      type="button"
+      type={type}
       onClick={onClick}
       className={`${className} ${typeClasses[btnType]} ${sizeClass[size]} btn p-1`}
       disabled={disabled}
