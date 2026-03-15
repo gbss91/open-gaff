@@ -1,11 +1,10 @@
 "use client";
 
+import { House, Menu, Plus } from "lucide-react";
 import Link from "next/link";
-import { House } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import Button from "./ui/Button";
-import { Plus, Menu } from "lucide-react";
 
 const navItems = [
   { id: "properties", label: "Properties", href: "/properties" },
@@ -16,7 +15,7 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <nav className="bg-primary h-16 px-main" data-testid="nav-container">
+    <nav className=" bg-primary h-16 px-main" data-testid="nav-container">
       <div className="max-w-full flex items-center justify-between mx-auto h-full">
         <Link
           href="/"

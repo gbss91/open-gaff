@@ -166,7 +166,7 @@ const SearchBar = ({
               ))}
             </ul>
           ) : (
-            <Link href="/properties/new">
+            <Link href="/new">
               <div className="px-8 py-3 text-center hover:bg-secondary/10">
                 <p className="text-text-light text-sm">
                   {"Can't find your property?"}

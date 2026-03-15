@@ -2,7 +2,7 @@ import SearchBar from "@/components/search/SearchBar";
 
 export default function MainPage() {
   return (
-    <main className="flex-1 flex flex-col px-main">
+    <main className="max-w-7xl mx-auto flex-1 flex flex-col px-main">
       <section
         id="hero"
         className="flex flex-col flex-1 items-center justify-center py-4"
