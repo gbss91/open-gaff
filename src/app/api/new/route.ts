@@ -16,7 +16,7 @@ export async function POST(request: NextRequest) {
     }
 
     if (property.id) {
-      const result = await rentService.addRent({
+      await rentService.addRent({
         ...rent,
         propertyId: property.id,
       });

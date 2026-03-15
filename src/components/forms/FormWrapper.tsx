@@ -1,4 +1,4 @@
-import { Property } from "@/types";
+import { ArrangementType, Property } from "@/types";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useState } from "react";
 import SearchBar from "../search/SearchBar";
@@ -35,7 +35,7 @@ const FormWrapper = () => {
       address3: formData.get("address3")?.toString().trim() || null,
       address4: formData.get("address4")?.toString().trim() || null,
       county: formData.get("county") as string,
-      eircode: formData.get("eircode")?.toString().replace(/\s/g, "") || "",
+      eircode: formData.get("eircode")!.toString().replace(/\s/g, ""),
       bedroomNo: Number(formData.get("bedroomNo")),
       type: formData.get("type") as string,
       isRegistered: formData.has("isRegistered"),
@@ -51,8 +51,8 @@ const FormWrapper = () => {
       property: propertyData,
       rent: {
         amount: Number(formData.get("amount")),
-        arrangementType: formData.get("arrangementType") as string,
-        occupantsCount: Number(formData.get("occupantsCount")) || null,
+        arrangementType: formData.get("arrangementType") as ArrangementType,
+        occupantsCount: Number(formData.get("occupantsCount")) ?? null,
       },
     };
 

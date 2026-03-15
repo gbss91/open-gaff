@@ -16,11 +16,11 @@ export type Property = {
 };
 
 export type Rent = {
-  id: number;
+  id?: number;
   amount: number;
   arrangementType: string;
   occupantsCount: number | null;
-  addedAt: Date;
+  addedAt?: Date;
   propertyId: number;
 };
 

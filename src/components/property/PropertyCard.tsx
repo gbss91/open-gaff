@@ -15,9 +15,10 @@ const PropertyCard = ({ property }: PropertyTileProps) => {
   useEffect(() => {
     if (!property.rents?.length) return;
 
-    const mostRecentRent = property.rents.reduce((latest, current) =>
-      current.addedAt > latest.addedAt ? current : latest,
-    );
+    const mostRecentRent = property.rents.reduce((latest, current) => {
+      if (!current.addedAt || !latest.addedAt) return latest;
+      return current.addedAt > latest.addedAt ? current : latest;
+    });
     setRecentRent(mostRecentRent);
   }, [property.rents]);
 
