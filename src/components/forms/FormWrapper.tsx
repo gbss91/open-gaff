@@ -18,9 +18,9 @@ const FormWrapper = () => {
 
     setNewPropertyData({
       address1: formData.get("address1") as string,
-      address2: formData.get("address2") as string,
-      address3: formData.get("address3") as string,
-      address4: formData.get("address4") as string,
+      address2: formData.get("address2")?.toString().trim() || null,
+      address3: formData.get("address3")?.toString().trim() || null,
+      address4: formData.get("address4")?.toString().trim() || null,
       county: formData.get("county") as string,
       eircode: formData.get("eircode")?.toString().replace(/\s/g, "") || "",
       bedroomNo: Number(formData.get("bedroomNo")),
