@@ -25,7 +25,7 @@ const PropertyCard = ({ property }: PropertyTileProps) => {
     property.eircode.slice(0, 3) + " " + property.eircode.slice(3);
 
   return (
-    <Link href={`/property/${property.id}`}>
+    <Link href={`/properties/${property.id}`}>
       <div className="property-card flex flex-col p-5">
         <div className="flex flex-row justify-between items-center">
           <span className="card-type">

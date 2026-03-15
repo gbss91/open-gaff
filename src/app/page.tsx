@@ -2,7 +2,7 @@ import SearchBar from "@/components/search/SearchBar";
 
 export default function MainPage() {
   return (
-    <main className="flex-1 flex flex-col px-main">
+    <main className="max-w-7xl mx-auto flex-1 flex flex-col px-main">
       <section
         id="hero"
         className="flex flex-col flex-1 items-center justify-center py-4"
@@ -22,16 +22,7 @@ export default function MainPage() {
             and see what people actually pay — not just what landlords are
             asking.
           </p>
-          <SearchBar action="/properties" />
-          <p className="text-text-light text-sm py-2">
-            {"Can't find your property?"}
-            <a
-              href="#"
-              className="text-text-accent no-underline font-semibold ml-1"
-            >
-              Add it here →
-            </a>
-          </p>
+          <SearchBar action="/properties" includeSuggestions={true} />
         </div>
         <div
           className="stats-wrapper w-full max-w-3xl flex justify-center"

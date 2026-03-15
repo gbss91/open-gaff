@@ -2,9 +2,13 @@ import Navbar from "@/components/Navbar";
 import { fireEvent, render, screen } from "@testing-library/react";
 
 const mockPathname = jest.fn();
+const mockRouter = jest.fn();
 
 jest.mock("next/navigation", () => ({
   usePathname: () => mockPathname(),
+  useRouter: () => ({
+    push: mockRouter,
+  }),
 }));
 
 jest.mock("next/link", () => ({
@@ -26,6 +30,7 @@ jest.mock("next/link", () => ({
 describe("Integration | Navbar", () => {
   beforeEach(() => {
     mockPathname.mockReturnValue("/");
+    mockRouter.mockClear();
   });
 
   it("renders the logo and brand name", () => {
@@ -82,5 +87,12 @@ describe("Integration | Navbar", () => {
     render(<Navbar />);
     const link = screen.getByText("Properties").closest("a");
     expect(link?.className).toContain("border-transparent");
+  });
+
+  it("navigates to new property page when Add Rent button is clicked", () => {
+    render(<Navbar />);
+    const addRentBtn = screen.getByTestId("add-rent-btn");
+    fireEvent.click(addRentBtn);
+    expect(mockRouter).toHaveBeenCalledWith("/new?step=search");
   });
 });

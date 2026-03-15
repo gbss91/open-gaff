@@ -2,7 +2,7 @@
 export type ArrangementType = "whole_unit" | "private_room" | "shared_room";
 
 export type Property = {
-  id: number;
+  id?: number;
   address1: string;
   address2: string | null;
   address3: string | null;
@@ -26,4 +26,18 @@ export type Rent = {
 
 export type PropertyWithRents = Property & {
   rents: Rent[];
+};
+
+export type PropertySuggestion = {
+  id: number;
+  address1: string;
+  eircode: string;
+};
+
+// Response types
+export type PropertySearchResponse = {
+  properties: Property[];
+  total: number;
+  page: number;
+  pageSize: number;
 };

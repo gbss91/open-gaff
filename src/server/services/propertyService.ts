@@ -1,5 +1,10 @@
 import prisma from "@/server/prisma";
-import { Property } from "@/types";
+import {
+  Property,
+  PropertySearchResponse,
+  PropertySuggestion,
+  PropertyWithRents,
+} from "@/types";
 
 export const propertyService = {
   /**
@@ -15,7 +20,7 @@ export const propertyService = {
     pageSize: number = 10,
     type?: string,
     sort?: string,
-  ) {
+  ): Promise<PropertySearchResponse> {
     // Filter by type
     const where = {
       ...(type && { type }),
@@ -46,7 +51,7 @@ export const propertyService = {
    * @param id - Property ID
    * @returns Property with rents or null if not found
    */
-  async getPropertyById(id: number) {
+  async getPropertyById(id: number): Promise<PropertyWithRents | null> {
     return prisma.property.findUnique({
       where: { id },
       include: { rents: true },
@@ -66,12 +71,13 @@ export const propertyService = {
     pageSize: number = 10,
     type?: string,
     sort?: string,
-  ) {
+  ): Promise<PropertySearchResponse> {
+    const trimedQuery = query?.trim() || "";
     const where = {
       OR: [
-        { address1: { contains: query, mode: "insensitive" as const } },
-        { eircode: { contains: query, mode: "insensitive" as const } },
-        { county: { contains: query, mode: "insensitive" as const } },
+        { address1: { contains: trimedQuery, mode: "insensitive" as const } },
+        { eircode: { contains: trimedQuery, mode: "insensitive" as const } },
+        { county: { contains: trimedQuery, mode: "insensitive" as const } },
       ],
       ...(type && { type }),
     };
@@ -98,11 +104,45 @@ export const propertyService = {
   },
 
   /**
+   * Get list of property suggestions
+   * @param query - Search string
+   * @param limit - Number of results that will return - default: 5
+   * @returns Object containing suggestions for matching properties
+   */
+  async getSuggestions(
+    query: string,
+    limit: number = 5,
+  ): Promise<PropertySuggestion[]> {
+    const trimedQuery = query?.trim() || "";
+    const properties = await prisma.property.findMany({
+      where: {
+        OR: [
+          { address1: { contains: trimedQuery, mode: "insensitive" as const } },
+          { address2: { contains: trimedQuery, mode: "insensitive" as const } },
+          { eircode: { contains: trimedQuery, mode: "insensitive" as const } },
+        ],
+      },
+      select: {
+        id: true,
+        address1: true,
+        eircode: true,
+      },
+      take: limit,
+      orderBy: [
+        { eircode: "asc" }, // Exact eircode matches first
+        { address1: "asc" },
+      ],
+    });
+
+    return properties;
+  },
+
+  /**
    * Creates a new unregistered property
    * @param data - Property data to insert
    * @returns Newly created property
    */
-  async addProperty(data: Property) {
+  async addProperty(data: Property): Promise<Property> {
     return prisma.property.create({
       data: {
         address1: data.address1,

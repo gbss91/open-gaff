@@ -1,9 +1,3 @@
-import DynamicMap from "@/components/map/DynamicMap";
-
 export default function PropertyPage() {
-  return (
-    <>
-      <DynamicMap />
-    </>
-  );
+  return <h1>Property Page</h1>;
 }
