@@ -2,7 +2,7 @@
 
 import { House, Menu, Plus } from "lucide-react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
 import Button from "./ui/Button";
 
@@ -11,8 +11,13 @@ const navItems = [
 ];
 
 const Navbar = () => {
+  const router = useRouter();
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
+
+  const handleOnClick = () => {
+    router.push("/new?from=add-rent");
+  };
 
   return (
     <nav className=" bg-primary h-16 px-main" data-testid="nav-container">
@@ -51,6 +56,7 @@ const Navbar = () => {
             })}
             <li>
               <Button
+                onClick={handleOnClick}
                 btnType="secondary"
                 size="sm"
                 icon={<Plus />}
