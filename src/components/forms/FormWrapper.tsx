@@ -37,8 +37,8 @@ const FormWrapper = () => {
     const completeData = {
       property: newPropertyData,
       rent: {
-        monthlyRent: Number(formData.get("monthlyRent")),
-        depositAmount: Number(formData.get("depositAmount")),
+        amount: Number(formData.get("amount")),
+        arrangementType: formData.get("arrangementType") as string,
         occupantsCount: Number(formData.get("occupantsCount")),
       },
     };

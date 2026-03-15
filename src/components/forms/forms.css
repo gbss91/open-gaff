@@ -40,11 +40,30 @@
     user-select: none;
   }
 
-  .type-option:hover {
+  .rent-option {
+    border: 1.5px solid var(--color-border);
+    border-radius: 8px;
+    padding: 0.8rem 0.5rem;
+    text-align: center;
+    transition:
+      border-color 0.15s,
+      background 0.15s;
+
+    input[type="radio"]:checked {
+      accent-color: var(--color-primary);
+      width: 16px;
+      height: 16px;
+      cursor: pointer;
+    }
+  }
+
+  .type-option:hover,
+  .rent-option:hover {
     border-color: var(--color-primary);
   }
 
-  .type-option.selected {
+  .type-option.selected,
+  .rent-option:has(input[type="radio"]:checked) {
     border-color: var(--color-primary);
     background-color: color-mix(
       in oklab,
