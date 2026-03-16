@@ -9,15 +9,17 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import "./searchBar.css";
 
 type SearchBarProps = {
-  action: string;
   includeSuggestions: boolean;
+  action?: string;
   className?: string;
+  onPropertySelect?: (propertyId: number) => void;
 };
 
 const SearchBar = ({
   action,
   includeSuggestions,
   className,
+  onPropertySelect,
 }: SearchBarProps) => {
   const router = useRouter();
   const [query, setQuery] = useState("");
@@ -68,6 +70,14 @@ const SearchBar = ({
     };
   }, [query, includeSuggestions, getSuggestions]);
 
+  const handleSubmit = (e: React.SubmitEvent<HTMLFormElement>) => {
+    // Prevent form submission when only need to show suggestions
+    if (!action) {
+      e.preventDefault();
+      return;
+    }
+  };
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setQuery(e.target.value);
     setSelectedIndex(-1);
@@ -75,7 +85,14 @@ const SearchBar = ({
 
   const handleSuggestionItemClick = (property: PropertySuggestion) => {
     setShowSuggestions(false);
-    router.push(`/property/${property.id}`);
+
+    // Custom actions for property select or default to properties
+    if (onPropertySelect) {
+      onPropertySelect(property.id);
+      return;
+    } else {
+      router.push(`/properties/${property.id}`);
+    }
   };
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
@@ -108,7 +125,7 @@ const SearchBar = ({
 
   return (
     <div className="relative">
-      <Form action={action} className={className}>
+      <Form action={action || ""} onSubmit={handleSubmit} className={className}>
         <div className="relative">
           <Search
             name="search"
@@ -128,13 +145,15 @@ const SearchBar = ({
             placeholder="Search by address or Eircode..."
             data-testid="search-bar"
           />
-          <button
-            type="submit"
-            className={`search-btn bg-primary absolute right-2.5 top-1/2 -translate-y-1/2 text-white text-sm px-4 py-2`}
-            data-testid="search-bar-btn"
-          >
-            Search
-          </button>
+          {action && (
+            <button
+              type="submit"
+              className={`search-btn bg-primary absolute right-2.5 top-1/2 -translate-y-1/2 text-white text-sm px-4 py-2`}
+              data-testid="search-bar-btn"
+            >
+              Search
+            </button>
+          )}
         </div>
       </Form>
 

@@ -13,7 +13,6 @@ export const rentService = {
         amount: data.amount,
         arrangementType: data.arrangementType,
         occupantsCount: data.occupantsCount,
-        addedAt: data.addedAt,
         propertyId: data.propertyId,
       },
     });
