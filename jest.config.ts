@@ -8,11 +8,12 @@ const config: Config = {
       DATABASE_URL: process.env.DATABASE_URL,
     },
   },
-  globals: {
-    "ts-jest": {
-      tsconfig: "./tsconfig.jest.json",
-    },
+  transform: {
+    "^.+\\.tsx?$": ["ts-jest", { tsconfig: "tsconfig.jest.json" }],
   },
+  transformIgnorePatterns: [
+    "node_modules/(?!(next|react|react-dom|@testing-library)/)",
+  ],
   roots: ["<rootDir>/src"],
   moduleFileExtensions: ["ts", "tsx", "js", "jsx", "json"],
   moduleNameMapper: {
