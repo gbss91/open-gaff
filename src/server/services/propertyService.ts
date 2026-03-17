@@ -4,7 +4,12 @@ import {
   PropertySearchResponse,
   PropertySuggestion,
   PropertyWithRents,
+  Rent,
 } from "@/types";
+
+type AddPropertyWithRent = Omit<Property, "rents"> & {
+  rents: Array<Omit<Rent, "propertyId">>;
+};
 
 export const propertyService = {
   /**
@@ -31,7 +36,7 @@ export const propertyService = {
       most_entries: { _count: "desc" },
       least_entries: { _count: "asc" },
     };
-    const orderBy = { rents: sortOptions[sort ?? "most_recent"] };
+    const orderBy = { rents: sortOptions[sort ?? "most_entries"] };
 
     const [properties, total] = await Promise.all([
       prisma.property.findMany({
@@ -87,7 +92,7 @@ export const propertyService = {
       most_entries: { _count: "desc" },
       least_entries: { _count: "asc" },
     };
-    const orderBy = { rents: sortOptions[sort ?? "most_recent"] };
+    const orderBy = { rents: sortOptions[sort ?? "most_entries"] };
 
     const [properties, total] = await Promise.all([
       prisma.property.findMany({
@@ -165,11 +170,11 @@ export const propertyService = {
    * @param data - Property data to insert, including rent
    * @returns Newly created property with rent
    */
-  async addPropertyWithRent(data: Property): Promise<Property> {
+  async addPropertyWithRent(data: AddPropertyWithRent): Promise<Property> {
     const firstRent = data.rents?.[0];
 
     if (!firstRent) {
-      throw new Error("addPropertyWithRent requires at least one rent record");
+      throw new Error("Requires at least one rent record");
     }
 
     return prisma.property.create({

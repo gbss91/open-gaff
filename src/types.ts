@@ -34,10 +34,14 @@ export type PropertySuggestion = {
   eircode: string;
 };
 
-// Response types
+// Request and Response types
 export type PropertySearchResponse = {
   properties: Property[];
   total: number;
   page: number;
   pageSize: number;
+};
+
+export type NewPropertyWithRent = Property & {
+  rents: Omit<Rent, "propertyId">;
 };
